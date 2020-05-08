@@ -2,33 +2,33 @@ package moudel;
 
 import java.util.Date;
 
-public class patient extends Utilisateur {
+public class Patient extends Utilisateur {
     private String etat;
     private long id_chembre;
 
-    public patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat) {
+    public Patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
         this.etat = etat;
     }
 
-    public patient(long id, String nom, String prenom, String etat) {
+    public Patient(long id, String nom, String prenom, String etat) {
         super(id, nom, prenom);
         this.etat = etat;
     }
 
-    public patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat, long id_chembre) {
+    public Patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat, long id_chembre) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
         this.etat = etat;
         this.id_chembre = id_chembre;
     }
 
-    public patient(long id, String nom, String prenom, String etat, long id_chembre) {
+    public Patient(long id, String nom, String prenom, String etat, long id_chembre) {
         super(id, nom, prenom);
         this.etat = etat;
         this.id_chembre = id_chembre;
     }
 
-    public patient() {
+    public Patient() {
     }
 
     public String getEtat() {

@@ -26,5 +26,6 @@
     <orderEntry type="library" name="Spring Web Services-2.0.2" level="project" />
     <orderEntry type="library" name="Spring MVC-5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="jstl-impl" level="project" />
+    <orderEntry type="library" name="J2EE 1.4-J2EE 1.4" level="project" />
   </component>
 </module>

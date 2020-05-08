@@ -1,12 +1,5 @@
 package moudel;
 
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-
-import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -128,7 +121,7 @@ public class Utilisateur {
                             break;
                             case "infermiere":utilisateur=new Infermiere();
                             break;
-                            case "patient":utilisateur=new patient();
+                            case "Patient":utilisateur=new Patient();
                             break;
                         }
 
