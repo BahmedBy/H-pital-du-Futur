@@ -4,10 +4,10 @@
     <meta name="viesport" content="width=device-widh,initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css ">
     <link rel="stylesheet" type="text/css" href="css/verticalNavBar.css">
-     <link rel="stylesheet" href="icon/bootstrapIcons/css/gradient.css">
+     <link rel="stylesheet" href="bootstrap/css/gradient.css">
       <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
     <meta charset="utf-8">
-   	   <link rel="shortcut icon" href="../../icon/Logo.png" type="image/png">
+   	   <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
 	<title>
 		Espace Admis
 	</title>
@@ -16,7 +16,7 @@
 	
    <nav class="navbar cloudy-knoxville-gradient shadow-sm navbar-light bg-light">
   <a class="navbar-brand card-link nav-link font-weight-bolder" href="#">
-    <img src="../../icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
+    <img src="icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
     Abismail Hopitel
   </a>
   
@@ -24,7 +24,7 @@
 
 <div class="vertical-nav  bg-light" id="sidebar">
   <div class="py-4 px-3 mb-4 cloudy-knoxville-gradient">
-    <div class="text-center align-items-center"><img src="..\..\icon\default_person.png" alt="..." width="150" class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
+    <div class="text-center align-items-center"><img src="icon\default_person.png" alt="..." width="150" class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
       <div >
         <h4 class="text-center">Dr.Benyammi</h4>
     </div>
@@ -73,18 +73,12 @@
     		<td>numéro des patients hospotalisé</td>
     		<td>22</td>
     	</tr>
-    	<tr>
-    		<td>numéro des chembre</td>
-    		<td>30</td>
-    	</tr>
+
     	<tr>
     		<td>numéro des chemre libre </td>
     		<td>8</td>
     	</tr>
-    	<tr>
-    		<td>render-vous aujourd'hui</td>
-    		<td>35</td>
-    	</tr>
+
     </table>
     <div class="separator"></div>
     <p class="h4">Statistique sur le site</p>
