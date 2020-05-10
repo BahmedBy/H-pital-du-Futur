@@ -10,10 +10,12 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class AdminControler {
-    @RequestMapping("/Admin/HomePage")
+    @RequestMapping("/AdminHomePage")
     public String homePage(HttpSession session, Model model){
+        System.out.println("Home in ");
         Admin admin= (Admin) session.getAttribute("user");
         model.addAttribute("stat", admin.statistique());
+        System.out.println("Home out ");
         return "AdminPages/AdminHomePage";
 
     }

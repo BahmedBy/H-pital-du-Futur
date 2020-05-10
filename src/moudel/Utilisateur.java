@@ -105,31 +105,31 @@ public class Utilisateur {
 
         String SQL = String.format("select * from utilisateur where email='%s' and password='%s'", email, password);
 
-        List<Utilisateur> Utilisateurs = (new ConnectionBD()).getJdbcTemplate().query(SQL,
+        return (new ConnectionBD()).getJdbcTemplate().query(SQL,
                 rs -> {
 
                     List<Utilisateur> list = new ArrayList<Utilisateur>();
                     Utilisateur utilisateur = null;
                     while (rs.next()) {
-                        String type =rs.getString("type");
-                        switch (type){
-                            case "admin": utilisateur=new Admin();
+                        String type1 =rs.getString("type");
+                        switch (type1){
+                            case "Admin": utilisateur=new Admin();
                             break;
-                            case "chefService":utilisateur=new ChefService();
+                            case "ChefService":utilisateur=new ChefService();
                             break;
-                            case "medcin":utilisateur=new Medcin();
+                            case "Medcin":utilisateur=new Medcin();
                             break;
-                            case "infermiere":utilisateur=new Infermiere();
+                            case "Infermiere":utilisateur=new Infermiere();
                             break;
                             case "Patient":utilisateur=new Patient();
                             break;
                         }
 
-                        utilisateur.setId(rs.getInt("id_utilisateur "));
+                        utilisateur.setId(rs.getInt("id_utilisateur"));
                         utilisateur.setNom(rs.getString("nom"));
                         utilisateur.setPrenom(rs.getString("prenom"));
                         utilisateur.setEmail(rs.getString("email"));
-                        utilisateur.setType(type);
+                        utilisateur.setType(type1);
                         utilisateur.setDateNaissance(rs.getDate("dateNaissance"));
                         utilisateur.setNumeroTel(rs.getString("numeroTel"));
 
@@ -137,7 +137,6 @@ public class Utilisateur {
                     }
                     return list;
                 });
-        return Utilisateurs;
     }
 
 }

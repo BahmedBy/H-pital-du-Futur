@@ -10186,7 +10186,7 @@ hospital-user:
       - covid-19
       - doctor
       - network
-      - patient
+      - Patient
       - primary care
   styles:
     - solid
@@ -14727,7 +14727,7 @@ procedures:
       - health
       - hospital
       - life
-      - patient
+      - Patient
       - vital
   styles:
     - solid
@@ -20030,7 +20030,7 @@ user-injured:
       - cast
       - injury
       - ouch
-      - patient
+      - Patient
       - person
       - sling
   styles:
