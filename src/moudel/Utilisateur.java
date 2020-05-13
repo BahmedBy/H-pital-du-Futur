@@ -1,5 +1,8 @@
 package moudel;
 
+import BaseDeDonneConfig.ConnectionBD;
+import BaseDeDonneConfig.DataExractor;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +16,6 @@ public class Utilisateur {
     private String numeroTel;
     private Date dateNaissance;
     private String type;
-
 
 
     public Utilisateur(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type) {
@@ -102,37 +104,12 @@ public class Utilisateur {
     }
 
     public List<Utilisateur> login(String email, String password) {
-
         String SQL = String.format("select * from utilisateur where email='%s' and password='%s'", email, password);
-
         return (new ConnectionBD()).getJdbcTemplate().query(SQL,
                 rs -> {
-
                     List<Utilisateur> list = new ArrayList<Utilisateur>();
-                    Utilisateur utilisateur = null;
                     while (rs.next()) {
-                        String type1 =rs.getString("type");
-                        switch (type1){
-                            case "Admin": utilisateur=new Admin();
-                            break;
-                            case "ChefService":utilisateur=new ChefService();
-                            break;
-                            case "Medcin":utilisateur=new Medcin();
-                            break;
-                            case "Infermiere":utilisateur=new Infermiere();
-                            break;
-                            case "Patient":utilisateur=new Patient();
-                            break;
-                        }
-
-                        utilisateur.setId(rs.getInt("id_utilisateur"));
-                        utilisateur.setNom(rs.getString("nom"));
-                        utilisateur.setPrenom(rs.getString("prenom"));
-                        utilisateur.setEmail(rs.getString("email"));
-                        utilisateur.setType(type1);
-                        utilisateur.setDateNaissance(rs.getDate("dateNaissance"));
-                        utilisateur.setNumeroTel(rs.getString("numeroTel"));
-
+                        Utilisateur utilisateur = DataExractor.utilisateurExrator(rs);
                         list.add(utilisateur);
                     }
                     return list;

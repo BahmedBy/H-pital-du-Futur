@@ -23,9 +23,7 @@ public class loginControl {
         if (comptes.size() == 0)
             return "login";
         else if (comptes.size() == 1) {
-            System.out.println("session");
             session.setAttribute("user", comptes.get(0));
-
             return "redirect:/" + comptes.get(0).getType() + "HomePage";
         } else return "";
 

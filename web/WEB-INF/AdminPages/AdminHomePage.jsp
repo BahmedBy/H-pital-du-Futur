@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="bootstrap/css/gradient.css">
     <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
+    <meta charset="UTF-8">
     <title>
         Espace Admis
     </title>
@@ -66,25 +67,21 @@
         </tr>
         <tr>
             <td>numéro des médcine</td>
-            <td>12</td>
+            <td>${stat.get("NMedcin")}</td>
         </tr>
         <tr>
             <td>numéro des infirmere</td>
-            <td>20</td>
+            <td>${stat.get("NInfermiere")}</td>
         </tr>
         <tr>
             <td>numéro des patients hospotalisé</td>
-            <td>22</td>
+            <td>${stat.get("NPartient")}</td>
         </tr>
 
-        <tr>
-            <td>numéro des chemre libre</td>
-            <td>8</td>
-        </tr>
 
     </table>
     <div class="separator"></div>
-    <p class="h4">Statistique sur le site</p>
+    <%--<p class="h4">Statistique sur le site</p>--%>
 </div>
 
 </body>

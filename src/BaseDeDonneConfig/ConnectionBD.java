@@ -1,4 +1,4 @@
-package moudel;
+package BaseDeDonneConfig;
 
 
 import org.springframework.jdbc.core.JdbcTemplate;

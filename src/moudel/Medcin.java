@@ -5,6 +5,15 @@ import java.util.Date;
 public class Medcin extends Utilisateur {
     private long id_service;
     private String speiciality;
+    Service service;
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
 
     public Medcin(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, long id_service, String speiciality) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
