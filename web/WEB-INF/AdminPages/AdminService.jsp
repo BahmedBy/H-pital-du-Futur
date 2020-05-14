@@ -6,8 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/verticalNavBar.css">
     <link rel="stylesheet" href="bootstrap/css/gradient.css">
     <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
+
+    <meta charset="utf-8">
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <meta charset="UTF-8">
+    <script type="text/javascript" src="scripteJS/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="scripteJS/showList.js"></script>
     <title>
         Espace Admis
     </title>
@@ -24,11 +27,10 @@
 
 <div class="vertical-nav  bg-light" id="sidebar">
     <div class="py-4 px-3 mb-4 cloudy-knoxville-gradient">
-        <div class="text-center align-items-center"><img src="icon\default_person.png" alt="..." width="150"
+        <div class="text-center align-items-center"><img src="..\..\icon\default_person.png" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
-                <h4 class="text-center"><c:out value="${sessionScope.get(\"user\").getNom()}"></c:out> <c:out
-                        value="${sessionScope.get(\"user\").getPrenom()}"></c:out></h4>
+                <h4 class="text-center">Dr.Benyammi</h4>
             </div>
         </div>
     </div>
@@ -38,11 +40,11 @@
                 <a href="#" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="AdminServicePage" class="text-dark font-italic card-link"><span
+                <a href="AdminHomePage" class="text-dark font-italic card-link"><span
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="AdminService" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
@@ -54,35 +56,45 @@
             </li>
         </ul>
 
-
     </div>
 </div>
 <div class="page-content" id="content">
-    <p class="h3 ">Home</p><br/>
-    <p class="h4">Statistique sur l'hopitel</p>
-    <table class="table table-striped table-hover separator rounded my-5 shadow-sm tablewidth" id="table">
-        <tr>
-            <td>numéro des services</td>
-            <td>${stat.get("NService")}</td>
-        </tr>
-        <tr>
-            <td>numéro des médcine</td>
-            <td>${stat.get("NMedcin")}</td>
-        </tr>
-        <tr>
-            <td>numéro des infirmere</td>
-            <td>${stat.get("NInfermiere")}</td>
-        </tr>
-        <tr>
-            <td>numéro des patients hospotalisé</td>
-            <td>${stat.get("NPartient")}</td>
-        </tr>
+    <p class="h3 ">Services</p><br/>
+    <p class="h2">List service </p>
+    <div id="contenu">
+        <c:choose>
+            <c:when test="${services.size()==0}">
+                <p class="h4">no service dans l'hoptel </p>
+            </c:when>
+            <c:otherwise>
+                <TABLE class="table table-hover table-striped tablewidth separator" id="listService">
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Détail</th>
+                    </tr>
+                    <c:forEach items="${services}" var="service" varStatus="status">
+
+                        <tr>
+                            <th>${status}</th>
+                            <th>${service.id}</th>
+                            <th>${service.nom}</th>
+                            <th><samp class="fas fa-chevron-right"
+                                      style="color:Dodgerblue; font-size: 1.5rem; margin-left: 1rem"></samp></th>
+                        </tr>
+                    </c:forEach>
+                </TABLE>
+            </c:otherwise>
+        </c:choose>
 
 
-    </table>
-    <div class="separator"></div>
-    <%--<p class="h4">Statistique sur le site</p>--%>
+    </div>
+    <script>
+        $(document).ready(function () {
+        });
+
+    </script>
 </div>
-
 </body>
 </html>

@@ -34,7 +34,7 @@ public class DataExractor {
     return  utilisateur;}
     public static Service serviceExrator(ResultSet rs) throws SQLException{
         Service service=new Service();
-        service.setId(rs.getInt("id_service "));
+        service.setId(rs.getInt("id_service"));
         service.setNom(rs.getString("nom"));
         return service;
     }

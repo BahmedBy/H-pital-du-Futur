@@ -27,8 +27,8 @@ public class AdminControler {
             return "login";
         Admin admin= (Admin) session.getAttribute("user");
         model.addAttribute("services", admin.getListService());
-
-        return "";
+        model.addAttribute("k", "k");
+        return "AdminPages/AdminService";
     }
     public boolean testSession(HttpSession session){
         Utilisateur utilisateur= (Utilisateur) session.getAttribute("user");

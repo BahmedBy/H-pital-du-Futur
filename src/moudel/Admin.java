@@ -27,9 +27,7 @@ public class Admin extends Utilisateur {
 
                     ArrayList<Service> list = new ArrayList<>();
                     while (rs.next()) {
-                        Service service = new Service();
-                        service.setId(rs.getInt("id_service "));
-                        service.setNom(rs.getString("nom"));
+                        Service service =DataExractor.serviceExrator(rs);
                         list.add(service);
                     }
                     return list;
