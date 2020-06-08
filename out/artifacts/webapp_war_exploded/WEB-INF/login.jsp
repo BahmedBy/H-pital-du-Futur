@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viesport" content="width=device-widh,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css ">
-    <link rel="stylesheet" href="../bootstrap/css/gradient.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../icon/bootstrapIcons/css/all.css">
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="../icon/Logo.png" type="image/png">
+    <link rel="stylesheet" href="css/login.css">
 
     <title>
         Log in
@@ -19,7 +13,7 @@
         <div class="user_card bg-light">
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container bg-white ">
-                    <img src="../icon/Logo.png" class="brand_logo bg-light " alt="Logo">
+                    <img src="icon/Logo.png" class="brand_logo bg-light " alt="Logo">
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container">

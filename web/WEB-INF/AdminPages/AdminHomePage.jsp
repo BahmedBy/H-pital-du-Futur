@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viesport" content="width=device-widh,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css ">
-    <link rel="stylesheet" type="text/css" href="css/verticalNavBar.css">
-    <link rel="stylesheet" href="bootstrap/css/gradient.css">
-    <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
-    <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <meta charset="UTF-8">
+
     <title>
         Espace Admis
     </title>
 </head>
 <body>
 
+
 <nav class="navbar cloudy-knoxville-gradient shadow-sm navbar-light bg-light">
-    <a class="navbar-brand card-link nav-link font-weight-bolder" href="#">
-        <img src="icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
+    <a class="navbar-brand card-link nav-link font-weight-bolder" href="/">
+        <img src="../../icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
         Abismail Hopitel
     </a>
 
@@ -24,11 +19,10 @@
 
 <div class="vertical-nav  bg-light" id="sidebar">
     <div class="py-4 px-3 mb-4 cloudy-knoxville-gradient">
-        <div class="text-center align-items-center"><img src="icon\default_person.png" alt="..." width="150"
+        <div class="text-center align-items-center"><img src="..\..\icon\default_person.png" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
-                <h4 class="text-center"><c:out value="${sessionScope.get(\"user\").getNom()}"></c:out> <c:out
-                        value="${sessionScope.get(\"user\").getPrenom()}"></c:out></h4>
+                <h4 class="text-center">Dr.Benyammi</h4>
             </div>
         </div>
     </div>
@@ -38,11 +32,11 @@
                 <a href="#" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="AdminServicePage" class="text-dark font-italic card-link"><span
+                <a href="/AdminServicePage" class="text-dark font-italic card-link"><span
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="/AdminMembre" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
@@ -53,7 +47,6 @@
                 ></span>logout</a>
             </li>
         </ul>
-
 
     </div>
 </div>

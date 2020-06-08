@@ -5,6 +5,8 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/AdminPages" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/index.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/login.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/taglibs.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
     </option>
   </component>

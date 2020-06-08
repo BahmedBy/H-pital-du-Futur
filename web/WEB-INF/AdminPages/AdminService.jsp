@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viesport" content="width=device-widh,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css ">
-    <link rel="stylesheet" type="text/css" href="css/verticalNavBar.css">
-    <link rel="stylesheet" href="bootstrap/css/gradient.css">
-    <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
 
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <script type="text/javascript" src="scripteJS/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="scripteJS/showList.js"></script>
+    <script type="text/javascript" src="scripteJS/showForm.js"></script>
+    <script type="text/javascript" src="scripteJS/ajax.js"></script>
     <title>
         Espace Admis
     </title>
@@ -18,7 +11,7 @@
 <body>
 
 <nav class="navbar cloudy-knoxville-gradient shadow-sm navbar-light bg-light">
-    <a class="navbar-brand card-link nav-link font-weight-bolder" href="#">
+    <a class="navbar-brand card-link nav-link font-weight-bolder" href="/">
         <img src="icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
         Abismail Hopitel
     </a>
@@ -27,20 +20,20 @@
 
 <div class="vertical-nav  bg-light" id="sidebar">
     <div class="py-4 px-3 mb-4 cloudy-knoxville-gradient">
-        <div class="text-center align-items-center"><img src="..\..\icon\default_person.png" alt="..." width="150"
+        <div class="text-center align-items-center"><img id="photoProfile" src="${sessionScope.user.getPhoto()}" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
-                <h4 class="text-center">Dr.Benyammi</h4>
+                <h4 class="text-center"><c:out value="${sessionScope.user.getPhoto()}"></c:out> </h4>
             </div>
         </div>
     </div>
     <div>
         <ul class="nav flex-column  mb-0 list-group " id="list">
-            <li class="active font-italic list-group-item list-group-item-action">
-                <a href="#" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
+            <li class=" font-italic list-group-item list-group-item-action">
+                <a href="AdminHomePage" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
-            <li class="nav-item list-group-item list-group-item-action">
-                <a href="AdminHomePage" class="text-dark font-italic card-link"><span
+            <li class="active nav-item list-group-item list-group-item-action">
+                <a href="#" class="text-dark font-italic card-link"><span
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
@@ -60,7 +53,9 @@
 </div>
 <div class="page-content" id="content">
     <p class="h3 ">Services</p><br/>
-    <p class="h2">List service </p>
+    <div class="d-flex">
+        <p class="h2 p-2">List service </p>
+        <button class="btn btn-success ml-auto align-self-center" id="ajoute" style="margin-right: 2rem;"><span class="fas fa-plus mr-3"></span>Ajoute service</button></div>
     <div id="contenu">
         <c:choose>
             <c:when test="${services.size()==0}">
@@ -76,8 +71,8 @@
                     </tr>
                     <c:forEach items="${services}" var="service" varStatus="status">
 
-                        <tr>
-                            <th>${status}</th>
+                        <tr onclick="">
+                            <th>${status.count}</th>
                             <th>${service.id}</th>
                             <th>${service.nom}</th>
                             <th><samp class="fas fa-chevron-right"
@@ -91,7 +86,18 @@
 
     </div>
     <script>
+
         $(document).ready(function () {
+            console.log("g")
+
+            console.log([["${sessionScope.user.getNom()}"]]);
+            $("#ajoute").click(function(){
+                $("#content").empty();
+                ajouteServiceForm("#content");
+                $("#photoProfile").attr('src','/uploadFile/Femme.png');
+            });
+
+
         });
 
     </script>

@@ -16,7 +16,8 @@ public class Utilisateur {
     private String numeroTel;
     private Date dateNaissance;
     private String type;
-
+    private String gender;
+    private String photo;
 
     public Utilisateur(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type) {
         this.id = id;
@@ -27,6 +28,7 @@ public class Utilisateur {
         this.numeroTel = numeroTel;
         this.dateNaissance = dateNaissance;
         this.type = type;
+
     }
 
     public Utilisateur(long id, String nom, String prenom) {
@@ -102,14 +104,28 @@ public class Utilisateur {
     public void setType(String type) {
         this.type = type;
     }
+    public String getGender() {
+        return gender;
+    }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
     public List<Utilisateur> login(String email, String password) {
         String SQL = String.format("select * from utilisateur where email='%s' and password='%s'", email, password);
         return (new ConnectionBD()).getJdbcTemplate().query(SQL,
                 rs -> {
                     List<Utilisateur> list = new ArrayList<Utilisateur>();
                     while (rs.next()) {
-                        Utilisateur utilisateur = DataExractor.utilisateurExrator(rs);
+                        Utilisateur utilisateur = (new DataExractor()).utilisateurExrator(rs);
                         list.add(utilisateur);
                     }
                     return list;

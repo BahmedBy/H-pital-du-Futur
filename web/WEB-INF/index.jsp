@@ -2,12 +2,6 @@
 <html>
 <head>
 
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css ">
-    <link rel="stylesheet" type="text/css" href="css/verticalNavBar.css">
-    <link rel="stylesheet" href="icon/bootstrapIcons/css/all.css">
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <link rel="stylesheet" href="bootstrap/css/gradient.css">
     <title>Accueil</title>
 </head>
 <body class=" heavy-rain-gradient">
