@@ -43,4 +43,10 @@ public class loginControl {
 
         return "index";
 
-    }}
+    }
+  @RequestMapping("/logout")
+    public String logOut(HttpSession session){
+        session.invalidate();
+        return "index";
+  }
+}

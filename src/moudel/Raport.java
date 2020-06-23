@@ -9,7 +9,7 @@ public class Raport {
     private Date date;
     private Time time;
     private Etat etat;
-    private Medcin medcin;
+    private Medecin medecin;
 
     public Raport() {
     }
@@ -54,11 +54,11 @@ public class Raport {
         this.etat = etat;
     }
 
-    public Medcin getMedcin() {
-        return medcin;
+    public Medecin getMedecin() {
+        return medecin;
     }
 
-    public void setMedcin(Medcin medcin) {
-        this.medcin = medcin;
+    public void setMedecin(Medecin medecin) {
+        this.medecin = medecin;
     }
 }

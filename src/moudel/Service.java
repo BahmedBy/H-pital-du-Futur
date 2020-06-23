@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Service {
     private long id;
     private String nom;
-    private ArrayList<Chember> chembers;
+    private ArrayList<Chembre> chembres;
 
     public Service() {
-        this.chembers= new ArrayList<>();
+        this.chembres = new ArrayList<>();
     }
 
     public long getId() {
@@ -27,11 +27,11 @@ public class Service {
         this.nom = nom;
     }
 
-    public ArrayList<Chember> getChembers() {
-        return chembers;
+    public ArrayList<Chembre> getChembres() {
+        return chembres;
     }
 
-    public void setChembers(ArrayList<Chember> chembers) {
-        this.chembers = chembers;
+    public void setChembres(ArrayList<Chembre> chembres) {
+        this.chembres = chembres;
     }
 }

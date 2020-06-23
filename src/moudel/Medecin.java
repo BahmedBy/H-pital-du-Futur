@@ -2,7 +2,7 @@ package moudel;
 
 import java.util.Date;
 
-public class Medcin extends Utilisateur {
+public class Medecin extends Utilisateur {
 
     private String speiciality;
     Service service;
@@ -15,16 +15,16 @@ public class Medcin extends Utilisateur {
         this.service = service;
     }
 
-    public Medcin(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String speiciality) {
+    public Medecin(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String speiciality) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
         this.speiciality = speiciality;
     }
 
-    public Medcin(long id, String nom, String prenom, String speiciality) {
+    public Medecin(long id, String nom, String prenom, String speiciality) {
         super(id, nom, prenom);
     }
 
-    public Medcin() {
+    public Medecin() {
     }
 
 

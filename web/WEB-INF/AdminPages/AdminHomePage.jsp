@@ -19,7 +19,7 @@
 
 <div class="vertical-nav  bg-light" id="sidebar">
     <div class="py-4 px-3 mb-4 cloudy-knoxville-gradient">
-        <div class="text-center align-items-center"><img src="..\..\icon\default_person.png" alt="..." width="150"
+        <div class="text-center align-items-center"><img src="${sessionScope.user.getPhoto()}" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
                 <h4 class="text-center">Dr.Benyammi</h4>
@@ -43,7 +43,7 @@
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
+                <a href="/logout" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
                 ></span>logout</a>
             </li>
         </ul>
@@ -60,7 +60,7 @@
         </tr>
         <tr>
             <td>numéro des médcine</td>
-            <td>${stat.get("NMedcin")}</td>
+            <td>${stat.get("NMedecin")}</td>
         </tr>
         <tr>
             <td>numéro des infirmere</td>

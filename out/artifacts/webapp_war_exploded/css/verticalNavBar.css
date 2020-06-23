@@ -3,7 +3,7 @@
   width: 17rem;
   height: 100vh;
   position: fixed;
-  top: 56px;
+  top: 57px;
   left: 0;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.4s;
@@ -151,4 +151,40 @@ margin-top: 3rem;
 }
 .rendez{
   padding: 1.5rem  !important;
+}
+.divanimation{
+  height: 10rem;
+}
+.circle{
+  width:25px;
+  height:25px;
+
+  border-radius:50%;
+  overflow:hidden;
+  margin:auto;
+  animation: circle 2s linear infinite;
+}
+.mainAnimation{
+  padding: 2rem;
+}
+@keyframes circle{
+  0%{
+    background:cyan;
+    transform:rotate(0deg)
+    translate(-30px)
+    rotate(0deg);
+
+  }
+  25%{
+    background :#9932cc;
+  }
+  75%{
+    background:#add8e6;
+  }
+  100%{
+    background: white;
+    transform:rotate(360deg)
+    translate(-30px)
+    rotate(-360deg);
+  }
 }

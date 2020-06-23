@@ -4,7 +4,16 @@ import java.util.Date;
 
 public class Patient extends Utilisateur {
     private String etat;
-    private long id_chembre;
+    private Chembre chembre;
+    private DossierMedical dossierMedica;
+
+    public DossierMedical getDossierMedica() {
+        return dossierMedica;
+    }
+
+    public void setDossierMedica(DossierMedical dossierMedica) {
+        this.dossierMedica = dossierMedica;
+    }
 
     public Patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
@@ -16,16 +25,16 @@ public class Patient extends Utilisateur {
         this.etat = etat;
     }
 
-    public Patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat, long id_chembre) {
+    public Patient(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String etat, Chembre chembre) {
         super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
         this.etat = etat;
-        this.id_chembre = id_chembre;
+        this.chembre = chembre;
     }
 
-    public Patient(long id, String nom, String prenom, String etat, long id_chembre) {
+    public Patient(long id, String nom, String prenom, String etat, Chembre chembre) {
         super(id, nom, prenom);
         this.etat = etat;
-        this.id_chembre = id_chembre;
+        this.chembre = chembre;
     }
 
     public Patient() {
@@ -39,11 +48,11 @@ public class Patient extends Utilisateur {
         this.etat = etat;
     }
 
-    public long getId_chembre() {
-        return id_chembre;
+    public Chembre getChembre() {
+        return chembre;
     }
 
-    public void setId_chembre(long id_chembre) {
-        this.id_chembre = id_chembre;
+    public void setChembre(Chembre chembre) {
+        this.chembre = chembre;
     }
 }

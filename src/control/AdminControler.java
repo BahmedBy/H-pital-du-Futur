@@ -1,9 +1,9 @@
 package control;
 
-
 import BaseDeDonneConfig.DataPath;
 import moudel.Admin;
-import moudel.Medcin;
+import moudel.ChefService;
+import moudel.Chembre;
 import moudel.Utilisateur;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
@@ -17,10 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Controller
 public class AdminControler {
@@ -42,21 +40,7 @@ public class AdminControler {
         return "AdminPages/AdminService";
     }
 
-
-    @RequestMapping(value = "/chefserviceNotAficte")
-    public @ResponseBody
-    List<String> chefserviceNotAficte(HttpSession session) {
-        if (!testSession(session)) {
-            return null;
-        } else {
-            Admin admin = (Admin) session.getAttribute("user");
-            ArrayList<String> rs = admin.chefserviceNotAficte();
-            System.out.println("ra7 ");
-            return rs;
-        }
-    }
-
-    @RequestMapping("/AdminMembre")
+    @RequestMapping("/AdminMembrePage")
     public String membrePage(HttpSession session) {
         if (!testSession(session))
             return "login";
@@ -71,35 +55,100 @@ public class AdminControler {
 
         if (!testSession(session))
             return "login";
-        System.out.println(photo.isEmpty());
         String realPath = session.getServletContext().getRealPath("/");
-        String extension = "." + FilenameUtils.getExtension(photo.getOriginalFilename());
+
         Admin admin = (Admin) session.getAttribute("user");
-        if (type.equals("Medcin")) {
+        if (type.equals("Medecin")) {
         }
         String speciality = request.getParameter("Sepciality");
-        long id = admin.ajoutMembre(nom, prenom, email, gender
-                , datedeNai, telNumbre, type, extension, speciality);
-        if (id != 0) {
-            File outFile = new File(realPath + "uploadFile" + File.separator + nom + extension);
-            try {
-                photo.transferTo(outFile);
-                outFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        admin.ajoutMembre(nom, prenom, email, gender
+                , datedeNai, telNumbre, type, photo, speciality, realPath, null);
+
         return "redirect:/AdminMembre";
     }
-@RequestMapping("/personeMedical")
-public @ResponseBody Utilisateur getPersoneMediacal(@RequestParam("type")String type,HttpSession session){
+
+    @RequestMapping("/AjouteChembres")
+    public String AjouteChembres(@RequestParam("Numerochembre") String[] numero, @RequestParam("service") String[] service, HttpSession session) {
+        if (!testSession(session))
+            return "login";
+        Admin admin = (Admin) session.getAttribute("user");
+        admin.AjouteChembres(numero, service);
+        return "AdminPages/AdminService";
+    }
+
+    @RequestMapping("/AjouteService")
+    public String ajouteService(HttpSession session, @RequestParam("service") String service, HttpServletRequest request) {
+        if (!testSession(session))
+            return "login";
+        Admin admin = (Admin) session.getAttribute("user");
+        long idService=admin.AjouteService(service);
+        if(idService!=0){
+        String idChefService = request.getParameter("chefService");
+        if ((idChefService == null) || (idChefService.equals("0"))|| (idChefService.equals(""))) {
+            String realPath=session.getServletContext().getRealPath("/");
+            String nom=request.getParameter("nom");
+            String prenom=request.getParameter("prenom");
+            String email=request.getParameter("email");
+            String numeroTel=request.getParameter("telNumbre");
+            String dateNaissance=request.getParameter("DatedeNai");
+            String gender=request.getParameter("gender");
+            MultipartFile photo= (MultipartFile) request.getAttribute("photo");
+            admin.ajoutMembre(nom, prenom, email, gender
+                    , dateNaissance, numeroTel,"ChefService", photo, null, realPath, String.valueOf(idService));
+        }
+        else {
+           admin.AfficteChefService(idService
+                   , idChefService);
+        }
+        String [] chembres=request.getParameterValues("chmebre");
+        if (chembres.length!=0)
+            admin.AfficteChembre(idService,chembres);
+
+        }
+        return "redirect:/AdminServicePage";
+    }
+    //ajex fonction
+
+    @RequestMapping(value = "/chefserviceNotAficte")
+    public @ResponseBody
+    List<ChefService> chefserviceNotAficte(HttpSession session) {
+        if (!testSession(session)) {
+            return null;
+        } else {
+            DataPath.realPath = session.getServletContext().getRealPath("/");
+            Admin admin = (Admin) session.getAttribute("user");
+            return admin.chefserviceNotAficte();
+        }
+    }
+
+    @RequestMapping("/personeMedical")
+    public @ResponseBody
+    ArrayList<Utilisateur> getPersoneMediacal(@RequestParam("type") String type, HttpSession session) {
+        if (!testSession(session))
+            return null;
+        Admin admin = (Admin) session.getAttribute("user");
+
+        return admin.getPersoneMedical(type);
+    }
+
+    @RequestMapping("/ChembreLibre")
+    @ResponseBody
+    public List<String> chembreLibre(HttpSession session) {
+        if (!testSession(session))
+            return null;
+        Admin admin = (Admin) session.getAttribute("user");
+        return admin.getChembreLibre();
+    }
+
+
+    @RequestMapping("/listChembre")
+    @ResponseBody
+    public ArrayList<Chembre> getListChembre(HttpSession session) {
 //        if(!testSession(session))
 //            return null;
-        Admin admin = (Admin) session.getAttribute("user");
-    Medcin medcin=new Medcin();
-    medcin.setSpeiciality("fff");
-    return medcin;
-}
+        Admin admin = new Admin();
+        return admin.getListChembre();
+    }
 
     private boolean testSession(HttpSession session) {
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");
@@ -107,4 +156,5 @@ public @ResponseBody Utilisateur getPersoneMediacal(@RequestParam("type")String 
             return false;
         else
             return true;
-    }}
+    }
+}

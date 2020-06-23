@@ -1,12 +1,12 @@
 package moudel;
 
-public class Chember {
+public class Chembre {
     private String numero;
     private boolean plein;
     private Service service;
     private Patient patient;
 
-    public Chember(String numero) {
+    public Chembre(String numero) {
         this.numero = numero;
     }
 
@@ -42,6 +42,6 @@ public class Chember {
         this.patient = patient;
     }
 
-    public Chember() {
+    public Chembre() {
     }
 }
