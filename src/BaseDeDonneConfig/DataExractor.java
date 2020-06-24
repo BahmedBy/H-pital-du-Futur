@@ -42,6 +42,10 @@ public class DataExractor extends DataPath {
         String photo = rs.getString("photo");
         if (type1.equals("Medecin"))
             ((Medecin)utilisateur).setSpeiciality(rs.getString("speiciality"));
+        if (type1.equals("Patient")){
+            ((Patient)utilisateur).setHospitalise(rs.getBoolean("hospitalise"));
+            ((Patient)utilisateur).setMort(rs.getBoolean("mort"));
+    }
         if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else
@@ -63,6 +67,13 @@ public class DataExractor extends DataPath {
         chembre.setNumero(rs.getString("numero"));
         chembre.setPlein(rs.getBoolean("plein"));
              return chembre;
+    }
+    public DossierMedical dossierMedicalExractor(ResultSet rs) throws SQLException {
+        DossierMedical dossierMedical = new DossierMedical();
+        dossierMedical.setId(rs.getLong("id_dossier"));
+        dossierMedical.setGroupage(rs.getString("groupage"));
+        dossierMedical.setSuppreme(rs.getBoolean("suppreme"));
+        return dossierMedical;
     }
 
     public Utilisateur utilisateurExratorIdNom(ResultSet rs)throws SQLException{
@@ -94,6 +105,7 @@ public class DataExractor extends DataPath {
         String photo = rs.getString("photo");
         if (type1.equals("Medecin"))
             ((Medecin)utilisateur).setSpeiciality(rs.getString("speiciality"));
+
         if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else

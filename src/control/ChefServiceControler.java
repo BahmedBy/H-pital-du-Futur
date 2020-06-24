@@ -1,10 +1,7 @@
 package control;
 
 import BaseDeDonneConfig.DataPath;
-import moudel.ChefService;
-import moudel.Infermiere;
-import moudel.Medecin;
-import moudel.Utilisateur;
+import moudel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -105,4 +102,5 @@ public class ChefServiceControler {
             else
             return null;
     }
+
 }
