@@ -5,7 +5,8 @@ import java.util.Date;
 public class Patient extends Utilisateur {
     private Boolean hospitalise;
     private Boolean mort;
-
+    private Chembre chembre;
+    private DossierMedical dossierMedical;
     public Boolean getHospitalise() {
         return hospitalise;
     }
@@ -26,14 +27,6 @@ public class Patient extends Utilisateur {
         return dossierMedical;
     }
 
-
-
-    private Chembre chembre;
-    private DossierMedical dossierMedical;
-
-    public DossierMedical getdossierMedical() {
-        return dossierMedical;
-    }
 
     public void setDossierMedica(DossierMedical dossierMedical) {
         this.dossierMedical = dossierMedical;

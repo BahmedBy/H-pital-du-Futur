@@ -4,13 +4,13 @@ $(document).ready(function(){
       $("#seconde").append(' <div>' +
           '      <p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Membre pages</p><br/>' +
           '    </div>' +
-          '    <form class="shadow  my-auto bg-white divcontenu">' +
+          '    <form class="shadow  my-auto bg-white divcontenu" action="/ChefServiceAjouteMembre">' +
           '      <div class="container divcontainer ">' +
-          '        <p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Medecin</p>' +
+          '        <p class="h4" id="Membrepages">Medecin</p>' +
           '<div id="Medecin"></div>' +
           '</div>' +
-          ' <div class="container divcontainer "id="Infermiere">' +
-          '<p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Infermiere</p>' +
+          ' <div class="container divcontainer "i>' +
+          '<p class="h4" id="Membrepages" id="Infermiere">Infermiere</p>' +
           '<div id="Infermiere"></div>' +
           '</div>' +
           '    <div class="form-group formstyle"> ' +
@@ -40,7 +40,7 @@ function getPersoneMidical(type) {
                 if (jQuery.isEmptyObject(data)) {
 
                     add='<div class="divanimation"><p class="h4"><div class="mainAnimation">'+
-                        '<p class="h5 text-center">No Medecin Libre </p>'+
+                        '<p class="h5 text-center">No'+type+' Libre </p>'+
                         '</div>';
                 }
                 else {
@@ -50,13 +50,11 @@ function getPersoneMidical(type) {
                         '<div class="col-sm">Photo</div><div class="col-sm">Nom</div><div class="col-sm">Prenom </div> <div class="col-sm">'
                     if (type==="Medecin")
                         add=add+'<div class="col-sm">Sepiciality </div>';
-                    add=add+'</div>';
+                    add=add+'</div></div>';
 
-
-                    var co=1;
                     $.each(data, function (k, v) {
-                            add= add+'<label for="f" class="row divrow border-bottom"><div class="col-1 my-auto">' +
-                                '<input type="checkbox" name="'+type+'" id="'+v.id+'"/>' +
+                            add= add+'<label for="'+v.id+'" class="row divrow border-bottom"><div class="col-1 my-auto">' +
+                                '<input type="checkbox" name="'+type+'" id="'+v.id+'" value="'+v.id+'"/>' +
                                 '    </div>'+
                                 '        <div class="col-sm my-auto">' +v.id+
                                 '</div>' +
@@ -75,10 +73,10 @@ function getPersoneMidical(type) {
                         }
                     );
                     add=add+'</div>';
-                    $(id).empty;
-                    $(id).append(add);
 
                 }
+                $(id).empty();
+                $(id).append(add);
             },
             error: function (e) {
                 alert(e.responseText);

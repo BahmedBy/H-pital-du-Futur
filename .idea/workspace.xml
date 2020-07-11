@@ -6,18 +6,52 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/moudel/Admin.java" description="&#10;    public ArrayList&lt;Infermiere&gt; getListInfermier..." line="79" />
+    <bookmark url="file://$PROJECT_DIR$/src/moudel/Admin.java" description="&#10;    public ArrayList&lt;Infermiere&gt; getListInfermier..." line="83" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdab3ff1-fc9e-45d8-8acd-c15ebcc98ac7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/control/MedecinControler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/InfermierePages/InfermiereHome.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/MedecinPages/MedecinHome.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/InfiermiereJs/detailPatientInInfermiere.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/MedecinJs/MedecinHome.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/MedecinJs/detailPatient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/Rechercher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceDossier.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/scripteJS/chefServiceScript/detailPartionChefService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/ChefService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/ChefService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/DossierMedical.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/DossierMedical.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/Utilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/WEB-INF/classes/moudel/patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/css/verticalNavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webapp_war_exploded/css/verticalNavBar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BaseDeDonneConfig/DataExractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BaseDeDonneConfig/DataExractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BaseDeDonneConfig/Recherche.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/control/AdminControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/AdminControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/ChefServiceControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/ChefServiceControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/control/RechercheConroler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/control/RechercheConroler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/ChefService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/ChefService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/moudel/DossierMedical.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/DossierMedical.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Entree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Entree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Etat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Etat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Medecin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Medecin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/moudel/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Raport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Raport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/moudel/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/moudel/Utilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripteJS/AdminMembre.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripteJS/AdminJs/AdminMembre.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripteJS/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripteJS/AdminJs/AdminService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripteJS/verticalbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripteJS/verticalbar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,47 +77,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/control/ChefServiceControler.java">
+        <entry file="file://$PROJECT_DIR$/web/scripteJS/MedecinJs/detailPatient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/ConnectionBD.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="17">
+              <caret line="136" column="138" selection-start-line="136" selection-start-column="138" selection-end-line="136" selection-end-column="138" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/control/RechercheConroler.java">
+        <entry file="file://$PROJECT_DIR$/src/control/MedecinControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+            <state relative-caret-position="442">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#testSession#0;class#RechercheConroler#0" />
+                <element signature="method#etatHistorique#0;class#MedecinControler#0" />
+                <element signature="method#etatInformation#0;class#MedecinControler#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java">
+        <entry file="file://$PROJECT_DIR$/src/moudel/Raport.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#RecherchePatientById#0;class#Recherche#0" />
-                <element signature="e#2031#2761#0" />
-                <element signature="method#getDossierMedicalPatient#0;class#RecherchePatient#0" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -95,8 +120,8 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Interface" />
-        <option value="JavaScript File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -109,9 +134,17 @@
       <find>(new DataExractor())</find>
       <find>DataExractor</find>
       <find>Medcin</find>
-      <find>\n</find>
       <find>dossierMedica</find>
       <find>setDossierMedica</find>
+      <find>listPatientHospitalise</find>
+      <find>sele</find>
+      <find>type</find>
+      <find>Utilisateur</find>
+      <find>id</find>
+      <find>/AjouteMembre</find>
+      <find>int</find>
+      <find>pationExratorNomId</find>
+      <find>\n</find>
     </findStrings>
     <replaceStrings>
       <replace>dataSource</replace>
@@ -123,6 +156,12 @@
       <replace>Medecin</replace>
       <replace>dossierMedical</replace>
       <replace>hospitalise</replace>
+      <replace>divResulte</replace>
+      <replace>Remarque</replace>
+      <replace>Patient</replace>
+      <replace>patient</replace>
+      <replace>idPation</replace>
+      <replace>Long</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -131,27 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/index.html" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/src/moudel/ConnectionBD.java" />
-        <option value="$PROJECT_DIR$/src/moudel/patient.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Etat.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Raport.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Chember.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Entree.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Sortie.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Service.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/HomeAdminPage.html" />
-        <option value="$PROJECT_DIR$/src/moudel/Infermiere.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/index.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/taglibs.jsp" />
-        <option value="$PROJECT_DIR$/web/scripteJS/showList.js" />
-        <option value="$PROJECT_DIR$/web/scripteJS/ajx.js" />
-        <option value="$PROJECT_DIR$/web/scripteJS/verticalbar.js" />
-        <option value="$PROJECT_DIR$/src/moudel/Utilisateur.java" />
-        <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/DataPath.java" />
-        <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/start.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml" />
         <option value="$PROJECT_DIR$/src/moudel/Medcin.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/login.jsp" />
@@ -160,28 +178,49 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/Homepagechefservice.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/control/loginControl.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp" />
         <option value="$PROJECT_DIR$/web/scripteJS/AdminService.js" />
-        <option value="$PROJECT_DIR$/src/moudel/Admin.java" />
         <option value="$PROJECT_DIR$/web/scripteJS/AdminMembre.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp" />
-        <option value="$PROJECT_DIR$/src/control/AdminControler.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp" />
-        <option value="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp" />
-        <option value="$PROJECT_DIR$/src/moudel/ChefService.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp" />
-        <option value="$PROJECT_DIR$/web/css/verticalNavBar.css" />
         <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/Recherche.java" />
-        <option value="$PROJECT_DIR$/src/moudel/DossierMedical.java" />
-        <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/DataExractor.java" />
-        <option value="$PROJECT_DIR$/src/moudel/Patient.java" />
         <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePartient.java" />
-        <option value="$PROJECT_DIR$/src/control/ChefServiceControler.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp" />
+        <option value="$PROJECT_DIR$/src/moudel/Entree.java" />
+        <option value="$PROJECT_DIR$/web/scripteJS/chefServiceScript/detailPartion.js" />
+        <option value="$PROJECT_DIR$/src/moudel/DossierMedical.java" />
+        <option value="$PROJECT_DIR$/src/moudel/Patient.java" />
+        <option value="$PROJECT_DIR$/web/scripteJS/verticalbar.js" />
+        <option value="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceDossier.js" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/taglibs.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp" />
+        <option value="$PROJECT_DIR$/web/scripteJS/MedcinJs/detailPatient.js" />
+        <option value="$PROJECT_DIR$/web/scripteJS/InfiermiereJs/InfermiereHome.js" />
         <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java" />
+        <option value="$PROJECT_DIR$/web/scripteJS/MedcinJs/MedecinHome.js" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/InfermierePages/InfermiereHome.jsp" />
+        <option value="$PROJECT_DIR$/web/scripteJS/AdminJs/AdminMembre.js" />
+        <option value="$PROJECT_DIR$/src/control/AdminControler.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp" />
+        <option value="$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js" />
+        <option value="$PROJECT_DIR$/src/BaseDeDonneConfig/DataExractor.java" />
+        <option value="$PROJECT_DIR$/src/moudel/Utilisateur.java" />
+        <option value="$PROJECT_DIR$/src/moudel/Admin.java" />
         <option value="$PROJECT_DIR$/src/control/RechercheConroler.java" />
+        <option value="$PROJECT_DIR$/web/scripteJS/MedecinJs/MedecinHome.js" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/MedecinPages/MedecinHome.jsp" />
+        <option value="$PROJECT_DIR$/src/moudel/ChefService.java" />
+        <option value="$PROJECT_DIR$/src/control/ChefServiceControler.java" />
+        <option value="$PROJECT_DIR$/web/scripteJS/chefServiceScript/detailPartionChefService.js" />
+        <option value="$PROJECT_DIR$/web/scripteJS/InfiermiereJs/detailPatientInInfermiere.js" />
+        <option value="$PROJECT_DIR$/src/moudel/Raport.java" />
+        <option value="$PROJECT_DIR$/src/moudel/Etat.java" />
+        <option value="$PROJECT_DIR$/src/moudel/Medecin.java" />
+        <option value="$PROJECT_DIR$/src/control/MedecinControler.java" />
+        <option value="$PROJECT_DIR$/web/css/verticalNavBar.css" />
+        <option value="$PROJECT_DIR$/web/scripteJS/Rechercher.js" />
+        <option value="$PROJECT_DIR$/web/scripteJS/MedecinJs/detailPatient.js" />
       </list>
     </option>
   </component>
@@ -244,8 +283,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,6 +324,12 @@
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -304,20 +349,34 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="scripteJS" type="462c0819:PsiDirectoryNode" />
+              <item name="AdminJs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="scripteJS" type="462c0819:PsiDirectoryNode" />
               <item name="chefServiceScript" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="scripteJS" type="462c0819:PsiDirectoryNode" />
+              <item name="InfiermiereJs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="scripteJS" type="462c0819:PsiDirectoryNode" />
+              <item name="MedecinJs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="AdminPages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
@@ -325,6 +384,13 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="ChefServicePages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="MedecinPages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
@@ -342,7 +408,7 @@
     <property name="Repository.Attach.Sources" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1593023652545" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1593475441136" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="D:/JSTLtags/jstl.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -353,16 +419,17 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\webapp\web\WEB-INF" />
-      <recent name="D:\webapp\web" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\webapp\web\WEB-INF\InfermierePages" />
+      <recent name="D:\webapp\web\WEB-INF\MecinPages" />
+      <recent name="D:\webapp\web\bootstrap\js" />
       <recent name="D:\webapp\web\WEB-INF\ChefServicePages" />
       <recent name="D:\webapp\web\css" />
-      <recent name="D:\webapp\out\artifacts\webapp_war_exploded\uploadFile" />
-      <recent name="D:\webapp\web\scripteJS" />
-      <recent name="D:\webapp\web\WEB-INF\AdminPages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\webapp\web\scripteJS\AdminJs" />
+      <recent name="D:\webapp\web\WEB-INF" />
+      <recent name="D:\webapp\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -515,7 +582,23 @@
       <workItem from="1592900860914" duration="14341000" />
       <workItem from="1593011344467" duration="2297000" />
       <workItem from="1593017279719" duration="40000" />
-      <workItem from="1593018213904" duration="6261000" />
+      <workItem from="1593018213904" duration="6398000" />
+      <workItem from="1593081023028" duration="6119000" />
+      <workItem from="1593173849540" duration="3000000" />
+      <workItem from="1593211625883" duration="4542000" />
+      <workItem from="1593288058146" duration="11755000" />
+      <workItem from="1593339524603" duration="11620000" />
+      <workItem from="1593377901319" duration="2836000" />
+      <workItem from="1593384284320" duration="5494000" />
+      <workItem from="1593405748636" duration="4019000" />
+      <workItem from="1593428509716" duration="24164000" />
+      <workItem from="1593757123219" duration="4100000" />
+      <workItem from="1593852983096" duration="1750000" />
+      <workItem from="1593956913462" duration="2388000" />
+      <workItem from="1594034484152" duration="1576000" />
+      <workItem from="1594066199693" duration="1780000" />
+      <workItem from="1594069265087" duration="1643000" />
+      <workItem from="1594461835634" duration="2629000" />
     </task>
     <task id="LOCAL-00001" summary="seconde commit">
       <created>1588977752612</created>
@@ -566,11 +649,18 @@
       <option name="project" value="LOCAL" />
       <updated>1592952760199</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=" commit">
+      <created>1593024913796</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593024913796</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255288000" />
+    <option name="totallyTimeSpent" value="344840000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -585,8 +675,8 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49753696" visible="true" weight="0.36611196" />
-      <window_info id="Structure" order="1" sideWeight="0.50246304" side_tool="true" weight="0.3540091" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4967213" visible="true" weight="0.37443268" />
+      <window_info id="Structure" order="1" sideWeight="0.5032787" side_tool="true" weight="0.41452345" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -594,10 +684,10 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" sideWeight="0.5012225" side_tool="true" weight="0.25718608" />
       <window_info anchor="bottom" id="Application Servers" order="0" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Messages" order="1" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" weight="0.33442622" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.33442622" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39344263" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -614,11 +704,46 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32980332" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="9" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="8" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32980332" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49753696" visible="true" weight="0.40242058" />
+      <window_info id="Structure" order="1" sideWeight="0.50246304" side_tool="true" weight="0.3540091" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" sideWeight="0.5012225" side_tool="true" weight="0.25718608" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.3295082" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.33442622" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.39344263" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.3295082" />
+      <window_info anchor="bottom" id="Spring" order="9" weight="0.3295082" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.33442622" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32980332" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="8" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="9" weight="0.32980332" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -637,10 +762,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java</url>
-          <line>46</line>
+          <url>file://$PROJECT_DIR$/src/moudel/Admin.java</url>
+          <line>44</line>
           <properties />
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/web/WEB-INF/MedecinPages/MedecinHome.jsp</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/control/MedecinControler.java</url>
+          <line>38</line>
+          <properties class="control.MedecinControler" method="etatInformation">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -650,107 +789,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/bootstrap/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar!/org/springframework/web/context/ContextLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="106" column="78" selection-start-line="106" selection-start-column="78" selection-end-line="106" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ideaLibSources/spring-webmvc-5.2.3.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="128" column="82" selection-start-line="128" selection-start-column="82" selection-end-line="128" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/j2ee.jar!/javax/servlet/ServletContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/start.java" />
-    <entry file="file://$PROJECT_DIR$/out/artifacts/webapp_war_exploded/uploadFile/Male.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/webapp_war_exploded/uploadFile/Femme.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/webapp_war_exploded/uploadFile/hh.jpg" />
-    <entry file="file://$PROJECT_DIR$/out/artifacts/webapp_war_exploded/uploadFile/jh.jpg" />
-    <entry file="file://$PROJECT_DIR$/web/scripteJS/verticalbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/Medecin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripteJS/showForm.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/scripteJS/ajax.js" />
     <entry file="file://$PROJECT_DIR$/web/scripteJS/jquery-3.5.1.min.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/Utilisateur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moudel/Sortie.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -766,136 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripteJS/AdminService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="23" column="94" selection-start-line="23" selection-start-column="94" selection-end-line="23" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/Raport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="123" column="96" selection-start-line="123" selection-start-column="96" selection-end-line="123" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/Chembre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-339">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/loginControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripteJS/AdminMembre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="184" column="6" selection-start-line="127" selection-start-column="3" selection-end-line="184" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/control/AdminControler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="66" column="23" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/taglibs.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar!/org/springframework/jdbc/core/ResultSetExtractor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="57" column="2" selection-start-line="57" selection-start-column="2" selection-end-line="57" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1373">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="6" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/verticalNavBar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="158" column="1" selection-start-line="158" selection-start-column="1" selection-end-line="158" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/ChefService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/DataPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -906,108 +824,339 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/moudel/DossierMedical.java">
+    <entry file="file://$PROJECT_DIR$/src/moudel/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
+        <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#122#123#0" expanded="true" />
-            <element signature="e#147#148#0" expanded="true" />
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-            <element signature="e#810#811#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/AdminJs/AdminService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/j2ee.jar!/javax/servlet/http/HttpServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="282" selection-start-line="282" selection-end-line="282" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Entree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/loginControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/DataPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moudel/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#315#316#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bootstrap/js/bootstrap.bundle.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/verticalbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/taglibs.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServicePartient.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/InfiermiereJs/InfermiereHome.js" />
+    <entry file="file://$PROJECT_DIR$/src/moudel/DossierMedical.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceMembre.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2206">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/InfermierePages/InfermiereHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="118" column="10" selection-start-line="118" selection-start-column="10" selection-end-line="118" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminMembre.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminService.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="9" lean-forward="true" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/AdminPages/AdminHomePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/AdminJs/AdminMembre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="50" column="74" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/moudel/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="206" column="19" selection-start-line="206" selection-start-column="19" selection-end-line="206" selection-end-column="19" />
+        <state relative-caret-position="276">
+          <caret line="213" column="25" selection-start-line="213" selection-start-column="25" selection-end-line="213" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#statistique#0;class#Admin#0" />
-            <element signature="method#ajoutMembre#0;class#Admin#0" />
-            <element signature="method#getListChembre#0;class#Admin#0" />
-            <element signature="method#getChembreLibre#0;class#Admin#0" />
+            <element signature="method#getListService#0;class#Admin#0" />
+            <element signature="method#ListChembre#0;class#Admin#0" />
+            <element signature="method#ChembreLibre#0;class#Admin#0" />
             <element signature="method#AjouteChembres#0;class#Admin#0" />
-            <element signature="method#getServiceById#0;class#Admin#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/AdminControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1023">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Chembre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Utilisateur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="139" column="98" selection-start-line="139" selection-start-column="98" selection-end-line="139" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/MedecinJs/MedecinHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefServiceDossier.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="128" column="9" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/ChefServicePages/chefserviceHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-118">
+          <caret line="63" column="58" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/MedecinPages/MedecinHome.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/ChefService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="308" column="64" selection-start-line="308" selection-start-column="64" selection-end-line="308" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/control/ChefServiceControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="61" column="76" selection-start-line="61" selection-start-column="76" selection-end-line="61" selection-end-column="76" />
+        <state relative-caret-position="1734">
+          <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/chefServiceScript/detailPartionChefService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-965">
+          <caret line="210" column="15" selection-start-line="210" selection-start-column="15" selection-end-line="210" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/InfiermiereJs/detailPatientInInfermiere.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="125" column="33" selection-start-line="125" selection-start-column="33" selection-end-line="125" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/DataExractor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="26" column="27" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="28" />
+        <state relative-caret-position="986">
+          <caret line="152" column="79" selection-start-line="152" selection-start-column="79" selection-end-line="152" selection-end-column="79" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#patientExrator#0;class#DataExractor#0" />
+            <element signature="method#pationExratorNomId#0;class#DataExractor#0" />
+            <element signature="method#utilisateurExrator#0;class#DataExractor#0" />
             <element signature="method#dossierMedicalExractor#0;class#DataExractor#0" />
-            <element signature="method#utilisateurExratorIdNom#0;class#DataExractor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/verticalNavBar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="95" column="2" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Etat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+          <folding>
+            <element signature="e#1656#1657#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceMembre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="93" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/chefServiceScript/chefServiceDossier.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="172" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Medecin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#londService#0;class#Medecin#0" />
+            <element signature="method#raportOFEtat#0;class#Medecin#0" />
+            <element signature="method#detailEtat#0;class#Medecin#0" />
+            <element signature="method#etatHistorique#0;class#Medecin#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BaseDeDonneConfig/RecherchePatient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
+        <state relative-caret-position="17">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/Rechercher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#RecherchePatientById#0;class#Recherche#0" />
-            <element signature="e#2031#2761#0" />
-            <element signature="method#getDossierMedicalPatient#0;class#RecherchePatient#0" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/control/RechercheConroler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="19" lean-forward="true" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        <state relative-caret-position="306">
+          <caret line="28" column="42" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripteJS/MedecinJs/detailPatient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="136" column="138" selection-start-line="136" selection-start-column="138" selection-end-line="136" selection-end-column="138" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#testSession#0;class#RechercheConroler#0" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/moudel/Raport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/control/MedecinControler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding>
+            <element signature="method#etatHistorique#0;class#MedecinControler#0" />
+            <element signature="method#etatInformation#0;class#MedecinControler#0" />
           </folding>
         </state>
       </provider>

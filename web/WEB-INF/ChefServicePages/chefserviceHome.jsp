@@ -32,10 +32,10 @@
                 <a href="#" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-procedures mr-3"></span>Patient</a>
+                <a href="/ChefServicePatientPage" class="text-dark font-italic card-link"><span class="fas fa-procedures mr-3"></span>Patient</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-folder-open mr-3"></span>dossiers
+                <a href="/ChefServiceDossieraMedicalPage" class="text-dark font-italic card-link"><span class="fas fa-folder-open mr-3"></span>dossiers
                     médicaux</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
@@ -61,7 +61,7 @@
         </c:when>
         <c:otherwise>
             <p class="h3 ">Home</p><br/>
-            <p class="h3">Nom de service : médecine générale</p><br/>
+            <p class="h3">Nom de service : ${sessionScope.get("user").getService().getNom()}</p><br/>
             <p class="h4">Statistique sur le service</p>
             <table class="table table-striped table-hover separator tablewidth rounded my-5 shadow-sm " id="table">
 

@@ -4,19 +4,19 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Entree {
-    private String type;
+    private String remarque;
     private Date date;
     private Time time;
 
     public Entree() {
     }
 
-    public String getType() {
-        return type;
+    public String getRemarque() {
+        return remarque;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setRemarque(String Remarque) {
+        this.remarque = Remarque;
     }
 
     public Date getDate() {

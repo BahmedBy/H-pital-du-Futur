@@ -2,8 +2,7 @@
 <html>
 <head>
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <script type="text/javascript" src="scripteJS/AdminMembre.js"></script>
-    <script type="text/javascript" src="scripteJS/ajax.js"></script>
+    <script type="text/javascript" src="scripteJS/AdminJs/AdminMembre.js"></script>
     <title>
         Espace Admis
     </title>
@@ -56,7 +55,7 @@
                 <div class="row divcontenu">
                     <div class="col">
                         <p class="h5">Ajoute personne medical</p></div>
-                    <div class="col">
+                    <div class="col d-flex">
                         <button class="btn btn-success ml-auto align-self-center" id="ajoute"
                                 style="margin-right: 2rem;"><span class="fas fa-plus mr-3"></span>Ajoute
                         </button>
@@ -105,7 +104,7 @@
                     <div class="row">
                     <div class="col">
                         <p class="h5">obtenir tout les chef services</p></div>
-                    <div class="col">
+                    <div class="col d-flex">
                         <button class="btn btn-success ml-auto align-self-center" value="chefService" id="obtenirCS"
                                 style="margin-right: 2rem;"><span class="fas fa-search mr-3"></span>Obtenir
                         </button>
@@ -120,7 +119,7 @@
                     <div class="row">
                     <div class="col">
                         <p class="h5">obtenir tout les medecin</p></div>
-                    <div class="col">
+                    <div class="col d-flex">
                         <button class="btn btn-success ml-auto align-self-center" value="Medecin" id="obtenirM"
                                 style="margin-right: 2rem;"><span class="fas fa-search mr-3"></span>Obtenir
                         </button>
@@ -131,11 +130,11 @@
         </div>
         <div>
             <div class="shadow tablewidth my-auto bg-white">
-                <div class="divcontenu" id="Infimiere">
+                <div class="divcontenu" id="Infermiere">
                     <div class="row">
                     <div class="col">
                         <p class="h5">obtenir tout les infimieres</p></div>
-                    <div class="col">
+                    <div class="col d-flex">
                         <button class="btn btn-success ml-auto align-self-center" value="Infermiere" id="obtenirI"
                                 style="margin-right: 2rem;"><span class="fas fa-search mr-3"></span>Obtenir
                         </button>

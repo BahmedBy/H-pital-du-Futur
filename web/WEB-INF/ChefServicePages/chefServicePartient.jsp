@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="scripteJS/chefServiceScript/detailPartionChefService.js"></script>
+    <script src="scripteJS/Rechercher.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-   	   <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
+    <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
 	<title>
 		Espace chef service
 	</title>
@@ -83,7 +86,7 @@
         <th>chembre</th>
     	</tr>
         <c:forEach items="${patient}" var="patient" varStatus="stat">
-    <tr >
+    <tr data-value="${patient.id}">
         <td class="align-middle ">${stat.count}</td>
         <td class="align-middle ">${patient.id}</td>
         <td class="align-middle "><img src="${patient.photo}" width="50" height="50"  class="rounded-circle  shadow-sm"></td>
@@ -100,7 +103,10 @@
     </c:otherwise>
     </c:choose>
 </div>
-
+<script>
+    $('tr').click(function () {
+    })
+</script>
 </body>
 </html>
 

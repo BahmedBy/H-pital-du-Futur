@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class DossierMedical {
     private long id;
 
+    private Patient patient;
+    private String groupage;
+    private ArrayList<Etat> etats;
+    private boolean suppreme;
     public long getId() {
         return id;
     }
@@ -13,10 +17,6 @@ public class DossierMedical {
         this.id = id;
     }
 
-    private Patient patient;
-    private String groupage;
-    private ArrayList<Etat> etats;
-    private boolean suppreme;
 
     public Patient getPatient() {
         return patient;

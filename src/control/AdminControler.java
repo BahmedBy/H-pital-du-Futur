@@ -5,7 +5,6 @@ import moudel.Admin;
 import moudel.ChefService;
 import moudel.Chembre;
 import moudel.Utilisateur;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +61,7 @@ public class AdminControler {
         admin.ajoutMembre(nom, prenom, email, gender
                 , datedeNai, telNumbre, type, photo, speciality, realPath, null);
 
-        return "redirect:/AdminMembre";
+        return "redirect:/AdminMembrePage";
     }
 
     @RequestMapping("/AjouteChembres")
@@ -137,7 +134,7 @@ public class AdminControler {
         if (!testSession(session))
             return null;
         Admin admin = (Admin) session.getAttribute("user");
-        return admin.getChembreLibre();
+        return admin.ChembreLibre();
     }
 
 
@@ -147,7 +144,7 @@ public class AdminControler {
 //        if(!testSession(session))
 //            return null;
         Admin admin = new Admin();
-        return admin.getListChembre();
+        return admin.ListChembre();
     }
 
     private boolean testSession(HttpSession session) {

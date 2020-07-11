@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <script type="text/javascript" src="scripteJS/AdminService.js"></script>
+    <script type="text/javascript" src="scripteJS/AdminJs/AdminService.js"></script>
     <title>
         Espace Admis
     </title>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="/scripteJS/chefServiceScript/chefServiceMembre.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
@@ -30,7 +31,7 @@
     <div>
         <ul class="nav flex-column  mb-0 list-group font-italic  " id="list">
             <li class="font-italic list-group-item list-group-item-action">
-                <a href="/ChefServiceHomrPage" class="text-dark card-link"><span class="fa fa-home mr-3"></span>
+                <a href="/ChefServiceHomePage" class="text-dark card-link"><span class="fa fa-home mr-3"></span>
                     Home</a>
             </li>
             <li class="nav-item  list-group-item list-group-item-action">
@@ -54,58 +55,59 @@
     </div>
 </div>
 <div class="page-content" id="content">
-<div id="origincotent">
-<p class="h3 ">Membre Page</p><br/>
-<div class="shadow tablewidth my-auto bg-white ">
-    <div class="row divcontenu">
-        <div class="col">
-            <p class="h4">Ajoute Membre</p>
+    <dilv id="first">
+        <p class="h3 ">Membre Page</p><br/>
+        <div class="shadow tablewidth my-auto bg-white ">
+            <div class="row divcontenu">
+                <div class="col">
+                    <p class="h4">Ajoute Membre</p>
+                </div>
+                <div class="col d-flex">
+                    <button class="btn btn-success ml-auto align-self-center" id="ajoute"
+                            style="margin-right: 2rem;"><span
+                            class="fas fa-plus mr-3"></span>Ajoute Membre
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col d-flex">
-            <button class="btn btn-success ml-auto align-self-center" id="ajoute"
-                    style="margin-right: 2rem;"><span
-                    class="fas fa-plus mr-3"></span>Ajoute Membre
-            </button>
-        </div>
-    </div>
-</div>
 
-<div class="shadow tablewidth my-auto bg-white ">
-<div class="divcontenu">
-<c:choose>
-    <c:when test="${sessionScope.get(\"user\").getService()==null}">
-        <p>no service exsite</p>
-    </c:when>
-    <c:otherwise>
-        <p class="h4">List Medecin de service</p>
-        <c:choose>
-            <c:when test="${Medecin.size()==0}">
-                <p class="h4">no medécin dans le service</p>
-            </c:when>
-            <c:otherwise>
-                <table class="table table-hover rounded my-5 shadow-sm table-borderedless ">
-                    <tr>
-                        <th style="width: 8%">#</th>
-                        <th style="width: 8%">Id</th>
-                        <th style="width: 10%">Photo</th>
-                        <th>nom</th>
-                        <th>Prenom</th>
-                        <th>speciality</th>
-                    </tr>
-                    <c:forEach items="${Medecin}" var="medecin" varStatus="status">
-                        <tr>
-                            <td class="align-middle ">${status.count}</td>
-                            <td class="align-middle ">${medecin.id}</td>
-                            <td class="align-middle "><img src="${medecin.photo}" width="50" height="50"
-                                                           class="rounded-circle shadow-sm"></td>
-                            <td class="align-middle ">${medecin.nom}</td>
-                            <td class="align-middle ">${medecin.prenom}</td>
-                            <td class="align-middle ">${medecin.speiciality}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:otherwise></c:choose>
-        </div>
+        <div class="shadow tablewidth my-auto bg-white ">
+            <div class="divcontenu">
+                <c:choose>
+                <c:when test="${sessionScope.get(\"user\").getService()==null}">
+                    <p>no service exsite</p>
+                </c:when>
+                <c:otherwise>
+                <p class="h4">List Medecin de service</p>
+                <c:choose>
+                    <c:when test="${Medecin.size()==0}">
+                        <p class="h4">no medécin dans le service</p>
+                    </c:when>
+                    <c:otherwise>
+                        <table class="table table-hover rounded my-5 shadow-sm table-borderedless ">
+                            <tr>
+                                <th style="width: 8%">#</th>
+                                <th style="width: 8%">Id</th>
+                                <th style="width: 10%">Photo</th>
+                                <th>nom</th>
+                                <th>Prenom</th>
+                                <th>speciality</th>
+                            </tr>
+                            <c:forEach items="${Medecin}" var="medecin" varStatus="status">
+                                <tr>
+                                    <td class="align-middle ">${status.count}</td>
+                                    <td class="align-middle ">${medecin.id}</td>
+                                    <td class="align-middle "><img src="${medecin.photo}" width="50" height="50"
+                                                                   class="rounded-circle shadow-sm"></td>
+                                    <td class="align-middle ">${medecin.nom}</td>
+                                    <td class="align-middle ">${medecin.prenom}</td>
+                                    <td class="align-middle ">${medecin.speiciality}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </c:otherwise>
+                </c:choose>
+            </div>
         </div>
         <div class="shadow tablewidth my-auto bg-white divcontenu">
             <div class="row">
@@ -147,17 +149,19 @@
             </c:choose>
 
         </div>
-        </div>
-    </c:otherwise>
-    </c:choose>
-        </div>
+
+        </c:otherwise>
+        </c:choose>
+    </dilv>
+    <div id="seconde"></div>
+</div>
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
 
-    </script>
-    </body>
+</script>
+</body>
 
-        </html>
+</html>
 

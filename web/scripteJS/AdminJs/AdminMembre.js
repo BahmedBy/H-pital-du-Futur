@@ -48,7 +48,7 @@ $(document).ready(function () {
             '                    <select class="form-control" id="TypeUser" name="typeUser">\n' +
             '                        <option value="ChefService">Chef Service</option>\n' +
             '                        <option value="Medecin">Medecin</option>\n' +
-            '                        <option value="Infimiere">infimiere</option>\n' +
+            '                        <option value="Infermiere">Infermiere</option>\n' +
             '                    </select>\n' +
             '                </div>\n' +
             '            </div>\n' +
@@ -99,10 +99,11 @@ $(document).ready(function () {
         var type=$(this).val();
        getPersoneMedical(type)});
     $("#obtenirM").click( function (){
-    var type=$(this).val()
+    var type=$(this).val();
     getPersoneMedical(type)});
 
     $("#obtenirI").click( function (){ var type=$(this).val();
+
  getPersoneMedical(type)});
 
 });
@@ -124,7 +125,6 @@ function DatedeNai() {
 }
 function getPersoneMedical(type) {
     var id = "#" + type;
-    if(!jQuery.isEmptyObject(type))
     $.ajax({
         url: "/personeMedical",
         data: {
@@ -162,15 +162,17 @@ function getPersoneMedical(type) {
                     '<td class="align-middle "><img src="'+v.photo+'" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
                     '<td class="align-middle " >'+v.nom+'</td>' +
                     '<td class="align-middle ">'+v.prenom+'</td>';
-                if (type==="Medecin")
+                    if (type==="Medecin")
                     add=add+' <td class="align-middle ">'+v.speiciality+'</td>';
                 add=add+'</tr>';
                 co++;
             }
             );
-                add=add+'</table>';
+
+            add=add+'</table>';
                 $(id).append(add)
                 $('tr').click(function () {
+                    alert($(this).data('value'));
                 })
             }
         },

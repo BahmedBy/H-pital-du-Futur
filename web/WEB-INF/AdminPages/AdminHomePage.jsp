@@ -11,7 +11,7 @@
 
 <nav class="navbar cloudy-knoxville-gradient shadow-sm navbar-light bg-light">
     <a class="navbar-brand card-link nav-link font-weight-bolder" href="/">
-        <img src="../../icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
+        <img src="icon/Logo.png" width="30" height="30" alt="" class="sd-inline-block align-top">
         Abismail Hopitel
     </a>
 
@@ -22,7 +22,7 @@
         <div class="text-center align-items-center"><img src="${sessionScope.user.getPhoto()}" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
-                <h4 class="text-center">Dr.Benyammi</h4>
+                <h4 class="text-center">Dr.${sessionScope.user.getNom()} ${sessionScope.user.getPrenom()}</h4>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/AdminMembre" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="/AdminMembrePage" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
@@ -76,6 +76,9 @@
     <div class="separator"></div>
     <%--<p class="h4">Statistique sur le site</p>--%>
 </div>
+<script>
+
+</script>
 
 </body>
 </html>

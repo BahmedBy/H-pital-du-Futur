@@ -48,7 +48,7 @@ public class Admin extends Utilisateur {
                 rs -> {
                     ArrayList<Utilisateur> list = new ArrayList<>();
                     while (rs.next()) {
-                        Utilisateur utilisateur = (new DataExractor()).utilisateurExrator(rs);
+                        Utilisateur utilisateur = (new DataExractor()).utilisateurExrator(rs,true);
 
                         list.add(utilisateur);
                     }
@@ -61,7 +61,7 @@ public class Admin extends Utilisateur {
         return (new ConnectionBD()).getJdbcTemplate().query(sql, rs -> {
             ArrayList<ChefService> chefservices = new ArrayList<>();
             while (rs.next()) {
-                ChefService chefService = (ChefService) (new DataExractor()).utilisateurExratorIdNom(rs);
+                ChefService chefService = (ChefService) (new DataExractor()).utilisateurExratorIdNom(rs,true);
                 chefservices.add(chefService);
             }
             return chefservices;
@@ -72,8 +72,12 @@ public class Admin extends Utilisateur {
     public void ajoutMembre(String nom, String prenom, String email, String gender, String datedeNai,
                             String telNumbre, String type, MultipartFile photo, String spiciality,String realPath,String idService) {
         String defualPassword = datedeNai.replace("-", "");
-        String extension = "." + FilenameUtils.getExtension(photo.getOriginalFilename());
-        String sql = "insert INTO utilisateur (nom,prenom,email,password,numeroTel,dateNaissance,type,active,photo,gender) select ?,?,?,?,?,?,?,?,?,?" +
+        String extension;
+        if(photo!=null)
+            extension = "." + FilenameUtils.getExtension(photo.getOriginalFilename());
+        else
+            extension=null;
+        String sql = "insert INTO utilisateur (nom,prenom,email,password,numeroTel,dateNaissance,type,photo,gender) select ?,?,?,?,?,?,?,?,?" +
                 " from  dual  where not exists (select * from utilisateur where email = ? and type =?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -90,26 +94,26 @@ public class Admin extends Utilisateur {
                 ps.setString(5, telNumbre);
             ps.setString(6, datedeNai);
             ps.setString(7, type);
-            ps.setBoolean(8, true);
-            ps.setString(9, extension);
-            ps.setString(10, gender);
-            ps.setString(11, email);
-            ps.setString(12, type);
+            ps.setString(8, extension);
+            ps.setString(9, gender);
+            ps.setString(10, email);
+            ps.setString(11, type);
             System.out.println(ps.toString());
             return ps;
         }, keyHolder);
-        if (keyHolder != null) {
+        if (keyHolder.getKey() != null) {
             long id = Objects.requireNonNull(keyHolder.getKey()).longValue();
             if (id != 0) {
                 String sql2;
                 if (type.equals("Medecin"))
                     sql2 = String.format("insert into %s (id_%s,speiciality,id_service) values(%d,'%s',%d)", type, type, id, spiciality,idService);
                 else
-                    sql2 = String.format("insert into %s (id_%s) values(%d,%s,%d)", type, type, id,idService);
+                    sql2 = String.format("insert into %s (id_%s,id_service) values(%d,%s)", type, type, id,idService);
                 (new ConnectionBD()).getJdbcTemplate().update(sql2);
 
             }
             if (id != 0) {
+                if(photo!=null){
                 File outFile = new File(realPath + "uploadFile" + File.separator + id + nom + extension);
                 try {
                     photo.transferTo(outFile);
@@ -117,12 +121,12 @@ public class Admin extends Utilisateur {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+            }}
         }
 
     }
 
-    public ArrayList<Chembre> getListChembre() {
+    public ArrayList<Chembre> ListChembre() {
         String sql = "select *from chembre ";
         return (new ConnectionBD()).getJdbcTemplate().query(sql, rs -> {
             ArrayList<Chembre> chembres = new ArrayList<>();
@@ -131,14 +135,14 @@ public class Admin extends Utilisateur {
                 int idService = rs.getInt("id_service");
                 System.out.println(idService);
                 if ( idService!= 0)
-                    chembre.setService(getServiceById(idService));
+                    chembre.setService(ServiceById(idService));
                 chembres.add(chembre);
             }
             return chembres;
         });
     }
 
-    public List<String> getChembreLibre() {
+    public List<String> ChembreLibre() {
         String sql = "select numero from chembre where id_service is null";
         return (new ConnectionBD()).getJdbcTemplate().query(sql, resultSet -> {
             ArrayList<String> chembres = new ArrayList<>();
@@ -207,7 +211,7 @@ public class Admin extends Utilisateur {
                 });
     }
     @Async
-    public Service getServiceById(long id) {
+    public Service ServiceById(long id) {
         String sql = "select *from service where id_service=" + id;
         return (new ConnectionBD()).getJdbcTemplate().query(sql, rs -> {
             Service service = null;

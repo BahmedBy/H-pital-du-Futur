@@ -81,23 +81,7 @@ html {
   font-size: 1rem;
 }
 
-@include media-breakpoint-up(sm) {
-  html {
-    font-size: 1.2rem;
-  }
-}
 
-@include media-breakpoint-up(md) {
-  html {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  html {
-    font-size: 1.6rem;
-  }
-}
 .tablewidth{
   width: calc(100% - 0.5rem);
 }
@@ -166,6 +150,12 @@ margin-top: 3rem;
 }
 .mainAnimation{
   padding: 2rem;
+}
+.divrow{
+  padding: 0.5rem;
+}
+.divrow:hover{
+  background-color:  rgba(0, 0, 0, 0.075);
 }
 @keyframes circle{
   0%{

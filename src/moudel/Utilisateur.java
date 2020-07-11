@@ -2,6 +2,7 @@ package moudel;
 
 import BaseDeDonneConfig.ConnectionBD;
 import BaseDeDonneConfig.DataExractor;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,11 @@ public class Utilisateur {
     private String passWord;
     private String email;
     private String numeroTel;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateNaissance;
+    private boolean active;
+
+
     private String type;
     private String gender;
     private String photo;
@@ -41,6 +46,13 @@ public class Utilisateur {
 
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
     public long getId() {
         return id;
     }
@@ -125,7 +137,7 @@ public class Utilisateur {
                 rs -> {
                     List<Utilisateur> list = new ArrayList<Utilisateur>();
                     while (rs.next()) {
-                        Utilisateur utilisateur = (new DataExractor()).utilisateurExrator(rs);
+                        Utilisateur utilisateur = (new DataExractor()).utilisateurExrator(rs,false);
                         list.add(utilisateur);
                     }
                     return list;
