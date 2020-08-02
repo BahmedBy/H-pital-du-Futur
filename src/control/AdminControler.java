@@ -1,10 +1,9 @@
 package control;
 
 import BaseDeDonneConfig.DataPath;
-import moudel.Admin;
-import moudel.ChefService;
-import moudel.Chembre;
-import moudel.Utilisateur;
+import BaseDeDonneConfig.RecherchePatient;
+import BaseDeDonneConfig.RechercherMembre;
+import moudel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -141,12 +140,30 @@ public class AdminControler {
     @RequestMapping("/listChembre")
     @ResponseBody
     public ArrayList<Chembre> getListChembre(HttpSession session) {
-//        if(!testSession(session))
-//            return null;
+        if(!testSession(session))
+            return null;
         Admin admin = new Admin();
         return admin.ListChembre();
     }
+    @RequestMapping(value = "/searchMembre" ,params={"id"})
+    @ResponseBody
+    public ArrayList<Utilisateur>recherchePatientByTd(@RequestParam("id")String id, HttpSession session){
 
+        if(!testSession(session))
+            return null;
+        Utilisateur user= (Utilisateur) session.getAttribute("user");
+        ArrayList<Utilisateur> utilisateur=new ArrayList<>();
+        utilisateur.add(new RechercherMembre().RechercheMembreById(id));
+        return utilisateur;
+    }
+    @RequestMapping(value = "/searchMembre" ,params={"nom","prenom"})
+    @ResponseBody
+    public ArrayList<Utilisateur> recherchePatient(@RequestParam("nom")String nom, @RequestParam("prenom")String prenom, HttpSession session){
+        if(!testSession(session))
+            return null;
+        Utilisateur user= (Utilisateur) session.getAttribute("user");
+        return new RechercherMembre().RechercheMembreByNomPrenom(nom, prenom);
+    }
     private boolean testSession(HttpSession session) {
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");
         if ((utilisateur == null) || (!utilisateur.getType().equals("Admin")))

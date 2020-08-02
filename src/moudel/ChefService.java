@@ -202,7 +202,7 @@ public class ChefService extends Utilisateur {
             ps.setString(11, prenom);
             ps.setString(12, datedeNai);
             ps.setString(13, "Patient");
-            System.out.println(ps.toString());
+
             return ps;
         }, keyHolder);
         if (keyHolder.getKey() != null) {

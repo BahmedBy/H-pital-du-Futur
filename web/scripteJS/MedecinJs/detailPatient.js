@@ -147,8 +147,62 @@
                 $("#AjouteEtat").click(function () {
                     $("#AjouteEtatdiv").empty(); $("#AjouteEtatdiv").show();
                     $("#AjouteEtatdiv").append('<div class="shadow tablewidth my-auto bg-white divcontenu "><div>\n' +
-                        ' <p class="h5">Ajoute un Etat</p><br/></div><div></div>')
-                });
+                        ' <p class="h5">Ajoute un Etat</p><br/></div><div><form >\n' +
+                        '                    <fieldset class="divcontenu border" id="ajouteEtatFrom">\n' +
+                        '                        <p class="h5">Etat Information</p>\n' +
+                        '<input type="hidden" name="idDossier" value="' + idDossier + '"  >' +
+                        '                        <div class="form-group row">\n' +
+                        '                            <label for="date" class="col-sm-3 col-form-label" > La Date :</label>\n' +
+                        '                            <div class="col-sm-2">\n' +
+                        '                                <input readonly type="date" class="form-control-plaintext" id="date" name="date"' +
+                        '                                    required>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="form-group row">\n' +
+                        '                            <label for="hour" class="col-sm-3 col-form-label"> Le Temp :</label>\n' +
+                        '                            <div class="col-sm-2">\n' +
+                        '                                <input readonly type="time" class="form-control-plaintext" id="hour" name="temp"' +
+                        '                                    required>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="form-group row">\n' +
+                        '                            <label for="staticEmail" class="col-sm-3 col-form-label"> La temperaterur :</label>\n' +
+                        '                            <div class="col-sm-2">\n' +
+                        '                                <input type="number" class="form-control" id="temperaterur" name="temperaterur" value="0.0" step="0.1"\n' +
+                        '                                    required>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="form-group row">\n' +
+                        '                            <label for="pulsation" class="col-sm-3 col-form-label">La pulsation :</label>\n' +
+                        '                            <div class="col-sm-2">\n' +
+                        '                                <input type="number" class="form-control" id="pulsation" name="pulsation" value="0.0" step="0.1">\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="form-group row">\n' +
+                        '                            <label for="tension" class="col-sm-3 col-form-label">La tension :</label>\n' +
+                        '                            <div class="col-sm-2 ">\n' +
+                        '                                <input type="number" class="form-control" id="tension" name="tension" value="0.0" step="0.1">\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </fieldset>          <div class="row d-flex flex-row-reverse ">\n' +
+                        '                        <div class="p-2 ">\n' +
+                        '                            <button type="button" class="btn btn-outline-dark" id="Ajouterapport"><span\n' +
+                        '                                    class="fas fa-plus mr-3"></span>Ajoute Rapport </button>\n' +
+                        '                            <button type="submit" class="btn btn-success "><span class="far fa-save mr-3"></span> Save\n' +
+                        '                            </button></div>\n' +
+                        '                    </div>\n' +
+                        '                </form></div>');
+                    var d = new Date();
+                    var date = d.getDate() + '\\' + d.getMonth() + '\\' + d.getFullYear();
+                    var hour = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+                    $('#date').val(date);
+                    $('#hour').val(hour);
+                    var co=0;
+                        $("#Ajouterapport").click(function () {
+                           co++;
+                            $("#ajouteEtatFrom").after(' <fieldset class="divcontenu border"><p class="h5">Rapport '+co+'</p><div class="form-group"> <label for="Type" class="col-sm-3 col-form-label">Type :</label><select class="form-control custom-select  col-sm-4" name="type" id="Type"><option>Ordonnance </option><option selected>Remarque</option></select></div>' +
+                                ' <div class="form-group"><label for="Contenu" class="col-sm-3 col-form-label">Contenu :</label><textarea class="form-control" id="Contenu" name="contenu" rows="3"></textarea></div></fieldset>')
+                });});
                 $("#etatActuel").click(function () {
                     $("#etatActueldiv").empty(); $("#etatActueldiv").show();
                     $("#etatActueldiv").append('<div class="shadow tablewidth my-auto bg-white divcontenu "><div>\n' +
