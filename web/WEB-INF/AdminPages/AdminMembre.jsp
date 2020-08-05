@@ -63,6 +63,8 @@
                 </div>
             </div>
         </div>
+
+
         <div id="rechechem" class="shadow tablewidth my-auto bg-white divcontenu">
             <div>
                 <p class="h4"> Recheche personne medical</p>
@@ -90,14 +92,14 @@
                         </div>
 
                         <div class="row">
-                            <input type="submit" value="cherché"
-                                   class="btn btn-outline-success form-control mb-2 mr-sm-2">
+                            <button id="chercher" type="button" class="btn btn-outline-success form-control mb-2 mr-sm-2">cherché</button>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+        <div id="resultBlock" class="shadow tablewidth my-auto bg-white divcontenu"></div>
         <div>
             <div class="shadow tablewidth my-auto bg-white" >
                 <div class="divcontenu" id="chefService">

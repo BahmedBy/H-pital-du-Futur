@@ -50,7 +50,7 @@ public class RechercherMembre {
     }
     public Utilisateur RechercheMembreById(String id) {
         String SQL = "select id_utilisateur,nom,prenom,photo,gender,dateNaissance,type " +
-                "from utilisateur  where type!='Patient' and type!='Admin' and u.id_utilisateur=" + id;
+                "from utilisateur  where type!='Patient' and type!='Admin' and id_utilisateur=" + id;
 
         return (new ConnectionBD()).getJdbcTemplate().query(SQL, rs -> {
             Utilisateur utilisateur = null;

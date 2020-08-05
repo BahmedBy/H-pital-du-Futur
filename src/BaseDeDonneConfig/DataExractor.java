@@ -148,6 +148,7 @@ public class DataExractor extends DataPath {
         utilisateur.setNom(rs.getString("nom"));
         utilisateur.setPrenom(rs.getString("prenom"));
         utilisateur.setGender(rs.getString("gender"));
+        utilisateur.setType(type1);
         String photo = rs.getString("photo");
         if ((type1.equals("Medecin"))&&(spesialInformation))
             ((Medecin)utilisateur).setSpeiciality(rs.getString("speiciality"));

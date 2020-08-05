@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('#resultBlock').hide();
     $("#ajoute").click( function (){
         $("#origincotent").hide();
         $("#AjoutePersone").append('  <div>\n' +
@@ -106,6 +107,22 @@ $(document).ready(function () {
 
  getPersoneMedical(type)});
 
+    $("#chercher").click(function () {
+        var data;
+        console.log(';;');
+        if ($("#selector").val() == "id")
+        {
+            data = {id: $("#id").val()}}
+        else {
+            data = {
+                nom: $("#nom").val(),
+                prenom: $("#prenom").val()
+            }
+        }
+        $('#resultBlock').show();
+        grtMembre("resultBlock", data);
+    });
+
 });
 
 function DatedeNai() {
@@ -184,5 +201,71 @@ function getPersoneMedical(type) {
         done: function (e) {
             console.log("DONE");
         }
-    })
+    });
+
+}
+function  grtMembre(resulat,data) {
+    var id='#'+resulat;
+    if(typeof data!='undefined')
+    {
+        $.ajax({
+            url: "/searchMembre",
+            data: data,
+            beforeSend:function(){
+                $(id).empty();
+                $(id).append('<div class="divanimation"><p class="h4">Résultat</p><div class="mainAnimation">' +
+                    '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div>')
+            },
+            success: function (data) {
+                $(id).empty();
+                if (jQuery.isEmptyObject(data)) {
+                    $(id).append('<div class="divanimation"><p class="h4"> Résultat</p><div class="mainAnimation">'+
+                        '<p class="h5 text-center">Aucun résultat trouvé</p>'+
+                        '</div>')
+                }
+                else {
+                    var add='<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
+                        '<tr >' +
+                        '<th style="width: 10%">#</th>' +
+                        '<th style="width: 15%">Id</th>' +
+                        '<th style="width: 15%">Photo</th>' +
+                        '<th>nom</th>' +
+                        '<th>Prenom</th>';
+                        '<th>type</th>';
+                    add=add+'</tr>'
+
+                    var co=1;
+                    $.each(data, function (k, v) {
+                            add= add+' <tr data-value="'+v.id+'" >' +
+                                '<td class="align-middle ">'+co+'</td>' +
+                                '<td class="align-middle ">'+v.id+'</td>' +
+                                '<td class="align-middle "><img src="'+v.photo+'" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
+                                '<td class="align-middle " >'+v.nom+'</td>' +
+                                '<td class="align-middle ">'+v.prenom+'</td>';
+                                '<td class="align-middle ">'+v.type+'</td>';
+
+                            add=add+'</tr>';
+                            co++;
+                        }
+                    );
+                    add=add+'</table>';
+
+
+                }
+                $(id).append(add);
+                $('tr').click(function () {
+
+                    affiche($(this).data('value'));               })
+            },
+            error: function (e) {
+                alert(e.responseText);
+                console.log("ERROR: ", e);
+
+            },
+            done: function (e) {
+                console.log("DONE");
+            }
+        })
+
+    }
 }
