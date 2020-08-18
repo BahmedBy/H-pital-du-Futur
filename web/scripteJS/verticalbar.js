@@ -16,8 +16,7 @@ $(document).ready(function () {
 });
 
 function backtofirst(d) {
-    if (!jQuery.isEmptyObject(d)) {
-        alert("ddd");
+    if (d){
         $("#first").show();
         $("#seconde").hide();
         $("#seconde").empty();

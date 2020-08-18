@@ -9,11 +9,11 @@
             beforeSend: function () {
                 $(div).empty();
 
-                $(div).append('<p class="h3 ">Home Page</p><br />\n' +
+                $(div).append('<p class="h3 " id="back"><span class="fas fa-arrow-left mr-3"></span> Home Page</p><br />\n' +
                     '  <div class="shadow tablewidth my-auto bg-white divcontenu " id="infomation"><div class="divanimation"><p class="h4">Résultat</p><div class="mainAnimation">' +
                     '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div></div>');
                 $(div).show();
-
+             $("#back").click(backtofirst(1));
             },
             success: function (data) {
 

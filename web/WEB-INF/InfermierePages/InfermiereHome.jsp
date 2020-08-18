@@ -2,7 +2,8 @@
 <html>
 <head>
     <script src="scripteJS/MedecinJs/MedecinHome.js"></script>
-    <script src="scripteJS/MedecinJs/detailPatientInInfermiere.js"></script>
+    <script src="scripteJS/InfiermiereJs/detailPatientInInfermiere.js"></script>
+    <script src="scripteJS/Rechercher.js"></script>
 
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
@@ -34,7 +35,7 @@
                 <a href="#" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
+                <a href="/RedezVousInfermierePage" class="text-dark font-italic card-link"><span class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span
@@ -54,68 +55,64 @@
     </div>
 </div>
 <div class="page-content" id="content">
-    <p class="h3">Home</p>
-    <div class="separator"></div>
-    <div class="shadow tablewidth my-auto bg-white" id="vertical-center ">
-        <div class="" style="padding: 1rem">
-            <p class="h4"> Recheche patient</p>
-        </div>
-        <div class=" container">
-            <c:choose>
-            <c:when test="${sessionScope.get(\"user\").getService()==null}">
-                <p>no service exsite</p>
-            </c:when>
-            <c:otherwise>
-            <div id="first">
-                <p class="h3 ">Home Page</p><br/>
-                <div class="shadow tablewidth my-auto bg-white ">
-                    <div class="row divcontenu">
-                        <div class="container">
-                            <div class="form-inline">
-                                <div class="container">
-                                    <div class="row"><p class="h4">Recherche dossier medica</p></div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h5">recheche par:</span>
-                                        </div>
-                                        <div class="col">
-                                            <select id="selector" class="form-control mb-2 mr-sm-2">
-                                                <option value="id" selected>id</option>
-                                                <option value="Nom/Prénom<">Nom/Prénom</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row" id="type">
-                                        <div class="col">
-                                            <label for="id" class="col-form-label float-left ">Id:</label></div>
-                                        <div class="col">
-                                            <input type="text" name="id" id="id" class="form-control mb-2 mr-sm-2"
-                                                   required></div>
 
-                                    </div>
 
-                                    <div class="row">
-                                        <input type="submit" value="cherché" id="cherché"
-                                               class="btn btn-outline-success form-control mb-2 mr-sm-2">
+    <c:choose>
+    <c:when test="${sessionScope.get(\"user\").getService()==null}">
+        <p>no service exsite</p>
+    </c:when>
+    <c:otherwise>
+
+        <div id="first">
+            <p class="h3 ">Home Page</p><br/>
+            <div class="shadow tablewidth my-auto bg-white ">
+                <div class="row divcontenu">
+                    <div class="container">
+                        <div class="form-inline">
+                            <div class="container">
+                                <div class="row"><p class="h4">Recherche Patient</p></div>
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h5">recheche par:</span>
                                     </div>
+                                    <div class="col">
+                                        <select id="selector" class="form-control mb-2 mr-sm-2">
+                                            <option value="id" selected>id</option>
+                                            <option value="Nom/Prénom<">Nom/Prénom</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" id="type">
+                                    <div class="col">
+                                        <label for="id" class="col-form-label float-left ">Id:</label></div>
+                                    <div class="col">
+                                        <input type="text" name="id" id="id" class="form-control mb-2 mr-sm-2"
+                                               required></div>
 
                                 </div>
+
+                                <div class="row">
+                                    <input type="submit" value="cherché" id="cherché"
+                                           class="btn btn-outline-success form-control mb-2 mr-sm-2">
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="shadow tablewidth my-auto bg-white divcontenu " id="resultBlock">
-                    <div class="row " id="result">
-                    </div>
-                </div></div>
-                </c:otherwise>
-                </c:choose>
             </div>
-        </div>
+            <div class="shadow tablewidth my-auto bg-white divcontenu " id="resultBlock">
+                <div class="row " id="result">
+                </div>
+            </div></div>
+        <div id="seconde"></div>
+    </c:otherwise>
+            </c:choose>
 
-    </div>
+</div>
+</div>
 <script>
-    var idService=${sessionScope.get("user").getService().getId()};
+    var idService =${sessionScope.get("user").getService().getId()};
 </script>
 </body>
 </html>

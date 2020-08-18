@@ -36,12 +36,16 @@ public class RechercheConroler {
     }
     @RequestMapping(value = "/allPatientInformation" )
     @ResponseBody
-    public Patient patientInformation(@RequestParam("id")String id, HttpSession session){
+    public ArrayList<Patient> patientInformation(@RequestParam("id")String id, HttpSession session){
         if(!testSession(session))
             return null;
 
         Utilisateur user= (Utilisateur) session.getAttribute("user");
-        return new RecherchePatient().PatientDetail(id, user.getType());
+        ArrayList<Patient> patients=new ArrayList<>();
+        Patient patient=new RecherchePatient().PatientDetail(id, user.getType());
+        if(patient!=null)
+            patients.add(patient);
+        return patients;
     }
 
     private boolean testSession(HttpSession session){

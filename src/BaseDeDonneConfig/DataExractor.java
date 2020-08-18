@@ -159,4 +159,13 @@ public class DataExractor extends DataPath {
 
         return utilisateur;
     }
+
+    public Rendez_vous Rendez_vousExrator(ResultSet rs) throws SQLException {
+        Rendez_vous rendez_vous=new Rendez_vous();
+        rendez_vous.setId(rs.getLong("id_rendez_vous"));
+        rendez_vous.setDate(rs.getDate("date"));
+        rendez_vous.setTime(rs.getTime("houre"));
+        return rendez_vous;
+
+    }
 }

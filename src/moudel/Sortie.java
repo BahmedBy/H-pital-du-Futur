@@ -1,11 +1,16 @@
 package moudel;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Date;
 import java.sql.Time;
 
 public class Sortie {
     private String type;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
+    @JsonFormat(pattern="HH-mm-ss")
+
     private Time time;
 
     public Sortie() {

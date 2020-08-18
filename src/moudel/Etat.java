@@ -1,5 +1,7 @@
 package moudel;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Array;
 import java.sql.Time;
 import java.sql.Date;
@@ -10,7 +12,9 @@ public class Etat {
     private double tempeture;
     private double pulsation;
     private double tonsion;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
+    @JsonFormat(pattern="HH-mm-ss")
     private Time time;
     private ArrayList<Raport>raports;
     private Patient patient;

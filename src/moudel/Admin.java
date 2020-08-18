@@ -153,7 +153,7 @@ public class Admin extends Utilisateur {
     }
 
     @Async
-    public String AjouteChembres(String[] numero, String[] service) {
+    public void AjouteChembres(String[] numero, String[] service) {
         (new ConnectionBD()).getJdbcTemplate().batchUpdate(
                 "insert into chembre (numero,id_service) values(?,?)",
                 new BatchPreparedStatementSetter() {
@@ -170,7 +170,7 @@ public class Admin extends Utilisateur {
                     }
 
                 });
-        return "";
+
     }
 
     public long AjouteService(String nomService){

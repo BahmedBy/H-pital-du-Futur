@@ -11,9 +11,10 @@ function getPatient(divResulte,data) {
                 $(id).append('<div class="divanimation"><p class="h4">Résultat</p><div class="mainAnimation">' +
                     '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div>')
             },
-            success: function (Result) {
+            success: function (data) {
                 $(id).empty();
-                if (jQuery.isEmptyObject(Result)||(Result.objects.length == 0)) {
+
+                if (jQuery.isEmptyObject(data)) {
                     $(id).append('<div class="divanimation"><p class="h4"> Résultat</p><div class="mainAnimation">'+
                         '<p class="h5 text-center">Aucun résultat trouvé</p>'+
                         '</div>')
@@ -28,7 +29,7 @@ function getPatient(divResulte,data) {
                         '<th>Prenom</th>';
                     if (divResulte==="Medecin")
                         add=add+'<th>sepiciality</th>';
-                    add=add+'</tr>'
+                    add=add+'</tr>';
 
                     var co=1;
                     $.each(data, function (k, v) {

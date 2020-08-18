@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 @EnableAsync
 public class RecherchePatient {
     public Patient PatientDetail(String id, String type) {
-        String active = "mort=false";
+        String active = "and mort=false";
         String SQL = "select * from utilisateur u,patient p where type='Patient' and u.id_utilisateur=p.id and u.id_utilisateur=" + id;
         if (type.equals("Infermiere"))
             SQL = SQL + " " + active;
@@ -39,7 +39,7 @@ public class RecherchePatient {
     }
 
     public Patient RecherchePatientById(String id, String type) {
-        String active = "mort=false";
+        String active = "and mort=false";
         String SQL = "select id_utilisateur,nom,prenom,photo,gender,dateNaissance from utilisateur u,patient p where type='Patient' and u.id_utilisateur=p.id  and u.id_utilisateur=" + id;
         if (type.equals("Infermiere")) {
             SQL = SQL + " " + active;
