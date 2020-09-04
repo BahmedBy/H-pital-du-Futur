@@ -18,8 +18,6 @@ public class Utilisateur {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateNaissance;
     private boolean active;
-
-
     private String type;
     private String gender;
     private String photo;
@@ -143,5 +141,36 @@ public class Utilisateur {
                     return list;
                 });
     }
+    public void update (String filed ,String value ,Long id){
+        if ((filed.equals("type"))&&(!value.equals("Patient"))){
+            String sql="select type from utilisateur where id_utilisateur="+id;
+            String type=(new ConnectionBD()).getJdbcTemplate().query(sql, rs->{
+                if (rs.next())
+               return rs.getString("type");
+                return null;
+            });
+            if (type!=null)
+            {   sql="update "+ type +" set is_service=null where id_"+type+"="+id;
+            (new ConnectionBD()).getJdbcTemplate().update(sql);
 
+        }
+             sql="insert "+ value +" (id"+value+") values("+id+")";
+            (new ConnectionBD()).getJdbcTemplate().update(sql);}
+        String Sql="update utilisateur set "+filed+"='"+value+"' where id_utilisateur="+id;
+        (new ConnectionBD()).getJdbcTemplate().update(Sql);
+
+    }
+    public Utilisateur loadUtilisateur(long id){
+
+        String SQL ="select * from utilisateur where id_utilisateur="+id;
+        return (new ConnectionBD()).getJdbcTemplate().query(SQL,
+                rs -> {
+                    Utilisateur list = new Utilisateur();
+                    while (rs.next()) {
+                         list = (new DataExractor()).utilisateurExrator(rs,false);
+
+                    }
+                    return list;
+                });
+    }
 }

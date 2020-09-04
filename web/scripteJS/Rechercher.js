@@ -50,8 +50,9 @@ function getPatient(divResulte,data) {
                 }
                 $(id).append(add);
                 $('tr').click(function () {
-
-                    affiche($(this).data('value'));               })
+                    var id=$(this).data('value');
+                    if(typeof id!="undefined")
+                    affiche(id);               })
             },
             error: function (e) {
                 alert(e.responseText);

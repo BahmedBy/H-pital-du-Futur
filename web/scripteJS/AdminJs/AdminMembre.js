@@ -1,77 +1,77 @@
 $(document).ready(function () {
     $('#resultBlock').hide();
-    $("#ajoute").click( function (){
-        $("#origincotent").hide();
-        $("#AjoutePersone").append('  <div>\n' +
-            '<p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Membre pages</p><br/>\n' +
-            '</div>\n' +
-            '<form class="shadow  my-auto bg-white divcontenu" action="AdminAjouteMembre" method="post" enctype="multipart/form-data">\n' +
-            '            <p class="h4"> Ajoute Membre</p><br/>\n' +
-            '            <div class="form-group row">\n' +
-            '                <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>\n' +
-            '                <div class="col">\n' +
-            '                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nom" name="nom" required>\n' +
-            '                </div>\n' +
-            '                <label for="inputEmail3" class="col-sm-1 col-form-label">Preom</label>\n' +
-            '                <div class="col">\n' +
-            '                    <input type="text" class="form-control" placeholder="Preom" name="prenom" required>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="form-group row">\n' +
-            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>\n' +
-            '                <div class="col-sm-10">\n' +
-            '                    <input type="Email" class="form-control" id="inputPassword3" placeholder="Email@a.com" name="email" required>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="form-group row">\n' +
-            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Telphone Numbre</label>\n' +
-            '                <div class="col-sm-10">\n' +
-            '                    <input type="number" class="form-control" placeholder="Telphone Numbre" name="telNumbre">\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="form-group row">\n' +
-            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Date de naissance</label>\n' +
-            '                <div class="col-sm-10">\n' +
-            '                    <input type="date" class="form-control" id="DatedeNai" required placeholder="Date de naissance"\n' +
-            '                           name="DatedeNai">\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div id="divTypeUser" class="form-group row">\n' +
-            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Gender</label>\n' +
-            '                <div class="col">\n' +
-            '                    <select class="form-control" name="gender">\n' +
-            '                        <option value="Male">Male</option>\n' +
-            '                        <option value="Femme">Femme</option>\n' +
-            '                    </select>\n' +
-            '                </div>\n' +
-            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>\n' +
-            '                <div class="col">\n' +
-            '                    <select class="form-control" id="TypeUser" name="typeUser">\n' +
-            '                        <option value="ChefService">Chef Service</option>\n' +
-            '                        <option value="Medecin">Medecin</option>\n' +
-            '                        <option value="Infermiere">Infermiere</option>\n' +
-            '                    </select>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="input-group mb-3 row">\n' +
-            '                <label class="col-sm-2 col-form-label">Photo</label>\n' +
-            '                <div class="custom-file">\n' +
-            '                    <input type="file" class="custom-file-input" name="photo">\n' +
-            '                    <label class="custom-file-label ">Choose Photo</label>\n' +
-            '                </div>\n' +
-            '                <div class="input-group-prepend">\n' +
-            '                    <span class="input-group-text fas fa-file-upload"></span>\n' +
-            '                </div>\n' +
-            '            </div>\n' +
-            '            <div class="form-group formstyle">\n' +
-            '                <input class="btn btn-success float-right" type="submit" value="Ajoute" name="submit">\n' +
-            '            </div>\n' +
+    $("#ajoute").click(function () {
+        $("#first").hide();
+        $("#seconde").append('  <div>' +
+            '<p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Membre pages</p><br/>' +
+            '</div>' +
+            '<form class="shadow  my-auto bg-white divcontenu" action="AdminAjouteMembre" method="post" enctype="multipart/form-data">' +
+            '            <p class="h4"> Ajoute Membre</p><br/>' +
+            '            <div class="form-group row">' +
+            '                <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>' +
+            '                <div class="col">' +
+            '                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nom" name="nom" required>' +
+            '                </div>' +
+            '                <label for="inputEmail3" class="col-sm-1 col-form-label">Preom</label>' +
+            '                <div class="col">' +
+            '                    <input type="text" class="form-control" placeholder="Preom" name="prenom" required>' +
+            '                </div>' +
+            '            </div>' +
+            '            <div class="form-group row">' +
+            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>' +
+            '                <div class="col-sm-10">' +
+            '                    <input type="Email" class="form-control" id="inputPassword3" placeholder="Email@a.com" name="email" required>' +
+            '                </div>' +
+            '            </div>' +
+            '            <div class="form-group row">' +
+            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Telphone Numbre</label>' +
+            '                <div class="col-sm-10">' +
+            '                    <input type="number" class="form-control" placeholder="Telphone Numbre" name="telNumbre">' +
+            '                </div>' +
+            '            </div>' +
+            '            <div class="form-group row">' +
+            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Date de naissance</label>' +
+            '                <div class="col-sm-10">' +
+            '                    <input type="date" class="form-control" id="DatedeNai" required placeholder="Date de naissance"' +
+            '                           name="DatedeNai">' +
+            '                </div>' +
+            '            </div>' +
+            '            <div id="divTypeUser" class="form-group row">' +
+            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Gender</label>' +
+            '                <div class="col">' +
+            '                    <select class="form-control" name="gender">' +
+            '                        <option value="Male">Male</option>' +
+            '                        <option value="Femme">Femme</option>' +
+            '                    </select>' +
+            '                </div>' +
+            '                <label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>' +
+            '                <div class="col">' +
+            '                    <select class="form-control" id="TypeUser" name="typeUser">' +
+            '                        <option value="ChefService">Chef Service</option>' +
+            '                        <option value="Medecin">Medecin</option>' +
+            '                        <option value="Infermiere">Infermiere</option>' +
+            '                    </select>' +
+            '                </div>' +
+            '            </div>' +
+            '            <div class="input-group mb-3 row">' +
+            '                <label class="col-sm-2 col-form-label">Photo</label>' +
+            '                <div class="custom-file">' +
+            '                    <input type="file" class="custom-file-input" name="photo">' +
+            '                    <label class="custom-file-label ">Choose Photo</label>' +
+            '                </div>' +
+            '                <div class="input-group-prepend">' +
+            '                    <span class="input-group-text fas fa-file-upload"></span>' +
+            '                </div>' +
+            '            </div>' +
+            '            <div class="form-group formstyle">' +
+            '                <input class="btn btn-success float-right" type="submit" value="Ajoute" name="submit">' +
+            '            </div>' +
             '        </form></div>');
-        $("#Membrepages").click(function (){
-            $("#AjoutePersone").empty();
-            $("#origincotent").show();
+        $("#Membrepages").click(function () {
+            $("#seconde").empty();
+            $("#first").show();
         });
-      DatedeNai();
+        DatedeNai();
 
         $("#TypeUser").change(
             function () {
@@ -96,30 +96,40 @@ $(document).ready(function () {
         }
 
     });
-    $("#obtenirCS").click( function (){
-        var type=$(this).val();
-       getPersoneMedical(type)});
-    $("#obtenirM").click( function (){
-    var type=$(this).val();
-    getPersoneMedical(type)});
+    $("#obtenirCS").click(function () {
+        var type = $(this).val();
+        getPersoneMedical(type)
+    });
+    $("#obtenirM").click(function () {
+        var type = $(this).val();
+        getPersoneMedical(type)
+    });
 
-    $("#obtenirI").click( function (){ var type=$(this).val();
+    $("#obtenirI").click(function () {
+        var type = $(this).val();
 
- getPersoneMedical(type)});
+        getPersoneMedical(type)
+    });
 
     $("#chercher").click(function () {
         var data;
         console.log(';;');
-        if ($("#selector").val() == "id")
-        {
-            data = {id: $("#id").val()}}
+        if ($("#selector").val() == "id") {
+            var id=$("#id").val();
+            if(typeof id!="undefined")
+            data = {id: $("#id").val()}
+        }
         else {
+            var nom=$("#nom").val();
+            var prenom=$("#prenom").val();
+            if((typeof nom!="undefined")&&(typeof prenom!="undefined"))
             data = {
-                nom: $("#nom").val(),
-                prenom: $("#prenom").val()
+                nom:nom,
+                prenom:prenom
             }
         }
         $('#resultBlock').show();
+        if(typeof data!="undefined")
         grtMembre("resultBlock", data);
     });
 
@@ -140,6 +150,7 @@ function DatedeNai() {
     var maxDate = year + '-' + month + '-' + day;
     $('#DatedeNai').attr('max', maxDate);
 }
+
 function getPersoneMedical(type) {
     var id = "#" + type;
     $.ajax({
@@ -147,49 +158,59 @@ function getPersoneMedical(type) {
         data: {
             "type": type,
         },
-        beforeSend:function(){
+        beforeSend: function () {
             $(id).empty();
-            $(id).append('<div class="divanimation"><p class="h4">List'+type+'</p><div class="mainAnimation">' +
+            $(id).append('<div class="divanimation"><p class="h4">List' + type + '</p><div class="mainAnimation">' +
                 '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div>')
         },
         success: function (data) {
             $(id).empty();
             if (jQuery.isEmptyObject(data)) {
-                $(id).append('<div class="divanimation"><p class="h4">List'+type+'</p><div class="mainAnimation">'+
-                    '<p class="h5 text-center">No chef service dans l\'hopitel</p>'+
+                $(id).append('<div class="divanimation"><p class="h4">List' + type + '</p><div class="mainAnimation">' +
+                    '<p class="h5 text-center">No chef service dans l\'hopitel</p>' +
                     '</div>')
             }
             else {
-                var add='<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
+                var add = '<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
                     '<tr >' +
                     '<th style="width: 10%">#</th>' +
                     '<th style="width: 15%">Id</th>' +
                     '<th style="width: 15%">Photo</th>' +
                     '<th>nom</th>' +
                     '<th>Prenom</th>';
-                if (type==="Medecin")
-                    add=add+'<th>sepiciality</th>';
-                add=add+'</tr>'
+                if (type === "Medecin")
+                    add = add + '<th>sepiciality</th>';
+                add = add + '</tr>'
 
-                var co=1;
-            $.each(data, function (k, v) {
-                 add= add+' <tr data-value="'+v.id+'" >' +
-                    '<td class="align-middle ">'+co+'</td>' +
-                    '<td class="align-middle ">'+v.id+'</td>' +
-                    '<td class="align-middle "><img src="'+v.photo+'" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
-                    '<td class="align-middle " >'+v.nom+'</td>' +
-                    '<td class="align-middle ">'+v.prenom+'</td>';
-                    if (type==="Medecin")
-                    add=add+' <td class="align-middle ">'+v.speiciality+'</td>';
-                add=add+'</tr>';
-                co++;
-            }
-            );
+                var co = 1;
+                $.each(data, function (k, v) {
+                        add = add + ' <tr data-value="' + v.id + '" data-type="' + v.type + '" >' +
+                            '<td class="align-middle ">' + co + '</td>' +
+                            '<td class="align-middle ">' + v.id + '</td>' +
+                            '<td class="align-middle "><img src="' + v.photo + '" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
+                            '<td class="align-middle " >' + v.nom + '</td>' +
+                            '<td class="align-middle ">' + v.prenom + '</td>';
+                        if (type === "Medecin")
+                            add = add + ' <td class="align-middle ">' + v.speiciality + '</td>';
+                        add = add + '</tr>';
+                        co++;
+                    }
+                );
 
-            add=add+'</table>';
-                $(id).append(add)
+                add = add + '</table>';
+                $(id).append(add);
                 $('tr').click(function () {
-                    alert($(this).data('value'));
+                    alert($(this).data('type'));
+                    var id = $(this).data('value');
+                    var type = $(this).data('type');
+
+                    if (typeof id != "undefined"){
+                        var data = {
+                            id: id,
+                            type: type
+                        };
+                    $("#first").hide();
+                    detail(data, "seconde");}
                 })
             }
         },
@@ -204,14 +225,14 @@ function getPersoneMedical(type) {
     });
 
 }
-function  grtMembre(resulat,data) {
-    var id='#'+resulat;
-    if(typeof data!='undefined')
-    {
+
+function grtMembre(resulat, data) {
+    var id = '#' + resulat;
+    if (typeof data != 'undefined') {
         $.ajax({
             url: "/searchMembre",
             data: data,
-            beforeSend:function(){
+            beforeSend: function () {
                 $(id).empty();
                 $(id).append('<div class="divanimation"><p class="h4">Résultat</p><div class="mainAnimation">' +
                     '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div>')
@@ -219,43 +240,44 @@ function  grtMembre(resulat,data) {
             success: function (data) {
                 $(id).empty();
                 if (jQuery.isEmptyObject(data)) {
-                    $(id).append('<div class="divanimation"><p class="h4"> Résultat</p><div class="mainAnimation">'+
-                        '<p class="h5 text-center">Aucun résultat trouvé</p>'+
+                    $(id).append('<div class="divanimation"><p class="h4"> Résultat</p><div class="mainAnimation">' +
+                        '<p class="h5 text-center">Aucun résultat trouvé</p>' +
                         '</div>')
                 }
                 else {
-                    var add='<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
+                    var add = '<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
                         '<tr >' +
                         '<th style="width: 10%">#</th>' +
                         '<th style="width: 15%">Id</th>' +
                         '<th style="width: 15%">Photo</th>' +
                         '<th>nom</th>' +
                         '<th>Prenom</th>';
-                        '<th>type</th>';
-                    add=add+'</tr>'
+                    '<th>type</th>';
+                    add = add + '</tr>'
 
-                    var co=1;
+                    var co = 1;
                     $.each(data, function (k, v) {
-                            add= add+' <tr data-value="'+v.id+'" >' +
-                                '<td class="align-middle ">'+co+'</td>' +
-                                '<td class="align-middle ">'+v.id+'</td>' +
-                                '<td class="align-middle "><img src="'+v.photo+'" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
-                                '<td class="align-middle " >'+v.nom+'</td>' +
-                                '<td class="align-middle ">'+v.prenom+'</td>';
-                                '<td class="align-middle ">'+v.type+'</td>';
+                            add = add + ' <tr data-value="' + v.id + '" >' +
+                                '<td class="align-middle ">' + co + '</td>' +
+                                '<td class="align-middle ">' + v.id + '</td>' +
+                                '<td class="align-middle "><img src="' + v.photo + '" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
+                                '<td class="align-middle " >' + v.nom + '</td>' +
+                                '<td class="align-middle ">' + v.prenom + '</td>';
+                            '<td class="align-middle ">' + v.type + '</td>';
 
-                            add=add+'</tr>';
+                            add = add + '</tr>';
                             co++;
                         }
                     );
-                    add=add+'</table>';
+                    add = add + '</table>';
 
 
                 }
                 $(id).append(add);
                 $('tr').click(function () {
 
-                    affiche($(this).data('value'));               })
+                    affiche($(this).data('value'));
+                })
             },
             error: function (e) {
                 alert(e.responseText);

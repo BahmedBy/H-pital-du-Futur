@@ -43,7 +43,14 @@ public class Medecin extends Utilisateur {
 
     public Medecin() {
     }
-
+    public void update(String filed ,String value ,Long id){
+        if ((filed.equals("id_service"))||(filed.equals("speiciality"))){
+            String Sql="update Medecin set "+filed+"="+value+" where id_Medecin="+id;
+            (new ConnectionBD()).getJdbcTemplate().update(Sql);
+        }
+        else
+            super.update(filed, value,id );
+    }
     public String getSpeiciality() {
         return speiciality;
     }
@@ -63,7 +70,11 @@ public class Medecin extends Utilisateur {
             return service;
         }));
     }
-
+    public Utilisateur loadUtilisateur(long id){
+        Medecin u= (Medecin) super.loadUtilisateur(id);
+        u.londService();
+        return u;
+    }
     @Async
     public Future<ArrayList<Raport>> raportOFEtat(Long id_Etar) {
         String SQL = "select * from raport r,utilisateur u where r.id_medecin=u.id_utilisateur and id_etat=" + id_Etar;
@@ -149,5 +160,17 @@ public class Medecin extends Utilisateur {
             }
 
         });
+    }
+    public ArrayList<Rendez_vous> listRenderVous(String date){
+        String SQl="select * from rendez_vous r ,patient p,utilisqteur u where r.id_patient=p.id and u.id_patient=p.id and r.date="+date+" and r.id_medecin="+this.getId();
+        return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
+            ArrayList<Rendez_vous> rendez_vous=new ArrayList<>();
+            while (rs.next()) {
+                Rendez_vous rendez_vous1=new Rendez_vous();
+                rendez_vous1= (new DataExractor()).Rendez_vousExrator(rs);
+                 rendez_vous1.setPatient((new DataExractor()).pationExratorNomId(rs));
+                 rendez_vous.add(rendez_vous1);}
+            return rendez_vous;
+        }));
     }
 }

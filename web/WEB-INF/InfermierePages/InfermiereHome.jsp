@@ -35,7 +35,8 @@
                 <a href="#" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/RedezVousInfermierePage" class="text-dark font-italic card-link"><span class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
+                <a href="/RedezVousInfermierePage" class="text-dark font-italic card-link"><span
+                        class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span
@@ -58,56 +59,57 @@
 
 
     <c:choose>
-    <c:when test="${sessionScope.get(\"user\").getService()==null}">
-        <p>no service exsite</p>
-    </c:when>
-    <c:otherwise>
-
-        <div id="first">
-            <p class="h3 ">Home Page</p><br/>
-            <div class="shadow tablewidth my-auto bg-white ">
-                <div class="row divcontenu">
-                    <div class="container">
-                        <div class="form-inline">
-                            <div class="container">
-                                <div class="row"><p class="h4">Recherche Patient</p></div>
-                                <div class="row">
-                                    <div class="col">
-                                        <span class="h5">recheche par:</span>
+        <c:when test="${sessionScope.get(\"user\").getService()==null}">
+            <p>no service exsite</p>
+        </c:when>
+        <c:otherwise>
+            <div id="first">
+                <p class="h3 ">Home Page</p><br/>
+                <div class="shadow tablewidth my-auto bg-white ">
+                    <div class="row divcontenu">
+                        <div class="container">
+                            <div class="form-inline">
+                                <div class="container">
+                                    <div class="row"><p class="h4">Recherche Patient</p></div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="h5">recheche par:</span>
+                                        </div>
+                                        <div class="col">
+                                            <select id="selector" class="form-control mb-2 mr-sm-2">
+                                                <option value="id" selected>id</option>
+                                                <option value="Nom/Prénom<">Nom/Prénom</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <select id="selector" class="form-control mb-2 mr-sm-2">
-                                            <option value="id" selected>id</option>
-                                            <option value="Nom/Prénom<">Nom/Prénom</option>
-                                        </select>
+                                    <div class="row" id="type">
+                                        <div class="col">
+                                            <label for="id" class="col-form-label float-left ">Id:</label></div>
+                                        <div class="col">
+                                            <input type="text" name="id" id="id" class="form-control mb-2 mr-sm-2"
+                                                   required></div>
+
                                     </div>
-                                </div>
-                                <div class="row" id="type">
-                                    <div class="col">
-                                        <label for="id" class="col-form-label float-left ">Id:</label></div>
-                                    <div class="col">
-                                        <input type="text" name="id" id="id" class="form-control mb-2 mr-sm-2"
-                                               required></div>
+
+                                    <div class="row">
+                                        <input type="submit" value="cherché" id="cherché"
+                                               class="btn btn-outline-success form-control mb-2 mr-sm-2">
+                                    </div>
 
                                 </div>
-
-                                <div class="row">
-                                    <input type="submit" value="cherché" id="cherché"
-                                           class="btn btn-outline-success form-control mb-2 mr-sm-2">
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="shadow tablewidth my-auto bg-white divcontenu " id="resultBlock">
-                <div class="row " id="result">
+                <div class="shadow tablewidth my-auto bg-white divcontenu " id="resultBlock">
+                    <div class="row " id="result">
+                    </div>
                 </div>
-            </div></div>
-        <div id="seconde"></div>
-    </c:otherwise>
-            </c:choose>
+
+            </div>
+            <div id="seconde"></div>
+        </c:otherwise>
+    </c:choose>
 
 </div>
 </div>

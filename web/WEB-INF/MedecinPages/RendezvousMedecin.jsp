@@ -33,7 +33,7 @@
     <div>
         <ul class="nav flex-column  mb-0 list-group " id="list">
             <li class=" font-italic list-group-item list-group-item-action">
-                <a href="<c:url value="/InfermiereHomePage"/>" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="<c:url value="/MedecinHomePage"/>" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="active nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span
@@ -48,7 +48,7 @@
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/logout" class="text-dark font-italic card-link "><span
+                <a href="<c:url value="/logout"/>" class="text-dark font-italic card-link "><span
                         class="fas fa-sign-out-alt mr-3"></span>logout</a>
             </li>
         </ul>
@@ -97,11 +97,8 @@
                     <div id="ListRendzVous">
                         <div class="row  divcontenu ">
 
-                            <div class="col-3 my-auto ">
+                            <div class="col-5 my-auto ">
                                 <p class="h5">partient </p>
-                            </div>
-                            <div class="col-3 my-auto ">
-                                <p class="h5">Medcin</p>
                             </div>
 
                             <div class="col  my-auto ">
@@ -110,9 +107,7 @@
                             <div class="col  my-auto ">
                                 <p class="h5"> Temp</p>
                             </div>
-                            <div class="col  my-auto ">
 
-                            </div>
                         </div>
                         <div class="w-100 border"></div>
                         <c:forEach var="rendez" items="${rendezVous}">
@@ -130,18 +125,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 my-auto ">
-                                <div class="row">
-                                    <div class="col">
-                                        <img src="${rendez.medecin.photo}" width="50" height="50"
-                                             class="rounded-circle  shadow-sm ">
-                                    </div>
-                                    <div class="col">
-                                        <p class="h6 row">${rendez.medecin.nom}</p>
-                                        <p class="h6 row">${rendez.medecin.prenom}</p>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="col  my-auto ">
                                 <p class="h5"> ${rendez.date.day}/${rendez.date.month}/${rendez.date.year}</p>
@@ -149,14 +132,7 @@
                             <div class="col  my-auto ">
                                 <p class="h5"> ${rendez.time.hours}:${rendez.time.minutes}</p>
                             </div>
-                            <div class="col  my-auto ">
-                                <button class="btn"><span style="color: rgb(104, 229, 238);"><i class="fas fa-pen"></i></span>
-                                </button>
-                                /
-                                <button class="btn"><span style="color: red;"><i class="far fa-trash-alt"></i></span>
-                                </button>
-                            </div>
-                        </div>
+
                         <div class="w-100 border"></div>
                         </c:forEach>
 

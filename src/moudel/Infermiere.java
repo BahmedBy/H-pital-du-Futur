@@ -37,6 +37,14 @@ public class Infermiere extends Utilisateur {
     public Infermiere() {
     }
 
+    public void update(String filed ,String value ,Long id){
+    if (filed.equals("id_service")){
+        String Sql="update infermiere set "+filed+"="+value+" where id_Infermiere="+id;
+        (new ConnectionBD()).getJdbcTemplate().update(Sql);
+    }
+    else
+        super.update(filed, value,id );
+    }
     public Service getService() {
         return service;
     }
@@ -53,6 +61,11 @@ public class Infermiere extends Utilisateur {
             }
             return service;
         }));
+    }
+    public Utilisateur loadUtilisateur(long id){
+        Infermiere u= (Infermiere) super.loadUtilisateur(id);
+        u.londService();
+        return u;
     }
     @Async
     public ArrayList<Rendez_vous> listRenderVous(String date){
@@ -78,7 +91,7 @@ public class Infermiere extends Utilisateur {
     }
     @Async
     public Future<Medecin>loadMedcine(long id_Medecin){
-        String SQl="select * from utilisateur u r ,medecin m where u.id_utilisateur=m.id_medecin and m.id_medecin="+id_Medecin;
+        String SQl="select * from utilisateur u ,medecin m where u.id_utilisateur=m.id_medecin and type='Medecin' and m.id_medecin="+id_Medecin;
         return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
 
             Medecin medecin=new Medecin();
@@ -90,7 +103,7 @@ public class Infermiere extends Utilisateur {
     }
     @Async
     public Future<Patient>loadPatient(long id_Medecin){
-        String SQl="select * from utilisateur u r ,Patient m where u.id_utilisateur=m.id and m.id="+id_Medecin;
+        String SQl="select * from utilisateur u ,Patient m where u.id_utilisateur=m.id and m.id="+id_Medecin;
         return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
 
             Patient patient=new Patient();

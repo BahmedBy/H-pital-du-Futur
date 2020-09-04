@@ -32,18 +32,18 @@
                 <a href="#" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/AdminServicePage" class="text-dark font-italic card-link"><span
+                <a href="<c:url value="/AdminServicePage"/>" class="text-dark font-italic card-link"><span
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/AdminMembrePage" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="<c:url value="/AdminMembrePage"/>" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
+                <a href="<c:url value="/CompteInformation"></c:url> " class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/logout" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
+                <a href="<c:url value="/logout"/>" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
                 ></span>logout</a>
             </li>
         </ul>
@@ -68,7 +68,7 @@
         </tr>
         <tr>
             <td>numéro des patients hospotalisé</td>
-            <td>${stat.get("NPartient")}</td>
+            <td>${stat.get("NPatient")}</td>
         </tr>
 
 

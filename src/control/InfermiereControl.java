@@ -2,6 +2,7 @@ package control;
 
 import moudel.Infermiere;
 import moudel.Medecin;
+import moudel.Rendez_vous;
 import moudel.Utilisateur;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class InfermiereControl {
     if (!testSession(session))
         return "login";
     Infermiere infermiere = (Infermiere) session.getAttribute("user");
+    if(infermiere.getService()==null)
     infermiere.londService();
     return "/InfermierePages/InfermiereHome";
 }
@@ -74,6 +76,17 @@ public class InfermiereControl {
             return null;
         else
             return infermiere.tempLibre(id_Medecin, date,id_Patient);
+    }
+    @RequestMapping("/Rendez-vousofdate")
+    public @ResponseBody
+    ArrayList<Rendez_vous>Rendezvousofdate(HttpSession session, @RequestParam("date")String date){
+        if (!testSession(session))
+            return null;
+        Infermiere infermiere = (Infermiere) session.getAttribute("user");
+        if (infermiere.getService()==null)
+            return null;
+        else
+            return infermiere.listRenderVous(date);
     }
     private boolean testSession(HttpSession session) {
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");

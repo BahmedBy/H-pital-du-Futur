@@ -16,7 +16,7 @@ public class RechercherMembre {
     public Utilisateur MembreDetail(String id, String type) {
 
         String SQL = "select * from utilisateur u,"+type+" t" +
-                " where u.id_utilisateur=t.id_"+type+" and active=true and id_utilisateur=" + id;
+                " where u.id_utilisateur=t.id_"+type+"  and id_utilisateur=" + id;
 
         return (new ConnectionBD()).getJdbcTemplate().query(SQL, rs -> {
             Utilisateur utilisateur = null;

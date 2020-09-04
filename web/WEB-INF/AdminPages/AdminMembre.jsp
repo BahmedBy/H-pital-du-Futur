@@ -3,6 +3,8 @@
 <head>
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <script type="text/javascript" src="scripteJS/AdminJs/AdminMembre.js"></script>
+    <script type="text/javascript" src="scripteJS/AdminJs/detailMembreAdmin.js"></script>
+    <script src="scripteJS/CompteInformation.js"></script>
     <title>
         Espace Admis
     </title>
@@ -29,19 +31,19 @@
     <div>
         <ul class="nav flex-column  mb-0 list-group font-italic" id="list">
             <li class="list-group-item list-group-item-action">
-                <a href="/AdminHomePage" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="<c:url value="/AdminHomePage"/>" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/AdminServicePage" class="text-dark  card-link"><span class="fas fa-briefcase mr-3"></span>service</a>
+                <a href="<c:url value="/AdminServicePage"/>" class="text-dark  card-link"><span class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action active">
-                <a href="/AdminMembrePage" class="text-dark card-link "><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="#" class="text-dark card-link "><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark card-link"><span class="fas fa-cog mr-3"></span>Vorte compte</a>
+                <a href="<c:url value="/CompteInformation"></c:url> " class="text-dark card-link"><span class="fas fa-cog mr-3"></span>Vorte compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/logout" class="text-dark card-link "><span class="fas fa-sign-out-alt mr-3"
+                <a href="<c:url value="/logout"/>" class="text-dark card-link "><span class="fas fa-sign-out-alt mr-3"
                 ></span>logout</a>
             </li>
         </ul>
@@ -49,7 +51,7 @@
     </div>
 </div>
 <div class="page-content" id="content">
-    <div id="origincotent">
+    <div id="first">
         <div>
             <div class="shadow tablewidth my-auto bg-white">
                 <div class="row divcontenu">
@@ -146,7 +148,7 @@
             </div>
         </div>
     </div>
-    <div id="AjoutePersone">
+    <div id="seconde">
     </div>
 </div>
 </body>

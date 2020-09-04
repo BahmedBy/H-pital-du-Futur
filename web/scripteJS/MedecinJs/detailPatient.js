@@ -2,18 +2,18 @@
     var div = "#" + divResulte;
     var idDossier;
     var hospitalise;
+    $(div).empty();
+    $(div).show();
     if (typeof idPation != "undefined")
         $.ajax({
             url: "/allPatientInformation",
             data: {id: idPation},
             beforeSend: function () {
-                $(div).empty();
-
                 $(div).append('<p class="h3 " id="back"><span class="fas fa-arrow-left mr-3"></span> Home Page</p><br />\n' +
                     '  <div class="shadow tablewidth my-auto bg-white divcontenu " id="infomation"><div class="divanimation"><p class="h4">Résultat</p><div class="mainAnimation">' +
                     '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div></div>');
                 $(div).show();
-             $("#back").click(backtofirst(1));
+             $("#back").click(function (){backtofirst(1)});
             },
             success: function (data) {
 
@@ -205,8 +205,10 @@
                 });});
                 $("#etatActuel").click(function () {
                     $("#etatActueldiv").empty(); $("#etatActueldiv").show();
+
                     $("#etatActueldiv").append('<div class="shadow tablewidth my-auto bg-white divcontenu "><div>\n' +
-                        ' <p class="h5">L\'état Actuel</p><br/></div><div></div>')
+                        ' <p class="h5">L\'état Actuel</p><br/></div><div></div>');
+                    sendName();
                 });
             },
             error: function (e) {

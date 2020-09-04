@@ -3,6 +3,7 @@
 <head>
 
     <script type="text/javascript" src="scripteJS/AdminJs/AdminService.js"></script>
+    <script type="text/javascript" src="scripteJS/AdminJs/detailservice.js"></script>
     <title>
         Espace Admis
     </title>
@@ -30,21 +31,21 @@
     <div>
         <ul class="nav flex-column  mb-0 list-group " id="list">
             <li class=" font-italic list-group-item list-group-item-action">
-                <a href="AdminHomePage" class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="<c:url value="/AdminHomePage"></c:url> " class="text-dark"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="active nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span
                         class="fas fa-briefcase mr-3"></span>service</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="AdminService" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
+                <a href="<c:url value="/AdminMembrePage"/>" class="text-dark font-italic card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
+                <a href="<c:url value="/CompteInformation"></c:url> " class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="/logout" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
+                <a href="<c:url value="/logout"/>" class="text-dark font-italic card-link "><span class="fas fa-sign-out-alt mr-3"
                 ></span>logout</a>
             </li>
         </ul>
@@ -93,7 +94,7 @@
                         </tr>
                         <c:forEach items="${services}" var="service" varStatus="status">
 
-                            <tr onclick="">
+                            <tr data-value="${service.id}" >
                                 <th>${status.count}</th>
                                 <th>${service.id}</th>
                                 <th>${service.nom}</th>

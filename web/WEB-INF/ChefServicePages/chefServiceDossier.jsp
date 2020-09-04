@@ -4,7 +4,6 @@
     <script src="scripteJS/chefServiceScript/chefServiceDossier.js"></script>
     <script src="scripteJS/chefServiceScript/detailPartionChefService.js"></script>
     <script src="scripteJS/Rechercher.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>

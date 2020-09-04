@@ -183,7 +183,7 @@ function detailPartionChefService(idPation, divResulte) {
                     '              </div>\n' +
                     '            </div>\n' +
                     '          </div>\n' +
-                    '        </div>')
+                    '        </div>');
 
                 $("#sortir").click(function () {
 

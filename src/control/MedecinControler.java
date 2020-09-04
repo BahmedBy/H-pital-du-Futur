@@ -1,9 +1,6 @@
 package control;
 
-import moudel.ChefService;
-import moudel.Etat;
-import moudel.Medecin;
-import moudel.Utilisateur;
+import moudel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class MedecinControler {
@@ -51,5 +50,16 @@ public class MedecinControler {
             return false;
         else
             return true;
+    }
+    @RequestMapping("/RedezVousMedecinPage")
+    public String RedezVousInfermierePage(HttpSession session, Model model){
+        if (!testSession(session))
+            return "login";
+        Medecin medecin = (Medecin) session.getAttribute("user");
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        model.addAttribute("rendezVous", medecin.listRenderVous(formatter.format(date)));
+        model.addAttribute("date", formatter.format(date  ));
+        return "/MedecinPages/MedecinHome";
     }
 }

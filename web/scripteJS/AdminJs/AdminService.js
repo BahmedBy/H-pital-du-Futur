@@ -8,6 +8,12 @@ $(document).ready(function () {
         ajouteServiceForm("#seconde")
         $("#seconde").show();
     });
+    $("tr").click(function () {
+        $("#first").hide();
+        var service = $(this).data('value');
+        if (typeof service != "undefined")
+            detailService(service,"#seconde");
+    });
     $("#getchembreList").click(function () {
         $("#first").hide();
 
@@ -41,31 +47,32 @@ $(document).ready(function () {
                         '<th>Numero</th>' +
                         '<th>Plein</th>' +
                         '<th>service</th>';
+                    +'<th></th>';
                     var co = 1;
                     $.each(data, function (k, v) {
-                            add = add + ' <tr data-value="' + v.numero + '" >' +
+                        var button='';
+                            add = add + ' <tr id="' + v.numero + '" >' +
                                 '<td class="align-middle ">' + co + '</td>' +
                                 '<td class="align-middle ">' + v.numero + '</td>';
                             if (v.plein === true)
                                 add = add + '<td class="align-middle success">yes</td>';
-                            else
+                            else {
                                 add = add + '<td class="align-middle success">No</td>';
-
+                                  button='<td><span class="fas fa-pen" onclick="editchembre(\''+ v.numero + '\')" style=" cursor: pointer;"></span> / ' +
+                                      '<span class="far fa-times-circle" style="color:red; cursor: pointer;" onclick="editchembre(\''+ v.numero + '\')"></span></td>';
+                            }
                             if (jQuery.isEmptyObject(v.service))
-                                add = add + '<td class="align-middle success">no affectée</td>';
+                                add = add + '<td value="service" class="align-middle success">no affectée</td>';
                             else
-                                add = add + '<td class="align-middle success">' + v.service.nom + '</td>';
-                            add = add + '</tr>';
+                                add = add + '<td value="service" class="align-middle success">' + v.service.nom + '</td>';
+                            add = add +button+ '</tr>';
                             co++;
                         }
                     );
                     add = add + '</table>';
                     $("#chembreList").empty();
                     $("#chembreList").append(add);
-                    $('tr').click(function () {
-                        alert("dff");
-                        alret($(this).data("value"));
-                    })
+
                 }
             },
             error: function (e) {
@@ -93,7 +100,7 @@ $(document).ready(function () {
                 '<div class="col">' +
                 '<select  class="form-control" name="service">' +
                 '<option value="null" selected>no affecter</option>' +
-                '<optgroup label="servces" id="servcesListOption"></optgroup>' +servces+
+                '<optgroup label="servces" id="servcesListOption"></optgroup>' + servces +
                 '</select>' +
                 '</div>' +
                 '<div class="col-0">' +
@@ -106,9 +113,9 @@ $(document).ready(function () {
                 '</form>');
             $("#thered").show();
 
-        })
+        });
         $("#seconde").show();
-    })
+    });
 
     function ajouteServiceForm(elem) {
         $(elem).append('<form class="border rounded shadow formstyle" action="AjouteService" enctype="multipart/form-data" >' +
@@ -128,7 +135,6 @@ $(document).ready(function () {
             '    <label for="nomService" class="col-sm-2  col-form-label">chef service</label>' +
             '    <div class="col">' +
             '      <select class="form-control" id="nomChefService" name="chefService">' +
-            '<option >plus tard</option>' +
             '</select>' +
             '    </div>' +
             '     <div class="col-md-auto">' +
@@ -145,30 +151,9 @@ $(document).ready(function () {
             '  <input class="btn btn-success float-right" type="submit" value="Ajoute" name="submit">' +
             '  </div>' +
             '</form>');
-        $.ajax({
-            url: "/chefserviceNotAficte",
-            success: function (data) {
-
-                $.each(data, function (k, v) {
-                    var o = new Option(v.nom+" "+v.prenom , v.id);
-                    var photo='url("' + v.photo + '")';
-                    console.log(photo);
-                    console.log("kkk");
-                    $(o).css('background-image', photo );
-                    $("#nomChefService").append(o);
-                })
-
-            },
-            error: function (e) {
-                alert(e.responseText);
-                console.log("ERROR: ", e);
-            },
-            done: function (e) {
-                console.log("DONE");
-            }
-        })
 
 
+        chesfServiceLibre('#nomChefService');
         $.ajax({
             url: "/ChembreLibre",
             beforeSend: function () {
@@ -223,6 +208,38 @@ $(document).ready(function () {
     }
 
 });
+function  editchembre(div) {
+    var id="#"+div;
+    console.log('ddd');
+    $(id).find([value='service']).empty();
+}
 function plus() {
     $("#chembreadd").append('<div class="form-group row"><label for="inputEmail3" class="col-sm-2 col-form-label">Numero chembre</label><div class="col"><input type="text" class="form-control" id="inputEmail3" placeholder="Numero chembre" name="Numerochembre"></div><label for="inputEmail3" class="col-sm-1 col-form-label" >service</label><div class="col"><select class="form-control" name="service"><option value="null" selected>no affecter</option><optgroup label="servces" id="servcesListOption"></optgroup>' + servces + '</select> </div><div class="col-0"><button class="btn ml-auto align-self-center" onclick="plus()" type="button" style="margin-right: 2rem;"><span class="fas fa-plus" ></span></button></div></div></div>');
 };
+
+function chesfServiceLibre(div) {
+    if (typeof div != "undefined")
+        $.ajax({
+            url: "/chefserviceNotAficte",
+            success: function (data) {
+                if (jQuery.isEmptyObject(data)) {
+
+                    $(div).append('<option value="0" disabled>no chef service libre exsit</option>');
+                }
+                $.each(data, function (k, v) {
+                    var o = new Option(v.nom + " " + v.prenom, v.id);
+                    $(o).attr('data-value',v.photo);
+                    $(o).attr('id',v.id);
+                    $(div).append(o);
+                })
+
+            },
+            error: function (e) {
+                alert(e.responseText);
+                console.log("ERROR: ", e);
+            },
+            done: function (e) {
+                console.log("DONE");
+            }
+        });
+}

@@ -41,7 +41,16 @@ public class ChefServiceControler {
         }
         return "ChefServicePages/chefServiceMembre";
     }
-
+    @RequestMapping("/ChefServiceSupprimerMembre")
+    public String SupprimerMembre(HttpSession session, Model model,@RequestParam("id")Long id,@RequestParam("type")String type) {
+        if (!testSession(session))
+            return "redirect:/loginpage";
+        ChefService chefService = (ChefService) session.getAttribute("user");
+        if (chefService.getService() != null) {
+            chefService.suppremeMembre(id, type);
+        }
+        return "redirect:/ChefServiceMembrePage";
+    }
     @RequestMapping("/ChefServiceDossieraMedicalPage")
     public String DossieraMedicalPage(HttpSession session) {
         if (!testSession(session))

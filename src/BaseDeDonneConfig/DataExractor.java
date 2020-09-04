@@ -25,7 +25,7 @@ public class DataExractor extends DataPath {
         patient.setHospitalise(rs.getBoolean("hospitalise"));
         patient.setMort(rs.getBoolean("mort"));
 
-        if ((photo == null) || (!(new File(pathuploadFile + patient.getId() + patient.getNom() + photo).exists())))
+        if ((photo == null) || (!(new File(pathuploadFile + patient.getId()  + photo).exists())))
             patient.setPhoto(path + patient.getGender() + ".png");
         else
             patient.setPhoto(path + patient.getId() + patient.getNom() + photo);
@@ -45,7 +45,7 @@ public class DataExractor extends DataPath {
         patient.setGender(rs.getString("gender"));
         String photo = rs.getString("photo");
 
-        if ((photo == null) || (!(new File(pathuploadFile + patient.getId() + patient.getNom() + photo).exists())))
+        if ((photo == null) || (!(new File(pathuploadFile + patient.getId()  + photo).exists())))
             patient.setPhoto(path + patient.getGender() + ".png");
         else
             patient.setPhoto(path + patient.getId() + patient.getNom() + photo);
@@ -92,7 +92,7 @@ public class DataExractor extends DataPath {
             ((Patient)utilisateur).setHospitalise(rs.getBoolean("hospitalise"));
             ((Patient)utilisateur).setMort(rs.getBoolean("mort"));
     }
-       if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
+       if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId()  + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else
             utilisateur.setPhoto(path + utilisateur.getId() + utilisateur.getNom() + photo);
@@ -155,7 +155,7 @@ public class DataExractor extends DataPath {
         if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else
-            utilisateur.setPhoto(path + utilisateur.getId() + utilisateur.getNom() + photo);
+            utilisateur.setPhoto(path + utilisateur.getId()  + photo);
 
         return utilisateur;
     }

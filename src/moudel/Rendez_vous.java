@@ -61,7 +61,7 @@ public class Rendez_vous {
     }
     public ArrayList<String> tempLibre(long id_medecin, String date, long id_Patient){
         ArrayList<String> tempTraviler=tempTraviler();
-        String SQl="select houre from rendez_vous where id_medecin="+id_medecin+" and date="+date+" UNION select houre from rendez_vous where id_pateint="+id_Patient+" and date="+date;
+        String SQl="select houre from rendez_vous where id_medecin="+id_medecin+" and date="+date+" UNION select houre from rendez_vous where id_patient="+id_Patient+" and date="+date;
         ArrayList<String>temp= ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
             ArrayList<String> tempO=new ArrayList<>();
             while (rs.next()) {
@@ -78,11 +78,22 @@ public class Rendez_vous {
         return temp;
     }
 
+    public void suprremeRendezVous(int id){
+
+    }
+    public void supprimerRendezVousMedecin(long id) {
+
+        String Sql="select id_rendez_vous from rendez_vous where id_medecin="+id;
+        (new ConnectionBD()).getJdbcTemplate().query(Sql, rs->{
+            while (rs.next())
+          suprremeRendezVous(rs.getInt("id_rendez_vous"));
+        });
+    }
     @Async
     ArrayList<String> tempTraviler(){
         ArrayList<String>Temp=new ArrayList<>();
         for (int h=8;h<=14;h++)
-            for (int m=0;h<=60;m=m+15){
+            for (int m=0;m<=60;m=m+15){
                 String t=h+":"+m;
                 Temp.add(t);
             }return Temp;

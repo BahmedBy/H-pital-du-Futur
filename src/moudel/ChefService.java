@@ -42,7 +42,19 @@ public class ChefService extends Utilisateur {
 
     public ChefService() {
     }
-
+    public void update(String filed ,String value ,Long id){
+        if (filed.equals("id_service")){
+            String Sql="update ChefService set "+filed+"="+value+" where id_ChefService="+id;
+            (new ConnectionBD()).getJdbcTemplate().update(Sql);
+        }
+        else
+            super.update(filed, value,id );
+    }
+    public Utilisateur loadUtilisateur(long id){
+       ChefService u= (ChefService) super.loadUtilisateur(id);
+        u.londService();
+        return u;
+    }
     public void londService() {
         String sql = "select s.id_service,nom from service s,chefservice cs where cs.id_service=s.id_service and cs.id_chefService=" + getId();
         this.setService((new ConnectionBD()).getJdbcTemplate().query(sql, rs -> {
@@ -213,7 +225,7 @@ public class ChefService extends Utilisateur {
             }
             if (id != 0) {
                 if (photo != null) {
-                    File outFile = new File(realPath + "uploadFile" + File.separator + id + nom + extension);
+                    File outFile = new File(realPath + "uploadFile" + File.separator + id +extension);
                     try {
                         photo.transferTo(outFile);
                         outFile.createNewFile();
@@ -327,5 +339,14 @@ public class ChefService extends Utilisateur {
         }
 
     }
+    @Async
+    public void suppremeMembre(long id,String type){
+        if(type.equals("Medecin")) {
+            (new Rendez_vous()).supprimerRendezVousMedecin(id);
+            (new Medecin()).update("id_service", null, id);
+        }else
+            (new Infermiere()).update("id_service", null, id);
 
+
+    }
 }

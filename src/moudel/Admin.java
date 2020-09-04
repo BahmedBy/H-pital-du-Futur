@@ -8,6 +8,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.test.context.jdbc.SqlMergeMode;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -24,21 +25,12 @@ public class Admin extends Utilisateur {
         stat.put("NService", connectionBD.getJdbcTemplate().queryForObject("SELECT COUNT(*) FROM service", Integer.class));
         stat.put("NMedecin", connectionBD.getJdbcTemplate().queryForObject("SELECT COUNT(*) FROM utilisateur where type ='Medecin' and active ='1'", Integer.class));
         stat.put("NInfermiere", connectionBD.getJdbcTemplate().queryForObject("SELECT COUNT(*) FROM utilisateur where type ='Infermiere' and active ='1'", Integer.class));
-        stat.put("NPartient", connectionBD.getJdbcTemplate().queryForObject("SELECT COUNT(*) FROM utilisateur where type ='Partient' and active ='1'", Integer.class));
+        stat.put("NPatient", connectionBD.getJdbcTemplate().queryForObject("SELECT COUNT(*) FROM Patient where  hospitalise ='1'", Integer.class));
         return stat;
     }
 
-    public ArrayList<Service> getListService() {
-        String SQL = "select * from service";
-        return (new ConnectionBD()).getJdbcTemplate().query(SQL,
-                rs -> {
-                    ArrayList<Service> list = new ArrayList<>();
-                    while (rs.next()) {
-                        Service service = (new DataExractor()).serviceExrator(rs);
-                        list.add(service);
-                    }
-                    return list;
-                });
+    public ArrayList<Service> ListService() {
+        return (new Service()).listhopitelService();
     }
 
     public ArrayList<Utilisateur> getPersoneMedical(String type) {
@@ -114,7 +106,7 @@ public class Admin extends Utilisateur {
             }
             if (id != 0) {
                 if(photo!=null){
-                File outFile = new File(realPath + "uploadFile" + File.separator + id + nom + extension);
+                File outFile = new File(realPath + "uploadFile" + File.separator + id +extension);
                 try {
                     photo.transferTo(outFile);
                     outFile.createNewFile();
@@ -188,19 +180,28 @@ public class Admin extends Utilisateur {
         }, keyHolder);
         return  Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
-
     @Async
-    public void AfficteChefService(Long Service,String chefService){
-        String sql=String.format("update chefservice set id_service=%d where id_chefService=%s",Service,chefService);
+    public void updateMembre(String filed,String value,long id){
+        if(filed.equals("speiciality"))
+            (new Medecin()).update(filed, value, id);
+        else
+            update(filed, value, id);
+    }
+    @Async
+    public void AfficteChefService(Long Service,Long chefService){
+        String sql=String.format("update chefservice set id_service=NULL where id_service=%s",Service);
+        (new ConnectionBD()).getJdbcTemplate().update(sql);
+         sql=String.format("update chefservice set id_service=%d where id_chefService=%s",Service,chefService);
         (new ConnectionBD()).getJdbcTemplate().update(sql);
     }
     @Async
-    public void AfficteChembre(Long Service,String[] chembres){
+    public void AfficteChembre(Long service,String[] chembres){
+
         (new ConnectionBD()).getJdbcTemplate().batchUpdate(
                 "update chembre set id_service=? where numero=?",
                 new BatchPreparedStatementSetter() {
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
-                        ps.setLong(1, Service);
+                        ps.setLong(1, service);
                         ps.setString(2, chembres[i]);
                     }
 
@@ -220,4 +221,28 @@ public class Admin extends Utilisateur {
             return service;
         });
     }
+    @Async
+    public void changeStaticCompteMembre(long id,String type){
+        if(type.equals("Medecin"))
+        (new Rendez_vous()).supprimerRendezVousMedecin(id);
+        String Sql="delete from utilsateur where id_utilsateur"+id;
+        (new ConnectionBD()).getJdbcTemplate().update(Sql);
+    }
+    @Async
+    public void suppremeMembre(long id,String type){
+        if(type.equals("Medecin"))
+          (new Rendez_vous()).supprimerRendezVousMedecin(id);
+        String Sql="update utilisateur set active=NOT (select active from(select * from utilisateur) as u where u.id_utilisateur=?) where id_utilisateur=?";
+        (new ConnectionBD()).getJdbcTemplate().update(Sql,preparedStatement -> {
+            preparedStatement.setLong(1, id);
+            preparedStatement.setLong(2, id);
+        });
+    }
+    public Service loadService(Long idService){
+        return (new Service()).loadService(idService);
+    }
+    public void updateService(String filedUpdate ,String Valeue ,Long idService){
+        (new Service()).updateService(filedUpdate, Valeue, idService);
+    }
+
 }

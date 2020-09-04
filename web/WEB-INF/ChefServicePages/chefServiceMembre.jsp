@@ -2,7 +2,7 @@
 <html>
 <head>
     <script src="/scripteJS/chefServiceScript/chefServiceMembre.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="/scripteJS/chefServiceScript/chefServiceMembre.js"></script>
 
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
@@ -94,7 +94,7 @@
                                 <th>speciality</th>
                             </tr>
                             <c:forEach items="${Medecin}" var="medecin" varStatus="status">
-                                <tr>
+                                <tr data-value="${medecin.id}" data-type="Medecin">
                                     <td class="align-middle ">${status.count}</td>
                                     <td class="align-middle ">${medecin.id}</td>
                                     <td class="align-middle "><img src="${medecin.photo}" width="50" height="50"
@@ -131,7 +131,7 @@
 
                         </tr>
                         <c:forEach items="${Infermiere}" var="infermiere" varStatus="status">
-                            <tr>
+                            <tr data-value="${infermiere.id}" data-type="Infermiere">
 
                                 <td class="align-middle ">${status.count}</td>
                                 <td class="align-middle ">${infermiere.id}</td>

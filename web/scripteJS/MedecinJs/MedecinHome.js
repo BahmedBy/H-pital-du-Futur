@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#resultBlock").hide();
     $("#seconde").hide();
+
     $("#selector").change(function () {
         $("#type").empty();
         if ($(this).val() == "id") {
@@ -27,7 +28,7 @@ $(document).ready(function () {
         }
         getPatient("resultBlock", data);
     });
-})
+});
 function affiche(id) {
     $("#first").hide();
     detailPartionChefService(id,"seconde");
