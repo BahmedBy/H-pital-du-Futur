@@ -18,7 +18,7 @@ $(document).ready(function () {
         $("#first").hide();
 
         $("#seconde").append('<div>' +
-            '<p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Servces pages</p><br/>' +
+            '<p class="h4" id="back"><span class="fas fa-arrow-left mr-3"></span>Servces pages</p><br/>' +
             '</div>' +
             '<div class="shadow tablewidth my-auto bg-white divcontenu">' +
             '<div class="row ">' +
@@ -47,7 +47,7 @@ $(document).ready(function () {
                         '<th>Numero</th>' +
                         '<th>Plein</th>' +
                         '<th>service</th>';
-                    +'<th></th>';
+                    +'<th> </th>';
                     var co = 1;
                     $.each(data, function (k, v) {
                         var button='';
@@ -57,9 +57,9 @@ $(document).ready(function () {
                             if (v.plein === true)
                                 add = add + '<td class="align-middle success">yes</td>';
                             else {
-                                add = add + '<td class="align-middle success">No</td>';
+                                add = add + '<td class="align-middle success" class="align-middle success">No</td>';
                                   button='<td><span class="fas fa-pen" onclick="editchembre(\''+ v.numero + '\')" style=" cursor: pointer;"></span> / ' +
-                                      '<span class="far fa-times-circle" style="color:red; cursor: pointer;" onclick="editchembre(\''+ v.numero + '\')"></span></td>';
+                                      '<span class="far fa-times-circle" style="color:red; cursor: pointer;" onclick="deleteChembre(\''+ v.numero + '\')"></span></td>';
                             }
                             if (jQuery.isEmptyObject(v.service))
                                 add = add + '<td value="service" class="align-middle success">no affectée</td>';
@@ -72,6 +72,9 @@ $(document).ready(function () {
                     add = add + '</table>';
                     $("#chembreList").empty();
                     $("#chembreList").append(add);
+                    $("#back").click(function () {
+                        backtofirst(1)
+                    });
 
                 }
             },
@@ -88,7 +91,7 @@ $(document).ready(function () {
             $("#seconde").hide();
             if (jQuery.isEmptyObject(servces))
                 servces = '<option desible>no service exit</option>';
-            $("#thered").append('<form class="shadow  my-auto bg-white divcontenu" action="/AjouteChembres">' +
+            $("#thered").append('<p class="h4" id="backtoChebre"><span class="fas fa-arrow-left mr-3"></span>ChembreList</p><form class="shadow  my-auto bg-white divcontenu" action="/AjouteChembres">' +
                 '<p class="h4" > Ajoute chembre</p><br/>' +
                 '<div id="chembreadd">' +
                 '<div class="form-group row"  >' +
@@ -112,13 +115,15 @@ $(document).ready(function () {
                 '</div>' +
                 '</form>');
             $("#thered").show();
-
+            $("#backtoChebre").click(function () {
+                backtoseconde(1)
+            });
         });
         $("#seconde").show();
     });
 
     function ajouteServiceForm(elem) {
-        $(elem).append('<form class="border rounded shadow formstyle" action="AjouteService" enctype="multipart/form-data" >' +
+        $(elem).append('<p class="h4" id="back"><span class="fas fa-arrow-left mr-3"></span>Servces pages</p><form class="border rounded shadow formstyle" action="AjouteService" enctype="multipart/form-data" >' +
             '  <fieldset class="border formstyle">' +
             '   <p class="h4">service</p>' +
             '  <div class="form-group row ">' +
@@ -151,7 +156,9 @@ $(document).ready(function () {
             '  <input class="btn btn-success float-right" type="submit" value="Ajoute" name="submit">' +
             '  </div>' +
             '</form>');
-
+        $("#back").click(function () {
+            backtofirst(1)
+        });
 
         chesfServiceLibre('#nomChefService');
         $.ajax({
@@ -210,8 +217,21 @@ $(document).ready(function () {
 });
 function  editchembre(div) {
     var id="#"+div;
-    console.log('ddd');
-    $(id).find([value='service']).empty();
+    $(id).find("[value='service']").empty();
+    $(id).find("[value='service']").append("<select id='changeService' class='form-control'><option selected></option><option value='0'>no afficte</option>"+servces+"</select>");
+    $("#changeService").change(function () {
+        var service=$(this).val();
+        if (service!="")
+        {  var text=  $("#changeService option:selected").text();
+        $(id).find("[value='service']").empty();
+        console.log(text);
+        $(id).find("[value='service']").html(text);
+        var data= {
+            idService: service,
+            numero: div
+        };
+        afficteChembre(data)
+    }})
 }
 function plus() {
     $("#chembreadd").append('<div class="form-group row"><label for="inputEmail3" class="col-sm-2 col-form-label">Numero chembre</label><div class="col"><input type="text" class="form-control" id="inputEmail3" placeholder="Numero chembre" name="Numerochembre"></div><label for="inputEmail3" class="col-sm-1 col-form-label" >service</label><div class="col"><select class="form-control" name="service"><option value="null" selected>no affecter</option><optgroup label="servces" id="servcesListOption"></optgroup>' + servces + '</select> </div><div class="col-0"><button class="btn ml-auto align-self-center" onclick="plus()" type="button" style="margin-right: 2rem;"><span class="fas fa-plus" ></span></button></div></div></div>');
@@ -242,4 +262,15 @@ function chesfServiceLibre(div) {
                 console.log("DONE");
             }
         });
+}
+function deleteChembre(numero) {
+    var id ="#"+numero;
+    $(id).remove();
+    if(typeof numero!="undefined")
+        $.ajax({
+                url: "/suppremeChembre",
+                type:"post",
+                data:{numero:numero}
+            }
+        )
 }

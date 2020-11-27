@@ -45,7 +45,7 @@ public class AdminControler {
         return "AdminPages/AdminMembre";
     }
 
-    @RequestMapping("/AdminSuppremerMembre")
+    @RequestMapping(value = "/AdminSuppremerMembre" ,method = POST)
     public String SuppremerMembre(HttpSession session, @RequestParam("id") Long id, @RequestParam("type") String type) {
         if (!testSession(session))
             return "login";
@@ -56,6 +56,7 @@ public class AdminControler {
 
     @RequestMapping("/AdminChangeStatusMembre")
     public String ChangeStatusMembre(HttpSession session, @RequestParam("id") Long id, @RequestParam("type") String type) {
+        System.out.println("ddd");
         if (!testSession(session))
             return "login";
         Admin admin = (Admin) session.getAttribute("user");
@@ -89,7 +90,7 @@ public class AdminControler {
             return "login";
         Admin admin = (Admin) session.getAttribute("user");
         admin.AjouteChembres(numero, service);
-        return "AdminPages/AdminService";
+        return "redirect:/AdminServicePage";
     }
 
     @RequestMapping("/AjouteService")
@@ -195,6 +196,7 @@ public class AdminControler {
     }
 
     @RequestMapping(value = "/Affictechembre", method = POST)
+    @ResponseBody
     public void Affictechembre(@RequestParam("idService") Long service, @RequestParam("numero") String numero, HttpSession session) {
         if (testSession(session)) {
             Admin user = (Admin) session.getAttribute("user");
@@ -202,15 +204,28 @@ public class AdminControler {
             user.AfficteChembre(service, chembre);
         }
     }
+    @RequestMapping(value = "/suppremeChembre", method = POST)
+    @ResponseBody
+    public void suppremeChembre( @RequestParam("numero") String numero, HttpSession session) {
+        if (testSession(session)) {
+            Admin user = (Admin) session.getAttribute("user");
+            String[] chembre = {numero};
+            user.suppremeChembre(numero);
+        }
+    }
 
     @RequestMapping(value = "/AfficteChefService", method = POST)
-    public void AfficteChefService(@RequestParam("idService") Long service, @RequestParam("chefService") Long numero, HttpSession session) {
+    @ResponseBody
+    public String AfficteChefService(@RequestParam("idService") Long service, @RequestParam("chefService") Long numero, HttpSession session) {
         if (testSession(session)) {
             Admin user = (Admin) session.getAttribute("user");
             user.AfficteChefService(service, numero);
-        }
+            return "ok";
+        }else
+            return "no";
     }
     @RequestMapping(value = "/updateService", method =POST)
+    @ResponseBody
     public void updateService(@RequestParam(value = "idService",required=false) Long service, @RequestParam(value ="nom",required=false) String nom, HttpSession session) {
         if (testSession(session)) {
             System.out.println(service);
@@ -219,6 +234,7 @@ public class AdminControler {
         }
     }
     @RequestMapping(value = "/deleteService", method = POST)
+    @ResponseBody
     public void deleteService(@RequestParam("idService") Long service,HttpSession session) {
         if (testSession(session)) {
             Admin user = (Admin) session.getAttribute("user");
@@ -226,6 +242,7 @@ public class AdminControler {
         }
     }
     @RequestMapping(value = "/UpdateMembre" ,method = POST)
+    @ResponseBody
     public void UpdateCompte(@RequestParam("filed")String field,@RequestParam("id")long id,@RequestParam("value")String value ,HttpSession session){
         Utilisateur utilisateur= (Utilisateur) session.getAttribute("user");
         if (testSession(session)) {

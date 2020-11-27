@@ -3,11 +3,15 @@ package moudel;
 import BaseDeDonneConfig.ConnectionBD;
 import BaseDeDonneConfig.DataExractor;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.test.context.jdbc.Sql;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.List;
+@EnableAsync
 public class Utilisateur {
     private long id;
     private String nom;
@@ -22,7 +26,7 @@ public class Utilisateur {
     private String gender;
     private String photo;
 
-    public Utilisateur(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type) {
+    public Utilisateur(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type,String  gender) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -31,6 +35,7 @@ public class Utilisateur {
         this.numeroTel = numeroTel;
         this.dateNaissance = dateNaissance;
         this.type = type;
+        this.gender=gender;
 
     }
 
@@ -42,7 +47,7 @@ public class Utilisateur {
 
     public Utilisateur() {
 
-    }
+}
 
     public boolean isActive() {
         return active;
@@ -130,7 +135,9 @@ public class Utilisateur {
         this.photo = photo;
     }
     public List<Utilisateur> login(String email, String password) {
-        String SQL = String.format("select * from utilisateur where email='%s' and password='%s'", email, password);
+
+        String SQL = String.format("select * from utilisateur where email='%s' and password='%s' and active=true", email, password);
+    
         return (new ConnectionBD()).getJdbcTemplate().query(SQL,
                 rs -> {
                     List<Utilisateur> list = new ArrayList<Utilisateur>();
@@ -160,6 +167,21 @@ public class Utilisateur {
         (new ConnectionBD()).getJdbcTemplate().update(Sql);
 
     }
+    public void update (Utilisateur utilisateur){
+
+
+        String Sql="update utilisateur set nom=? , prenom=?  , password=?  , numeroTel=?  , dateNaissance=?  , gender=?  where id_utilisateur=?";
+        (new ConnectionBD()).getJdbcTemplate().update(Sql,ps -> {
+               ps.setString(1, utilisateur.getNom());
+               ps.setString(2, utilisateur.getPrenom());
+               ps.setString(3, utilisateur.getPassWord());
+               ps.setString(4, utilisateur.getNumeroTel());
+               ps.setDate(5, utilisateur.getDateNaissance());
+               ps.setString(6, utilisateur.getGender());
+               ps.setLong(7, utilisateur.getId());
+        });
+
+    }
     public Utilisateur loadUtilisateur(long id){
 
         String SQL ="select * from utilisateur where id_utilisateur="+id;
@@ -172,5 +194,12 @@ public class Utilisateur {
                     }
                     return list;
                 });
+    }
+    @Async
+    public void deleteUtilisateur(long id,String type){
+        if(type.equals("Medecin"))
+            (new Rendez_vous()).supprimerRendezVousMedecin(id);
+        String Sql="delete from utilisateur where id_utilisateur="+id;
+        (new ConnectionBD()).getJdbcTemplate().update(Sql);
     }
 }

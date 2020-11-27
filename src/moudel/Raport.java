@@ -1,10 +1,21 @@
 package moudel;
 public class Raport {
+    private long id;
+
+
+
     private String type;
     private String contenu;
     private Etat etat;
     private Medecin medecin;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getType() {
         return type;
     }

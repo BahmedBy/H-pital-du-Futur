@@ -2,8 +2,7 @@
 <html>
 <head>
     <script src="/scripteJS/chefServiceScript/chefServiceMembre.js"></script>
-    <script src="/scripteJS/chefServiceScript/chefServiceMembre.js"></script>
-
+    <script src="/scripteJS/chefServiceScript/detailMembreChefService.js"></script>
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
         Espace chef service
@@ -35,19 +34,19 @@
                     Home</a>
             </li>
             <li class="nav-item  list-group-item list-group-item-action">
-                <a href="#" class="text-dark card-link"><span class="fas fa-procedures mr-3"></span>Patient</a>
+                <a href="<c:url value="/ChefServiceHomePage"></c:url>" class="text-dark card-link"><span class="fas fa-procedures mr-3"></span>Patient</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark  card-link"><span class="fas fa-folder-open mr-3"></span>dossiers médicaux</a>
+                <a href="<c:url value="/ChefServicePatientPage"></c:url>" class="text-dark  card-link"><span class="fas fa-folder-open mr-3"></span>dossiers médicaux</a>
             </li>
             <li class="nav-item active list-group-item list-group-item-action">
                 <a href="#" class="text-dark card-link"><span class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark card-link"><span class="fas fa-cog  mr-3"></span>Vorte compte</a>
+                <a href="<c:url value="/CompteInformation"></c:url>" class="text-dark card-link"><span class="fas fa-cog  mr-3"></span>Vorte compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic  card-link"><span class="fas fa-sign-out-alt mr-3"></span>logout</a>
+                <a href="<c:url value="/logout"></c:url>" class="text-dark font-italic  card-link"><span class="fas fa-sign-out-alt mr-3"></span>logout</a>
             </li>
         </ul>
 
@@ -158,7 +157,7 @@
 
 
 <script type="text/javascript">
-
+    var url="/ChefService/updatePatient";
 
 </script>
 </body>

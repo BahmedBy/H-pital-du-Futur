@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -32,8 +32,8 @@ public class Medecin extends Utilisateur {
         this.service = service;
     }
 
-    public Medecin(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, String speiciality) {
-        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
+    public Medecin(long id, String nom, String prenom, String passWord, String email,String gender, String numeroTel, Date dateNaissance, String type, String speiciality) {
+        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type, gender);
         this.speiciality = speiciality;
     }
 
@@ -77,14 +77,20 @@ public class Medecin extends Utilisateur {
     }
     @Async
     public Future<ArrayList<Raport>> raportOFEtat(Long id_Etar) {
-        String SQL = "select * from raport r,utilisateur u where r.id_medecin=u.id_utilisateur and id_etat=" + id_Etar;
+        String SQL = "select * from raport r where  id_etat=" + id_Etar;
         return (new ConnectionBD()).getJdbcTemplate().query(SQL, rs -> {
             ArrayList<Raport> raports = new ArrayList<>();
             while (rs.next()) {
                 Raport raport = new Raport();
                 raport.setType(rs.getString("type"));
                 raport.setContenu(rs.getString("contenu"));
-                raport.setMedecin((Medecin) (new DataExractor()).utilisateurExratorIdNom(rs, false));
+                try {
+                    raport.setMedecin( loadMedcine(rs.getInt("id_medecin")).get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 raports.add(raport);
             }
             return new AsyncResult<>(raports);
@@ -92,7 +98,15 @@ public class Medecin extends Utilisateur {
     }
 
     public Etat detailEtat(Long idetat) {
-        Etat etat = new Etat();
+
+        String SQL = "select * from etat where id_etat=" + idetat;
+        Etat etat =(new ConnectionBD()).getJdbcTemplate().query(SQL, rs -> {
+            Etat etat1=new Etat();
+            if (rs.next()) {
+                etat1=(new DataExractor()).EtatExractor(rs);
+            }
+            return etat1;
+        });
         try {
             etat.setRaports(raportOFEtat(idetat).get());
         } catch (InterruptedException e) {
@@ -100,15 +114,7 @@ public class Medecin extends Utilisateur {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        String SQL = "select temperaterur,pulsation,tension from etat where id_etat=" + etat.getId();
-        return (new ConnectionBD()).getJdbcTemplate().query(SQL, rs -> {
-            if (rs.next()) {
-                etat.setPulsation(rs.getFloat("pulsation"));
-                etat.setTempeture(rs.getFloat("temperaterur"));
-                etat.setTonsion(rs.getFloat("tension"));
-            }
-            return etat;
-        });
+        return etat;
     }
 
     public ArrayList<Etat> etatHistorique(Long idDossier) {
@@ -126,33 +132,35 @@ public class Medecin extends Utilisateur {
         });
     }
     @Async
-    public Future<Long> ajouteEtat(String date, String temp, String temperaterur, String pulsation, String tension, Long idDossier) {
-        String sql = "insert into etat value (temperaterur,pulsation,tension,date,temp,id_dessier) values (?,?,?,?,?,?)";
+    public Future<Long> ajouteEtat(String date, String temp, float temperaterur, float pulsation, float tension, Long idDossier) {
+        String sql = "insert into etat  (temperaterur,pulsation,tension,date,temp,id_dessier) values (?,?,?,?,?,?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        (new ConnectionBD()).getJdbcTemplate().update(connection -> {
-            PreparedStatement ps = connection
+        (new ConnectionBD()).getJdbcTemplate().update(connection -> { PreparedStatement ps = connection
                     .prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, temperaterur);
-            ps.setString(2, pulsation);
-            ps.setString(3, tension);
+            ps.setFloat(1, temperaterur);
+            ps.setFloat(2, pulsation);
+            ps.setFloat(3, tension);
             ps.setString(4, date);
             ps.setString(5, temp);
             ps.setLong(6, idDossier);
-             return ps;
+            System.out.println(ps);
+            return ps;
         }, keyHolder);
         return new AsyncResult<>(Objects.requireNonNull(keyHolder.getKey()).longValue());
     }
-    @Async
+
     public void ajouteRapports(String[]type,String[] contenu,Long idEtat){
-        String sql="insert into raport (type,contenu,id_etat,id_medecin) values (?,?,?,?)";
+//        String sql="insert into raport (type,contenu,id_etat,id_medecin) values (?,?,?,?)";
         long idMedcine=this.getId();
-        (new ConnectionBD()).getJdbcTemplate().update(sql,
+
+        (new ConnectionBD()).getJdbcTemplate().batchUpdate("insert into raport (type,contenu,id_etat,id_medecin) values (?,?,?,?)",
         new BatchPreparedStatementSetter() {
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 ps.setString(1,type[i] );
                 ps.setString(2, contenu[i]);
                 ps.setLong(3, idEtat);
                 ps.setLong(4, idMedcine);
+
             }
 
             public int getBatchSize() {
@@ -162,7 +170,7 @@ public class Medecin extends Utilisateur {
         });
     }
     public ArrayList<Rendez_vous> listRenderVous(String date){
-        String SQl="select * from rendez_vous r ,patient p,utilisqteur u where r.id_patient=p.id and u.id_patient=p.id and r.date="+date+" and r.id_medecin="+this.getId();
+        String SQl="select * from rendez_vous r ,patient p,utilisateur u where r.id_patient=p.id and u.id_utilisateur=p.id and r.date='"+date+"' and r.id_medecin="+this.getId();
         return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
             ArrayList<Rendez_vous> rendez_vous=new ArrayList<>();
             while (rs.next()) {
@@ -173,4 +181,35 @@ public class Medecin extends Utilisateur {
             return rendez_vous;
         }));
     }
+    @Async
+    public Future<Medecin> loadMedcine(long id_Medecin){
+        String SQl="select * from utilisateur u ,medecin m where u.id_utilisateur=m.id_medecin and type='Medecin' and m.id_medecin="+id_Medecin;
+        return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
+
+            Medecin medecin=new Medecin();
+            if (rs.next()) {
+                medecin= (Medecin) (new DataExractor()).utilisateurExratorIdNom(rs, true);
+                medecin.londService();
+            }
+            return new AsyncResult<>(medecin);
+        }));
+    }
+
+    public void ajouteDomande(String type,Long idEtat){
+      String sql ="Select id_raport from raport where id_etat="+idEtat+" and type='"+type+"'";
+      long idRaport=(new ConnectionBD()).getJdbcTemplate().query(sql,rs->{
+        long id=0;
+          if (rs.next())
+              id=rs.getLong("id_raport");
+          return id ;
+      } );
+      if (idRaport!=0){
+          Long sevice=this.getService().getId();
+           sql ="insert into domande (id_domande,id_Service) values (?,?)";
+        (new ConnectionBD()).getJdbcTemplate().update(sql,ps->{
+            ps.setLong(1, idRaport);
+            ps.setLong(2, sevice);
+        }
+    );
+      }}
 }

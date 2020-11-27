@@ -4,6 +4,7 @@ import BaseDeDonneConfig.DataPath;
 import moudel.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,7 +12,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -96,26 +99,50 @@ public class ChefServiceControler {
     @RequestMapping("/AdmisPatient")
     public String AdmisPatient(@RequestParam("date") String date, @RequestParam("hour") String hour,
                                @RequestParam("remarque") String remarque, @RequestParam("chembre") String chembre, @RequestParam("idPatient") Long id_Patient
-            , @RequestParam("idDossier") Long id_Dossier, HttpSession session) {
+            , @RequestParam("idDossier") Long id_Dossier, HttpSession session,HttpServletRequest request) {
         if (!testSession(session))
             return "login";
 
         ChefService chefService = (ChefService) session.getAttribute("user");
         if (chefService.getService() != null) {
+            Object idDomande=  request.getAttribute("idDemonde");
+            System.out.println(idDomande);
+            if (idDomande!=null)
+                (new Demande()).Accepet((Long) idDomande);
             chefService.admisPatient(date, hour, remarque, id_Dossier, id_Patient, chembre);
         }
         return "redirect:/ChefServicePatientPage";
+  }
+//    @RequestMapping("/reffeuseDemande")
+//    @ResponseBody
+//    public void refuse(HttpSession session, @RequestParam("")Loond id,@RequestParam("")String res){
+//
+//    }
+    @RequestMapping("/demomde")
+    public @ResponseBody
+    ArrayList<Demande>demandeMap(HttpSession session){
+        if (!testSession(session))
+            return null;
+        ChefService chefService = (ChefService) session.getAttribute("user");
+        if (chefService.getService() != null) {
+          return  chefService.demandes();
+        }
+        return null;
     }
+
 
     @RequestMapping("/SortirPatient")
     public String SortirPatient(@RequestParam("date") String date, @RequestParam("hour") String hour,
                                 @RequestParam("remarque") String remarque, @RequestParam("type") String type, @RequestParam("idPatient") Long id_Patient
-            , @RequestParam("idDossier") Long id_Dossier, HttpSession session) {
+            , @RequestParam("idDossier") Long id_Dossier, HttpSession session,HttpServletRequest request) {
         if (!testSession(session))
             return "login";
 
         ChefService chefService = (ChefService) session.getAttribute("user");
         if (chefService.getService() != null) {
+            Long idDomande= (Long) request.getAttribute("idDemonde");
+            if (idDomande!=0)
+                (new Demande()).Accepet(idDomande);
             chefService.sortirPatient(date, hour, remarque, id_Dossier, id_Patient, type);
         }
         return "redirect:/ChefServicePatientPage";
@@ -200,6 +227,18 @@ public class ChefServiceControler {
             return chefService.listMedecin(true);
         } else
             return null;
+    }
+    @RequestMapping("/ChefService/updatePatient")
+    @ResponseBody
+    public void updatePatient(HttpSession session ,@RequestParam("filed")String filed ,@RequestParam("value")String value ,
+                                            @RequestParam("id")Long id ) {
+
+        if (!testSession(session)){
+        ChefService chefService = (ChefService) session.getAttribute("user");
+        if (chefService.getService() != null) {
+            chefService.updatePartient(filed,value ,id );
+
+        } }
     }
 
     @RequestMapping("/ChefService/ChembreLibre")

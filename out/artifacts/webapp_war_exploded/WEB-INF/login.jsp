@@ -19,6 +19,9 @@
             <div class="d-flex justify-content-center form_container">
                 <form action="/login" method="get">
                     <div class="input-group mb-3">
+                        <p class="h5 text-danger"  >${messageError}</p>
+                    </div>
+                    <div class="input-group mb-3">
                         <div class="input-group-append">
                             <span class="input-group-text "><i class="fas fa-at"></i></span>
                         </div>
@@ -36,7 +39,7 @@
                     </div>
                     <div class="form-group" style="margin-top: 1rem">
                         <div class="custom-control custom-checkbox">
-                            <a href="#">j'obulie mon mote de passe</a>
+                            <a href="#">j'oublie mon mote de passe</a>
                         </div>
                     </div>
 

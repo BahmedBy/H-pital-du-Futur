@@ -61,7 +61,7 @@ function detailService(id_Service, div) {
                 add = add + ' <div  class="container divcontenu border ">\n' +
                     '                <div id="chembre">\n' +
                     '                <div class="row">\n' +
-                    '                    <p class="h5 col ">Liste Chembre</p>\n' +
+                    '                    <p class="h4 col divcontenu ">Liste Chembre</p>\n' +
                     '                    <div class="col d-flex">\n' +
                     '                        <button class="btn btn-success ml-auto align-self-center" id="Affectechembre"\n' +
                     '                            style="margin-right: 2rem;"><span class="fas fa-plus mr-3"></span>Ajoute\n' +
@@ -69,7 +69,7 @@ function detailService(id_Service, div) {
                     '                </div></div>' +
                     '<p>no chembre dans les service</p></div>';
             } else {
-                add = add + ' <p>list chembre</p><table class="table table-hover table-striped tablewidth separator"><tr>' +
+                add = add + ' <p class="h4 col divcontenu ">list chembre</p><table class="table table-hover table-striped tablewidth separator"><tr>' +
                     '<th>Numero</th> <th>Etat</th><th></th></tr>';
                 $.each(data.chembres, function (k, v) {
                     var plein = 'no';
@@ -178,25 +178,14 @@ function detailService(id_Service, div) {
 }
 
 function supprrimeChmbre(Chmbre) {
-    Chmbre = "#" + Chmbre;
+    var eleChmbre = "#" + Chmbre;
     console.log(Chmbre  );
-    $(Chmbre).remove();
-    $.ajax({
-        url: "/Affictechembre",
-        type: "POST",
-        data: {
-            idService: 0,
+    $(eleChmbre).remove();
+   var data= {
+        idService: 0,
             numero: Chmbre
-        },
-
-        error: function (e) {
-            alert(e.responseText);
-            console.log("ERROR: ", e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
-    });
+    }
+    afficteChembre(data)
 }
 
 function d(div) {
@@ -291,4 +280,19 @@ function cancelChefService(div) {
     parent.append('<div class="col-sm-1 my-auto"><img src="' + info.get('photo') + '" width="50"class="mr-3 rounded-circle img-thumbnail shadow-sm"></div>' +
         '<div class="col my-auto"><input type="text" readonly class="form-control-plaintext" id="cs" value="' + info.get('chefService') + '"></div>');
     parent.append('<div class="col-sm-2"><button class="btn " name="edit" onclick="changeChefService(\'#cs\')"><span class="fas fa-pen"></span></button></div>');
+}
+function afficteChembre(data) {
+    $.ajax({
+        url: "/Affictechembre",
+        type: "POST",
+        data: data,
+
+        error: function (e) {
+            alert(e.responseText);
+            console.log("ERROR: ", e);
+        },
+        done: function (e) {
+            console.log("DONE");
+        }
+    });
 }

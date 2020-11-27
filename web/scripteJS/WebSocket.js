@@ -1,15 +1,22 @@
 var stompClient = null;
+
 connect();
+
+var id=17;
 function connect() {
-    var socket = new SockJS('/topic');
+    var socket = new SockJS('/seket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function(frame) {
-        setConnected(true);
+        // setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/chat', function(greeting) {
-            showGreeting(JSON.parse(greeting.body).name);
+
+        stompClient.subscribe('/topic/messages', function(greeting) {
+            var message = JSON.parse(greeting.body);
+          traiterMessqge(message);
+
         });
     });
+
 }
 
 function disconnect() {
@@ -20,8 +27,21 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
-    stompClient.send("/app/say", {}, JSON.stringify({
-        'name' : 'nasaer'
-    }));
-0}
+function sendName(message) {
+    stompClient.send("/message", {}, JSON.stringify(message));
+}
+// class messqge {
+//     constructor(type) {
+//         this.type = type;
+//     }
+//     // constructor(type,idPatient,etat) {
+//     //     this.type = type;
+//     //     this.idPatient = idPatient;
+//     //     this.etat = etat;
+//     // } constructor(type,etat,idPatient,idService) {
+//     //     this.type = type;
+//     //     this.idPatient = idPatient;
+//     //     this.etat = etat;
+//     //     this.idService = idService;
+//     // }
+// }

@@ -20,6 +20,13 @@ function backtofirst(d) {
 
         $("#first").show();
         $("#seconde").hide();
-        $("#seconde").empty();
-    }
-}
+       $("#seconde").empty();
+    }}
+    function backtoseconde(d) {
+    if (d){
+
+        $("#seconde").show();
+        $("#thered").hide();
+        $("#thered").empty();
+    }}
+

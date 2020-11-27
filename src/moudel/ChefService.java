@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
 import java.util.*;
 import java.util.concurrent.Future;
 
@@ -32,8 +33,8 @@ public class ChefService extends Utilisateur {
         this.service = service;
     }
 
-    public ChefService(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type) {
-        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
+    public ChefService(long id, String nom, String prenom, String passWord, String gender,String email, String numeroTel, Date dateNaissance, String type) {
+        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type,gender);
     }
 
     public ChefService(long id, String nom, String prenom) {
@@ -199,21 +200,21 @@ public class ChefService extends Utilisateur {
             if (email != null) {
                 ps.setString(3, email);
                 ps.setString(4, finalDefualPassword);
-                ps.setBoolean(14, true);
+                ps.setBoolean(10, true);
             } else {
                 ps.setString(3, null);
                 ps.setString(4, null);
-                ps.setBoolean(14, false);
+                ps.setBoolean(10, false);
             }
             ps.setString(5, telNumbre);
             ps.setString(6, datedeNai);
             ps.setString(7, "Patient");
             ps.setString(8, extension);
             ps.setString(9, gender);
-            ps.setString(10, nom);
-            ps.setString(11, prenom);
-            ps.setString(12, datedeNai);
-            ps.setString(13, "Patient");
+            ps.setString(11, nom);
+            ps.setString(12, prenom);
+            ps.setString(13, datedeNai);
+            ps.setString(14, "Patient");
 
             return ps;
         }, keyHolder);
@@ -260,14 +261,18 @@ public class ChefService extends Utilisateur {
     @Async
     public void admisPatient(String date, String hour, String remarque, long idDossier, long id_patient, String numeroChembre) {
         String SQl = "insert into entree(date,heur,Remarque,id_dossierMedical,id_service) value (?,?,?,?,?)";
+       hour= hour.replace(",", "");
+        String finalHour = hour;
         (new ConnectionBD()).getJdbcTemplate().update(
                 connection -> {
                     PreparedStatement ps = connection.prepareStatement(SQl);
                     ps.setString(1, date);
-                    ps.setString(2, hour);
+                    ps.setString(2, finalHour);
                     ps.setString(3, remarque);
                     ps.setLong(4, idDossier);
                     ps.setLong(5, this.service.getId());
+                    System.out.println(ps);
+                    System.out.println(finalHour);
                     return ps;
                 });
         String SQL = "update chembre set plein=true,id_patient=? where numero=?";
@@ -290,6 +295,7 @@ public class ChefService extends Utilisateur {
     @Async
     public void sortirPatient(String date, String hour, String remarque, long idDossier, long id_patient, String type) {
         String SQl = "insert into sortie(date,heur,Remarque,type,id_dossierMedical,id_service) value (?,?,?,?,?,?)";
+        long Service=this.service.getId();
         (new ConnectionBD()).getJdbcTemplate().update(
                 connection -> {
                     PreparedStatement ps = connection.prepareStatement(SQl);
@@ -297,8 +303,8 @@ public class ChefService extends Utilisateur {
                     ps.setString(2, hour);
                     ps.setString(3, remarque);
                     ps.setString(4, type);
-                    ps.setLong(4, idDossier);
-                    ps.setLong(5, this.service.getId());
+                    ps.setLong(5, idDossier);
+                    ps.setLong(6, Service);
                     return ps;
                 });
         String SQL = "update chembre set plein=false where id_patient=?=?";
@@ -348,5 +354,32 @@ public class ChefService extends Utilisateur {
             (new Infermiere()).update("id_service", null, id);
 
 
+    }
+    @Async
+    public void  updatePartient(String filed ,String value ,Long id){
+        (new Patient()).update(filed,value ,id );
+    }
+    public  ArrayList<Demande>demandes(){
+
+      ArrayList<Demande>demandes=(new Demande()).demandesOfService(this.getService().getId());
+      if (demandes.size()!=0)
+      {
+          for (Demande d:demandes)
+          {
+              String sql="select * from patient p,utilisateur u where u.id_utilisateur=p.id and p.id=(" +
+                      "select d.Id_patient from dossiermedical d,etat e,raport r where d.id_dossier=e.id_dessier and r.id_etat=e.id_etat and r.id_raport=" +
+                      d.getId()+")";
+              Patient patient=(new ConnectionBD()).getJdbcTemplate().query(sql,rs->{
+                  Patient patient1=null;
+                          if(rs.next())
+                          patient1=(new DataExractor()).pationExratorNomId(rs);
+                          patient1.loadDossierMedical();
+                          return patient1;
+              } );
+              d.setPatient(patient);
+
+          }
+      }
+  return demandes;
     }
 }

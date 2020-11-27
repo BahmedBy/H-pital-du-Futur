@@ -5,7 +5,13 @@
 
     <meta charset="utf-8">
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <script src="scripteJS/InfiermiereJs/Rendez-vousPage.js"></script>
+    <script src="scripteJS/MedecinJs/detailPatient.js"></script>
+    <script src="scripteJS/MedecinJs/traiterMessageMedecin.js"></script>
+
+    <script src="scripteJS/MedecinJs/Rendez-vousMedecinPage.js"></script>
+    <script src="scripteJS/stomp.js"></script>
+    <script src="scripteJS/WebSocket.js"></script>
+    <script src="scripteJS/MedecinJs/traiterMessageMedecin.js"></script>
     <title>
         Espace infirmiere
     </title>
@@ -33,18 +39,19 @@
     <div>
         <ul class="nav flex-column  mb-0 list-group " id="list">
             <li class=" font-italic list-group-item list-group-item-action">
-                <a href="<c:url value="/MedecinHomePage"/>" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="<c:url value="/MedecinHomePage"/>" class="text-dark card-link"><span
+                        class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="active nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span
                         class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
             </li>
-            <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span
-                        class="fas fa-exclamation-triangle mr-3"></span>Signal alarme</a>
+            <li class="nav-item list-group-item list-group-item-action" id="sa">
+                <a href="<c:url value="/singnalAlarme"></c:url> " class="text-dark font-italic card-link"><span
+                        class="fas fa-exclamation-triangle mr-3" ></span>Signal alarme</a>
             </li>
-            <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
+            <li class="nav-item list-group-item list-group-item-action ">
+                <a href="<c:url value="/CompteInformation"></c:url> " class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
@@ -57,25 +64,14 @@
     </div>
 </div>
 <div class="page-content" id="content">
-
+<div id="first">
     <c:choose>
         <c:when test="${sessionScope.get(\"user\").getService()==null}">
             <p>no service exsite</p>
         </c:when>
         <c:otherwise>
             <p class="h3">Rendez-vous</p>
-            <div class="shadow tablewidth my-auto bg-white">
-                <div class="row divcontenu">
-                    <div class="col">
-                        <p class="h5">Ajoute Rendez-Vous</p></div>
 
-                    <div class="col d-flex">
-                        <a href="/InfermiereHomePage"> <button class="btn btn-success ml-auto align-self-center" id="getchembreList"
-                                style="margin-right: 2rem;"><span class="fas fa-plus mr-3"></span>Ajoute
-                        </button></a>
-                    </div>
-                </div>
-            </div>
             <div class="shadow-sm tablewidth my-auto bg-white divcontenu rendez">
                 <div class="row ">
                     <div class="col">
@@ -84,72 +80,73 @@
                     <div class="col">
                         <input type="date" name="date" class="form-control" id="dateInput">
                     </div>
-                </div>
+                </div><br/>
                 <div>
-                    <p class="h4" >Rendez-vous en <span id="dateRendewVous">${date}</span></p>
+                    <p class="h4 text-center">Rendez-vous en <span id="dateRendewVous">${date}</span></p>
                 </div>
-                <div class="divcontenu container  tablewidth my-auto bg-white ">
+
+                <div id="redezvous" class="divcontenu container  tablewidth my-auto bg-white ">
                     <c:choose>
-                    <c:when test="${rendezVous.size()==0}">
-                        <p>no Rendez vous en ${date}</p>
-                    </c:when>
-                    <c:otherwise>
-                    <div id="ListRendzVous">
-                        <div class="row  divcontenu ">
+                        <c:when test="${rendezVous.size()==0}">
+                            <p class="text-center">no Rendez vous en ${date}</p>
+                        </c:when>
+                        <c:otherwise>
 
-                            <div class="col-5 my-auto ">
-                                <p class="h5">partient </p>
-                            </div>
+                            <div class="row  divcontenu ">
 
-                            <div class="col  my-auto ">
-                                <p class="h5"> Date</p>
-                            </div>
-                            <div class="col  my-auto ">
-                                <p class="h5"> Temp</p>
-                            </div>
-
-                        </div>
-                        <div class="w-100 border"></div>
-                        <c:forEach var="rendez" items="${rendezVous}">
-                        <div class="row my-auto">
-                            <div class="col-3 ">
-                                <div class="row">
-                                    <div class="col my-auto">
-                                        <img src="${rendez.patient.photo}" width="50" height="50"
-                                             class="rounded-circle  shadow-sm ">
-                                    </div>
-                                    <div class="col my-auto">
-                                        <p class="h6 row">${rendez.patient.nom}</p>
-                                        <p class="h6 row">kh${rendez.patient.prenom}</p>
-                                        <p class="text-info font-italic row">Id:${rendez.patient.id}</p>
-                                    </div>
+                                <div class="col-5 my-auto ">
+                                    <p class="h5">partient </p>
                                 </div>
-                            </div>
 
-                            <div class="col  my-auto ">
-                                <p class="h5"> ${rendez.date.day}/${rendez.date.month}/${rendez.date.year}</p>
-                            </div>
-                            <div class="col  my-auto ">
-                                <p class="h5"> ${rendez.time.hours}:${rendez.time.minutes}</p>
-                            </div>
+                                <div class="col  my-auto ">
+                                    <p class="h5"> Date</p>
+                                </div>
+                                <div class="col  my-auto ">
+                                    <p class="h5"> Temp</p>
+                                </div>
 
-                        <div class="w-100 border"></div>
-                        </c:forEach>
+                            </div>
+                            <div class="w-100 border"></div>
+                            <c:forEach var="rendez" items="${rendezVous}">
+                                <div class="row my-auto divrow" onclick="affiche('${rendez.patient.id}','seconde')">
+                                    <div class="col-3 ">
+                                        <div class="row">
+                                            <div class="col my-auto">
+                                                <img src="${rendez.patient.photo}" width="50" height="50"
+                                                     class="rounded-circle  shadow-sm ">
+                                            </div>
+                                            <div class="col my-auto">
+                                                <p class="h6 row">${rendez.patient.nom}</p>
+                                                <p class="h6 row">${rendez.patient.prenom}</p>
+                                                <p class="text-info font-italic row">Id:${rendez.patient.id}</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    </div>
-                    </c:otherwise>
+                                    <div class="col  my-auto ">
+                                        <p class="h5"> ${rendez.date}</p>
+                                    </div>
+                                    <div class="col  my-auto ">
+                                        <p class="h5"> ${rendez.time}</p>
+                                    </div>
+
+                                    <div class="w-100 border"></div>
+                                </div>
+                            </c:forEach>
+
+
+                        </c:otherwise>
                     </c:choose>
                 </div>
             </div>
         </c:otherwise>
     </c:choose>
-
+</div>
+    <div id="seconde"></div>
 </div>
 
-
-<script type="text/javascript">
-
-
+<script>
+    var idService =${sessionScope.get("user").getService().getId()};
 </script>
 </body>
 

@@ -11,6 +11,7 @@ function d(div) {
 
 function update(div) {
     var data=getData(div);
+    info.set($(div).attr('name'),$(div).val());
      sendRequtteUpdate(data);
     if (div!="#gender")
     newValue(div);
@@ -28,24 +29,24 @@ function newValueSelect(div) {
 function cancel(div) {
     $("#confipassword").parent().parent().remove();
     $(div).attr('readonly', true);
-    $(div).val($(div).attr('name'));
-    alert(info.get($(div).attr('name')));
+    $(div).val(info.get($(div).attr('name')));
     $(div).removeClass('form-control');
     $(div).addClass('form-control-plaintext');
     $(div).parent().parent().find('.col-sm-2').remove();
     $(div).parent().parent().append('<div class="col-sm-2"><button class="btn " name="edit" onclick="d(\'' + div + '\')"><span class="fas fa-pen"></span></button></div>');
 }
-function gender(div) {
+function select(div,option) {
     info.set($(div).attr('name'), $(div).val());
     $(div).attr('disabled',false);
     $(div).empty();
-    if(div="#gender")
-    $(div).append('<option value="Male">Male</option><option value="Femme">Femme</option>');
-   else
-        $(div).append(otherSelect());
+    $(div).append(option);
     $(div).parent().parent().find('.col-sm-2').remove();
     $(div).parent().parent().append('<div class="col-sm-2"><button class="btn " name="ok" onclick="update(\''+div+'\')"><span class="fas fa-check" style="color:green"></span></button><button class="btn " name="no" onclick="cancelgender(\''+div+'\')"><span class="fas fa-times" style="color:red"></span></button></div>')
 
+}
+function gender(div) {
+    var option='<option value="Male">Male</option><option value="Femme">Femme</option>';
+     select(div,option);
 }
 function  newValue(div) {
     $(div).attr('readonly', true);
@@ -90,7 +91,7 @@ function updatepassword(div) {
 
 }
 function  sendRequtteUpdate(data) {
-    alert(url);
+
     $.ajax({
         url: url,
         type: "POST",

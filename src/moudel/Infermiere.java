@@ -11,11 +11,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import java.net.PortUnreachableException;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
@@ -24,8 +22,8 @@ import java.util.concurrent.Future;
 public class Infermiere extends Utilisateur {
     private Service service;
 
-    public Infermiere(long id, String nom, String prenom, String passWord, String email, String numeroTel, Date dateNaissance, String type, Service service) {
-        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type);
+    public Infermiere(long id, String nom, String prenom, String passWord, String email,String gender, String numeroTel, Date dateNaissance, String type, Service service) {
+        super(id, nom, prenom, passWord, email, numeroTel, dateNaissance, type,gender);
         this.service = service;
     }
 
@@ -69,50 +67,9 @@ public class Infermiere extends Utilisateur {
     }
     @Async
     public ArrayList<Rendez_vous> listRenderVous(String date){
-        String SQl="select * from rendez_vous r ,medecin m where r.id_medecin=m.id_medecin and r.date="+date+" and m.id_service="+this.getService().getId();
-        return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
-                    ArrayList<Rendez_vous> rendez_vous=new ArrayList<>();
-                    while (rs.next()) {
-                        Rendez_vous rendez_vous1=new Rendez_vous();
-                        rendez_vous1= (new DataExractor()).Rendez_vousExrator(rs);
-                        try {
-                            rendez_vous1.setMedecin(loadMedcine(rs.getInt("id_medecin")).get());
-                            rendez_vous1.setPatient(loadPatient(rs.getInt("id_patient")).get());
-                        } catch (InterruptedException e) {
-
-
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
-                        }
-                        rendez_vous.add(rendez_vous1);
-                    }
-                    return rendez_vous;
-                }));
+        return (new Rendez_vous()).listRenderVousInfernere(date,this.getService().getId());
     }
-    @Async
-    public Future<Medecin>loadMedcine(long id_Medecin){
-        String SQl="select * from utilisateur u ,medecin m where u.id_utilisateur=m.id_medecin and type='Medecin' and m.id_medecin="+id_Medecin;
-        return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
 
-            Medecin medecin=new Medecin();
-            if (rs.next()) {
-                medecin= (Medecin) (new DataExractor()).utilisateurExratorIdNom(rs, true);
-            }
-            return new AsyncResult<>(medecin);
-        }));
-    }
-    @Async
-    public Future<Patient>loadPatient(long id_Medecin){
-        String SQl="select * from utilisateur u ,Patient m where u.id_utilisateur=m.id and m.id="+id_Medecin;
-        return ((new ConnectionBD()).getJdbcTemplate().query(SQl, rs -> {
-
-            Patient patient=new Patient();
-            if (rs.next()) {
-                patient= (Patient) (new DataExractor()).pationExratorNomId(rs);
-            }
-            return new AsyncResult<>(patient);
-        }));
-    }
     @Async
     public ArrayList<Medecin> MedecinService(){
         String SQl="select * from medecin m where  m.id_service="+this.getService().getId();
@@ -121,7 +78,7 @@ public class Infermiere extends Utilisateur {
             while (rs.next()) {
 
                 try {
-                 medecinse.add(loadMedcine(rs.getInt("id_medecin")).get());
+                 medecinse.add((new Medecin()).loadMedcine(rs.getInt("id_medecin")).get());
                 } catch (InterruptedException e) {
 
 
@@ -158,14 +115,16 @@ public class Infermiere extends Utilisateur {
 
     @Async
     public  void  deletRendezVous(long id){
-        String sql="delete from rendez_vous where id_rendez_vous="+id;
-        (new ConnectionBD()).getJdbcTemplate().update(sql);
+        (new Rendez_vous()).deletRendezVous(id);
     }
 
     public ArrayList<String>tempLibre(long id_medecin,String date,long id_Patient){
       return (new Rendez_vous()).tempLibre(id_medecin, date, id_Patient);
 }
-
+ @Async
+    public void updateRendezVous(long id,String date,String temp){
+     (new Rendez_vous()).updateREndezVous(id,date ,temp );
+ }
 
 }
 

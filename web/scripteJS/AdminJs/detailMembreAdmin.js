@@ -24,13 +24,14 @@ function detail(data,div) {
                 idMedecin=data.id;
                 type=data.type;
                 if (data.active){
+                    console.log(data.active);
                      active="active";
                      button="block compte";
                 }else{
                     active="block";
                     button="activer compte";
                 }
-                var add='<div class="divcontenu shadow">' +
+                var add=  '<p class="h4" id="Membrepages"><span class="fas fa-arrow-left mr-3"></span>Membre pages</p><br/>' +'<div class="divcontenu shadow">' +
                     '            <p class="h4">membre Information</p><br />' +
                     '            <div class="container divcontenu border ">' +
                     '                <div class="row">' +
@@ -118,13 +119,14 @@ function detail(data,div) {
                     '                        <div class="row">' +
                     '                            <label for="staticEmail" class="col-sm-3 col-form-label">Type</label>' +
                     '                            <div class="col">' +
-                    '                                <select type="gender" name="type" disabled="disabled" readonly class="custom-select" id="type"' +
+                    '                                <select  name="type" disabled="disabled" readonly class="custom-select" id="typepersonne"' +
                     '                                    ><option selected>'+data.type+'</option></select>' +
                     '                            </div>' ;
                 if (data.type!="Medecin")
                     add=add+ '           <div class="col-sm-2">' +
-                    '                                <button class="btn " name="edit" onclick="gender(\'#type\')"><span class="fas fa-pen"></span></button>' +
+                    '                                <button class="btn " name="edit" onclick="Selecttype(\'#typepersonne\')"><span class="fas fa-pen"></span></button>' +
                     '                                 </div></div>';
+                add=add+ ' </div>';
                                if(data.type==="Medecin")
                                    add=add+'     <div class="row"<label for="staticEmail" class="col-sm-3 col-form-label">specialite</label>' +
                                        '  <div class="col"> <input type="text" readonly  name="specialite" class="form-control-plaintext" id="specialite"' +
@@ -146,14 +148,19 @@ function detail(data,div) {
                     '            </div>' +
                     '        </div>';
 
+
                 $(id).empty();
                 $(id).append(add);
+                $("#Membrepages").click(function () {
+                    $("#seconde").empty();
+                    $("#first").show();
+                });
                 ajouteModel(id) ;
                 $("#sortir").click(function () {
                     $("#Title").text("suppreme Membre");
                     $("#modelbody").empty();
                     $("#modelbody").append('<form action="/AdminChangeStatusMembre"><input type="hidden" name="id" value="'+idMedecin+'"/>' +
-                        '<input type="hidden" name="typr" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir'+button+'cette membre?</p>' +
+                        '<input type="hidden" name="type" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir '+button+'cette membre?</p>' +
                         '</form>');
                     $("#modelsubmitbtn").text(button);
 
@@ -161,8 +168,8 @@ function detail(data,div) {
                 $("#suppreme").click(function () {
                     $("#Title").text("suppreme Membre");
                     $("#modelbody").empty();
-                    $("#modelbody").append('<form action="/AdminSuppremerMembre"><input type="hidden" name="id" value="'+idMedecin+'"/>' +
-                        '<input type="hidden" name="typr" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir supprimer cette membre?</p>' +
+                    $("#modelbody").append('<form action="/AdminSuppremerMembre" method="post"><input type="hidden" name="id" value="'+idMedecin+'"/>' +
+                        '<input type="hidden" name="type" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir supprimer cette membre?</p>' +
                         '</form>');
 
                 });
@@ -194,6 +201,8 @@ function getData(div) {
     }
     return data;
 }
-function otherSelect(){
-    return "<option value=\"ChefService\">Chef Service</option> <option value=\"Infermiere\">Infermiere</option>";
+function Selecttype(div){
+    console.log("ddd")
+    var  option="<option value=\"ChefService\">Chef Service</option> <option value=\"Infermiere\">Infermiere</option>";
+    select(div,option)
 }

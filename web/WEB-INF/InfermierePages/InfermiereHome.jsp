@@ -4,7 +4,10 @@
     <script src="scripteJS/MedecinJs/MedecinHome.js"></script>
     <script src="scripteJS/InfiermiereJs/detailPatientInInfermiere.js"></script>
     <script src="scripteJS/Rechercher.js"></script>
-
+    <script src="scripteJS/stomp.js"></script>
+    <script src="scripteJS/sockjs.min.js"></script>
+    <script src="scripteJS/WebSocket.js"></script>
+    <script src="scripteJS/InfiermiereJs/traiterMessqgeInfermiere.js"></script>
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
         Espace infirmiere
@@ -38,9 +41,9 @@
                 <a href="/RedezVousInfermierePage" class="text-dark font-italic card-link"><span
                         class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
             </li>
-            <li class="nav-item list-group-item list-group-item-action">
+            <li class="nav-item list-group-item list-group-item-action" id="sa">
                 <a href="#" class="text-dark font-italic card-link"><span
-                        class="fas fa-exclamation-triangle mr-3"></span>Signal alarme</a>
+                        class="fas fa-exclamation-triangle mr-3" ></span>Signal alarme</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
@@ -86,7 +89,7 @@
                                         <div class="col">
                                             <label for="id" class="col-form-label float-left ">Id:</label></div>
                                         <div class="col">
-                                            <input type="text" name="id" id="id" class="form-control mb-2 mr-sm-2"
+                                            <input type="number" name="id" id="id" class="form-control mb-2 mr-sm-2"
                                                    required></div>
 
                                     </div>

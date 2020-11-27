@@ -1,5 +1,7 @@
 package moudel;
 
+import BaseDeDonneConfig.ConnectionBD;
+import BaseDeDonneConfig.DataExractor;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.sql.Array;
@@ -94,5 +96,15 @@ public class Etat {
 
     public Etat() {
         this.raports=new ArrayList<>();
+    }
+    public Etat loadEtat(Long id){
+        String sql ="select *from etat where id_etat="+id;
+        return (new ConnectionBD()).getJdbcTemplate().query(sql,rs->{
+            Etat etat=new Etat();
+            if (rs.next())
+                etat=(new DataExractor()).EtatExractor(rs);
+            return etat;
+
+        } );
     }
 }

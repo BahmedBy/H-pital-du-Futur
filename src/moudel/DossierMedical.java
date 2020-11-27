@@ -1,5 +1,7 @@
 package moudel;
 
+import BaseDeDonneConfig.ConnectionBD;
+
 import java.util.ArrayList;
 
 public class DossierMedical {
@@ -54,4 +56,8 @@ public class DossierMedical {
         etats= new ArrayList<>();
     }
 
+    public void update(String filed ,String value ,Long id){
+        String Sql="update dossiermedical set "+filed+"='"+value+"' where Id_patient="+id;
+        (new ConnectionBD()).getJdbcTemplate().update(Sql);
+    }
 }

@@ -10,6 +10,7 @@ $(document).ready(function () {
                 type: type
             };
         $("#first").hide();
+
         detail(data,"seconde");
     });
 

@@ -125,6 +125,7 @@
 </div>
 <script>
     var idService=${sessionScope.get("user").getService().getId()};
+    var url="/ChefService/updatePatient";
 </script>
 </body>
 </html>

@@ -147,7 +147,7 @@ public class Admin extends Utilisateur {
     @Async
     public void AjouteChembres(String[] numero, String[] service) {
         (new ConnectionBD()).getJdbcTemplate().batchUpdate(
-                "insert into chembre (numero,id_service) values(?,?)",
+                "insert into chembre (numero,id_service) select ?,? from  dual  where not exists (select * from chembre where numero = ? )",
                 new BatchPreparedStatementSetter() {
                     public void setValues(PreparedStatement ps, int i) throws SQLException {
                         ps.setString(1, numero[i]);
@@ -155,6 +155,7 @@ public class Admin extends Utilisateur {
                             ps.setString(2, null);
                         else
                             ps.setInt(2, Integer.parseInt(service[i]));
+                        ps.setString(3, numero[i]);
                     }
 
                     public int getBatchSize() {
@@ -167,7 +168,7 @@ public class Admin extends Utilisateur {
 
     public long AjouteService(String nomService){
         String sql = "insert INTO service (nom) select ?" +
-                " from  dual  where not exists (select * from service where nom = ?)";
+                " from  dual  where not exists (select * from service where nom = ? and isdelet=false )";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         (new ConnectionBD()).getJdbcTemplate().update(connection -> {
             PreparedStatement ps = connection
@@ -193,6 +194,14 @@ public class Admin extends Utilisateur {
         (new ConnectionBD()).getJdbcTemplate().update(sql);
          sql=String.format("update chefservice set id_service=%d where id_chefService=%s",Service,chefService);
         (new ConnectionBD()).getJdbcTemplate().update(sql);
+    }
+    @Async
+    public void suppremeChembre( String chembre){
+
+        (new ConnectionBD()).getJdbcTemplate().update(
+                "delete from chembre  where numero=?",preparedStatement ->{
+                      preparedStatement.setString(1,chembre );
+                });
     }
     @Async
     public void AfficteChembre(Long service,String[] chembres){
@@ -222,14 +231,11 @@ public class Admin extends Utilisateur {
         });
     }
     @Async
-    public void changeStaticCompteMembre(long id,String type){
-        if(type.equals("Medecin"))
-        (new Rendez_vous()).supprimerRendezVousMedecin(id);
-        String Sql="delete from utilsateur where id_utilsateur"+id;
-        (new ConnectionBD()).getJdbcTemplate().update(Sql);
+    public void suppremeMembre(long id,String type){
+        deleteUtilisateur(id,type);
     }
     @Async
-    public void suppremeMembre(long id,String type){
+    public void changeStaticCompteMembre(long id,String type){
         if(type.equals("Medecin"))
           (new Rendez_vous()).supprimerRendezVousMedecin(id);
         String Sql="update utilisateur set active=NOT (select active from(select * from utilisateur) as u where u.id_utilisateur=?) where id_utilisateur=?";

@@ -2,9 +2,14 @@
 <html>
 <head>
 
-<script src="scripteJS/MedecinJs/MedecinHome.js"></script>
-<script src="scripteJS/MedecinJs/detailPatient.js"></script>
-<script src="scripteJS/Rechercher.js"></script>
+    <script src="scripteJS/MedecinJs/MedecinHome.js"></script>
+    <script src="scripteJS/MedecinJs/detailPatient.js"></script>
+    <script src="scripteJS/Rechercher.js"></script>
+    <script src="scripteJS/sockjs.min.js"></script>
+    <script src="scripteJS/stomp.js"></script>
+    <script src="scripteJS/WebSocket.js"></script>
+    <script src="scripteJS/MedecinJs/traiterMessageMedecin.js"></script>
+
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
     <title>
         Espace Médeicn
@@ -35,14 +40,14 @@
                 <a href="#" class="text-dark card-link"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
+                <a href="<c:url value="/RedezVousMedecinPage"></c:url> " class="text-dark font-italic card-link"><span class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
+            </li>
+            <li class="nav-item list-group-item list-group-item-action " id="sa">
+                <a href="<c:url value="/singnalAlarme"></c:url> " class="text-dark font-italic card-link"><span
+                        class="fas fa-exclamation-triangle mr-3" ></span>Signal alarme</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span
-                        class="fas fa-exclamation-triangle mr-3"></span>Signal alarme</a>
-            </li>
-            <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
+                <a href="<c:url value="/CompteInformation"></c:url> " class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
@@ -56,11 +61,11 @@
 </div>
 <div class="page-content" id="content">
 
-            <c:choose>
-            <c:when test="${sessionScope.get(\"user\").getService()==null}">
-                <p>no service exsite</p>
-            </c:when>
-            <c:otherwise>
+    <c:choose>
+        <c:when test="${sessionScope.get(\"user\").getService()==null}">
+            <p>no service exsite</p>
+        </c:when>
+        <c:otherwise>
             <div id="first">
                 <p class="h3 ">Home Page</p><br/>
                 <div class="shadow tablewidth my-auto bg-white ">
@@ -102,14 +107,15 @@
                 <div class="shadow tablewidth my-auto bg-white divcontenu " id="resultBlock">
                     <div class="row " id="result">
                     </div>
-                </div></div>
-                <div id="seconde"></div>
-                </c:otherwise>
-                </c:choose>
+                </div>
             </div>
+            <div id="seconde"></div>
+        </c:otherwise>
+    </c:choose>
+</div>
 
 <script>
-    var idService=${sessionScope.get("user").getService().getId()};
+    var idService =${sessionScope.get("user").getService().getId()};
 </script>
 </body>
 </html>

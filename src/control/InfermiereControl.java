@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class InfermiereControl {
@@ -38,7 +41,26 @@ public class InfermiereControl {
     model.addAttribute("date", formatter.format(date  ));
     return "/InfermierePages/RendezvousInfermiere";
 }
+    @RequestMapping("/InfermieresingnalAlarme")
 
+    public String singnalAlarme(Model model, HttpSession session){
+        System.out.println("MedecinsingnalAlarme");
+        if (!testSession(session))
+            return null;
+        Infermiere infermiere = (Infermiere) session.getAttribute("user");
+        if(infermiere.getService()!=null){
+            Map map= (Map) session.getAttribute("Patirnt");
+
+            System.out.println(  session.toString());
+            long idPatient= (long) map.get(infermiere.getService().getId());
+            model.addAttribute("idPatient", idPatient);
+
+
+            //    model.addAttribute("idPatient",map.get(medecin.getService().getId()) );
+            return "InfermierePages/infermiereSingnalAlarme";
+        }
+        return null;
+    }
 @RequestMapping("/ReserverRendezVous")
     public
     String reserverRendVous(HttpSession session,@RequestParam("date")String date,@RequestParam("idMedcin")long id_Medecin,
@@ -46,7 +68,7 @@ public class InfermiereControl {
         if (!testSession(session))
             return "login";
         Infermiere infermiere = (Infermiere) session.getAttribute("user");
-        if (infermiere.getService()==null)
+        if (infermiere.getService()!=null)
             infermiere.ajouteRendezVous(date, hour, id_Medecin, id_Patient);
         return "InfermierePages/InfermiereHome";
 
@@ -87,6 +109,27 @@ public class InfermiereControl {
             return null;
         else
             return infermiere.listRenderVous(date);
+    }
+    @RequestMapping("/deletRendezVous")
+    public @ResponseBody
+     void deletRendez(HttpSession session, @RequestParam("idRendezVous")Long idRendezVous){
+        System.out.println(idRendezVous);
+        if (testSession(session)) {
+            Infermiere infermiere = (Infermiere) session.getAttribute("user");
+            if (infermiere.getService()!=null) {
+                infermiere.deletRendezVous(idRendezVous);
+            }
+        }
+    }
+    @RequestMapping(value = "/UpdateRendezVous",method = POST)
+    public @ResponseBody
+    void UpdateRendezvous(HttpSession session, @RequestParam("date")String date, @RequestParam("temp")String temp, @RequestParam("id")Long id){
+        if (testSession(session))
+        {
+            Infermiere infermiere = (Infermiere) session.getAttribute("user");
+            if (infermiere.getService()!=null)
+                infermiere.updateRendezVous(id,date ,temp );
+        }
     }
     private boolean testSession(HttpSession session) {
         Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");

@@ -30,14 +30,10 @@ function detail(data,div) {
                     '                    <div class="col-sm-3">' +
                     '                        <div class="row justify-content-center">' +
                     '                        <img src="'+data.photo+'" alt="..." width="140"' +
-                    '                            class="mr-3 rounded-circle img-thumbnail shadow-sm "></div><br/>' +
+                    '                            class="mr-3 rounded-circle img-thumbnail shadow-sm "></div>' +
 
                     '                    </div>' +
                     '                    <div class="col">' +
-                    '                        <div class=" row">' +
-                    '                            <label for="staticEmail" class="col-sm-3 col-form-label">compte</label>' +
-
-                    '                        </div>' +'<div class="col">' +
                     '                        <div class=" row">' +
                     '                            <label for="staticEmail" class="col-sm-3 col-form-label">Id</label>' +
                     '                            <div class="col">' +
@@ -49,8 +45,8 @@ function detail(data,div) {
                     '                            <div class="col">' +
                     '                                <input type="text" readonly class="form-control-plaintext" id="Nom" name="name"' +
                     '                                    value="'+data.nom +'">' +
-                    '                            </div>' +
-                    '                            <div class="col-sm-2">' +
+                    '                            </div></div>' +
+
 
                     '                        <div class="row">' +
                     '                            <label for="staticEmail" class="col-sm-3 col-form-label">Prenom</label>' +
@@ -88,15 +84,12 @@ function detail(data,div) {
                     '                                <select type="gender" name="gender" disabled="disabled" readonly class="custom-select" id="Gender"' +
                     '                                    ><option selected>'+data.gender+'</option></select>' +
                     '                            </div>' +
-                +
-                    '                        </div>'; 
+                    '                        </div>';
                                if(data.type==="Medecin")
-                                   add=add+'     <div class="row"<label for="staticEmail" class="col-sm-3 col-form-label">specialite</label>' +
+                                   add=add+'     <div class="row"><label for="staticEmail" class="col-sm-3 col-form-label">specialite</label>' +
                                        '  <div class="col"> <input type="text" readonly  name="specialite" class="form-control-plaintext" id="specialite"' +
-                                       '   value="'+data.specialite+'"> </div>' +
-                                       '  <div class="col-sm-2">' +
-                                       ' <button class="btn " name="edit" onclick="d(\'#specialite\')"><span class="fas fa-pen"></span></button>' +
-                                       '    </div></div>';
+                                       '   value="'+data.speiciality+'"> </div>' +
+                                     '</div>';
                                add=add+  '</div>' +
                     '                </div>' +
                     '            </div>' +
@@ -118,8 +111,8 @@ function detail(data,div) {
                 $("#suppreme").click(function () {
                     $("#Title").text("suppreme Membre");
                     $("#modelbody").empty();
-                    $("#modelbody").append('<form action="/AdmisPatient"><input type="hidden" name="id" value="'+idMedecin+'"/>' +
-                        '<input type="hidden" name="typr" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir supprimer cette membre?</p>' +
+                    $("#modelbody").append('<form action="/ChefServiceSupprimerMembre"><input type="hidden" name="id" value="'+idMedecin+'"/>' +
+                        '<input type="hidden" name="type" value="'+type+'"/><p class="h5">Êtes-vous sûr de vouloir supprimer cette membre?</p>' +
                         '</form>');
 
                 });

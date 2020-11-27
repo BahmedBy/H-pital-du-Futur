@@ -113,7 +113,6 @@ $(document).ready(function () {
 
     $("#chercher").click(function () {
         var data;
-        console.log(';;');
         if ($("#selector").val() == "id") {
             var id=$("#id").val();
             if(typeof id!="undefined")
@@ -164,6 +163,7 @@ function getPersoneMedical(type) {
                 '<div class="circle text-center"></div></div> <p class="h5 text-center">Loading ...</p></div>')
         },
         success: function (data) {
+            console.log(data);
             $(id).empty();
             if (jQuery.isEmptyObject(data)) {
                 $(id).append('<div class="divanimation"><p class="h4">List' + type + '</p><div class="mainAnimation">' +
@@ -171,7 +171,7 @@ function getPersoneMedical(type) {
                     '</div>')
             }
             else {
-                var add = '<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
+                var add = '<p class="h4">List '+type+'</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +
                     '<tr >' +
                     '<th style="width: 10%">#</th>' +
                     '<th style="width: 15%">Id</th>' +
@@ -200,7 +200,6 @@ function getPersoneMedical(type) {
                 add = add + '</table>';
                 $(id).append(add);
                 $('tr').click(function () {
-                    alert($(this).data('type'));
                     var id = $(this).data('value');
                     var type = $(this).data('type');
 
@@ -257,7 +256,7 @@ function grtMembre(resulat, data) {
 
                     var co = 1;
                     $.each(data, function (k, v) {
-                            add = add + ' <tr data-value="' + v.id + '" >' +
+                            add = add + ' <tr data-value="' + v.id + '" data-type="' + v.type + '" >' +
                                 '<td class="align-middle ">' + co + '</td>' +
                                 '<td class="align-middle ">' + v.id + '</td>' +
                                 '<td class="align-middle "><img src="' + v.photo + '" width="50" height="50"  class="rounded-circle  shadow-sm"></td>' +
@@ -276,7 +275,16 @@ function grtMembre(resulat, data) {
                 $(id).append(add);
                 $('tr').click(function () {
 
-                    affiche($(this).data('value'));
+                    var id = $(this).data('value');
+                    var type = $(this).data('type');
+
+                    if (typeof id != "undefined"){
+                        var data = {
+                            id: id,
+                            type: type
+                        };
+                        $("#first").hide();
+                        detail(data, "seconde");}
                 })
             },
             error: function (e) {

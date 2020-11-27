@@ -29,7 +29,7 @@ function detailPartionChefService(idPation, divResulte) {
                     '                <div class=" row">\n' +
                     '                  <label for="staticEmail" class="col-sm-3 col-form-label">Id</label>\n' +
                     '                  <div class="col">\n' +
-                    '                    <input type="text" readonly class="form-control-plaintext" id="Id" value="' + data.id + '">\n' +
+                    '                    <input type="text" readonly class="form-control-plaintext" id="idPatient" value="' + data.id + '">\n' +
                     '                  </div>\n' +
                     '                </div>\n' +
                     '                <div class="row">\n' +
@@ -179,12 +179,15 @@ function detailPartionChefService(idPation, divResulte) {
                     '              </div>' +
                     '              <div class="modal-footer">\n' +
                     '                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>\n' +
-                    '                <button type="submit" class="btn btn-primary">Save changes</button>\n' +
+                    '                <button type="submit" class="btn btn-primary" id="modelsubmitbtn">Save changes</button>\n' +
                     '              </div>\n' +
                     '            </div>\n' +
                     '          </div>\n' +
                     '        </div>');
-
+                $('#modelsubmitbtn').click(function () {
+                    console.log("Dddd");
+                    $('#modelbody').find('form').submit();
+                })
                 $("#sortir").click(function () {
 
                     $("#Title").text("géré un sortir");
@@ -192,13 +195,8 @@ function detailPartionChefService(idPation, divResulte) {
                     $("#modelbody").append('<form action="/SortirPatient"><input type="hidden" name="idPatient" value="' + idPation + '"  >' +
                         '<input type="hidden" name="idDossier" value="' + idDossier + '"  ><div class="form-group row"><label for="staticEmail" class="col-sm-2 col-form-label">Date</label><div class="col"> <input type="text" readonly class="form-control-plaintext" id="date"  name="date"> </div></div><div class="form-group row"><label for="staticEmail" class="col-sm-2 col-form-label">Hour</label><div class="col"><input type="text" readonly class="form-control-plaintext" id="hour" name="hour"> </div></div>' +
                         ' <div class="form-group row"><label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>' +
-                        ' <div class="col"><select  class="form-control" name="type" id="type" required><option value="remis">remis de la maladie</option><option value="Décédés">Décédés</option><option value="autre">Autres</option></select> </div></div> <div class="form-group"><label for="exampleFormControlTextarea1">Remarque</label><textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></div></form>')
-                    var d = new Date();
-                    console.log(d.getDate());
-                    var date = d.getDate() + '\\' + d.getMonth() + '\\' + d.getFullYear();
-                    var hour = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-                    $('#date').val(date);
-                    $('#hour').val(hour);
+                        ' <div class="col"><select  class="form-control" name="type" id="type" required><option value="remis">remis de la maladie</option><option value="Décédés">Décédés</option><option value="autre">Autres</option></select> </div></div> <div class="form-group"><label for="exampleFormControlTextarea1">Remarque</label><textarea class="form-control" name="remarque" id="exampleFormControlTextarea1" rows="3"></textarea></div></form>')
+         dateinit()
                 });
                 $("#entre").click(function () {
                     $("#Title").text("Admis Patient");
@@ -222,6 +220,7 @@ function detailPartionChefService(idPation, divResulte) {
                         '  <input type="radio" name="suprime" value="1" id="customRadioDisabled" class="custom-control-input" >\n' +
                         '  <label class="custom-control-label" for="customRadioDisabled">supprime tout l\'information</label>\n' +
                         '</div><div id="fromSrotir"></div></form>');
+
                     $('input[type=radio][name=suprime]').change(function () {
                         if (this.value == '0') {
                             $("#suprime").empty();
@@ -230,12 +229,7 @@ function detailPartionChefService(idPation, divResulte) {
                             if (hospitalise) {
                                 $("#suprime").append('<p class="h5">il doit gérir un sortir avant la suppristion </p> <div class="form-group row"><label for="staticEmail" class="col-sm-2 col-form-label">Date</label><div class="col"> <input type="text" readonly class="form-control-plaintext" id="date"  name="date"> </div></div><div class="form-group row"><label for="staticEmail" class="col-sm-2 col-form-label">Hour</label><div class="col"><input type="text" readonly class="form-control-plaintext" id="hour" name="hour"> </div></div> <div class="form-group row"><label for="inputPassword3" class="col-sm-2 col-form-label">Type</label>');
                                 $("#gerirSortir").val('1');
-                                var d = new Date();
-                                console.log(d.getDate());
-                                var date = d.getDate() + '\\' + d.getMonth() + '\\' + d.getFullYear();
-                                var hour = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-                                $('#date').val(date);
-                                $('#hour').val(hour);
+                 dateinit()
                             }
                         }
                     });
@@ -290,5 +284,35 @@ function getChembreLibre(div) {
         })
     }
 
+
+}
+function getData(div) {
+    var data = {
+        id:$('#idPatient').val(),
+        filed: $(div).attr('name'),
+        value: $(div).val()
+    }
+    return data;
+}
+function dateinit() {
+    var d = new Date();
+    var day = ("0" + d.getDate()).slice(-2);
+    var month = ("0" + (d.getMonth() + 1)).slice(-2);
+
+    var today = d.getFullYear()+"-"+(month)+"-"+(day) ;
+    var h = new Date();
+    var houre=h.getHours();
+    var minut=h.getMinutes();
+    var Seconds=h.getSeconds();
+    if (houre<10)
+        houre="0"+houre;
+    if (minut<10)
+        minut="0"+minut;
+    if (Seconds<10)
+        Seconds="0"+Seconds;
+    var hour = houre + ":" +minut + ":" + Seconds;
+    console.log(hour);
+    $('#date').val(today);
+    $('#hour').val(hour);
 
 }

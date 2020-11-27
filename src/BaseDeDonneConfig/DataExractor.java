@@ -5,6 +5,9 @@ import moudel.*;
 import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class DataExractor extends DataPath {
 
@@ -85,6 +88,7 @@ public class DataExractor extends DataPath {
         utilisateur.setDateNaissance(rs.getDate("dateNaissance"));
         utilisateur.setNumeroTel(rs.getString("numeroTel"));
         utilisateur.setGender(rs.getString("gender"));
+        utilisateur.setActive(rs.getBoolean("active"));
         String photo = rs.getString("photo");
         if ((type1.equals("Medecin"))&&(spesialInformation))
             ((Medecin)utilisateur).setSpeiciality(rs.getString("speiciality"));
@@ -92,7 +96,7 @@ public class DataExractor extends DataPath {
             ((Patient)utilisateur).setHospitalise(rs.getBoolean("hospitalise"));
             ((Patient)utilisateur).setMort(rs.getBoolean("mort"));
     }
-       if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId()  + photo).exists())))
+       if ((photo == null) ||(photo.equals("."))|| (!(new File(pathuploadFile + utilisateur.getId()  + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else
             utilisateur.setPhoto(path + utilisateur.getId() + utilisateur.getNom() + photo);
@@ -144,15 +148,17 @@ public class DataExractor extends DataPath {
                 utilisateur = new Patient();
                 break;
         }
+        System.out.println( "nullp"+ utilisateur != null);
+
         utilisateur.setId(rs.getInt("id_utilisateur"));
         utilisateur.setNom(rs.getString("nom"));
         utilisateur.setPrenom(rs.getString("prenom"));
         utilisateur.setGender(rs.getString("gender"));
         utilisateur.setType(type1);
         String photo = rs.getString("photo");
-        if ((type1.equals("Medecin"))&&(spesialInformation))
+        if (type1.equals("Medecin"))
             ((Medecin)utilisateur).setSpeiciality(rs.getString("speiciality"));
-        if ((photo == null) || (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
+        if ((photo == null) ||(photo.equals("."))|| (!(new File(pathuploadFile + utilisateur.getId() + utilisateur.getNom() + photo).exists())))
             utilisateur.setPhoto(path + utilisateur.getGender() + ".png");
         else
             utilisateur.setPhoto(path + utilisateur.getId()  + photo);
@@ -164,8 +170,18 @@ public class DataExractor extends DataPath {
         Rendez_vous rendez_vous=new Rendez_vous();
         rendez_vous.setId(rs.getLong("id_rendez_vous"));
         rendez_vous.setDate(rs.getDate("date"));
-        rendez_vous.setTime(rs.getTime("houre"));
+        rendez_vous.setTime(rs.getDate("houre"));
         return rendez_vous;
 
+    }
+    public Etat EtatExractor(ResultSet rs)throws SQLException{
+        Etat etat=new Etat();
+        etat.setId(rs.getLong("id_etat"));
+        etat.setDate(rs.getDate("date"));
+        etat.setTime(rs.getTime("temp"));
+        etat.setPulsation(rs.getFloat("pulsation"));
+        etat.setTempeture(rs.getFloat("temperaterur"));
+        etat.setTonsion(rs.getFloat("tension"));
+        return etat;
     }
 }

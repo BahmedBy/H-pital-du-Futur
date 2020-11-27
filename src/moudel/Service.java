@@ -98,7 +98,7 @@ public class Service {
     }
     @Async
     public void updateService(String filedUpdate ,String Valeue ,Long idService){
-        String sql = String.format("update service set set %s=%s where id_service=%d",filedUpdate,Valeue, idService);
+        String sql = String.format("update service set  %s='%s' where id_service=%d",filedUpdate,Valeue, idService);
         (new ConnectionBD()).getJdbcTemplate().update(sql);
     }
     public ArrayList<Service> listhopitelService(){

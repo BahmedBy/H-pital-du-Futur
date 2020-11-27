@@ -13,12 +13,15 @@
           <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
           <element id="library" level="project" name="jstl-impl" />
           <element id="library" level="project" name="org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
-          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-core:2.9.4" />
-          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-databind:2.9.4" />
-          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-annotations:2.9.4" />
+          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-core:2.11.2" />
+          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-databind:2.11.2" />
+          <element id="library" level="project" name="com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
           <element id="library" level="project" name="commons-io:commons-io:2.6" />
           <element id="library" level="project" name="commons-fileupload:commons-fileupload:1.4" />
           <element id="library" level="project" name="org.springframework:spring-websocket:5.2.3.RELEASE" />
+          <element id="library" level="project" name="org.webjars:sockjs-client:1.1.2" />
+          <element id="library" level="project" name="org.webjars:stomp-websocket:2.3.3" />
+          <element id="library" level="project" name="org.json:json:20200518" />
         </element>
       </element>
     </root>

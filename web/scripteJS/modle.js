@@ -13,12 +13,13 @@ function ajouteModel(div) {
         '              </div>' +
         '              <div class="modal-footer">' +
         '                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
-        '                <button type="submit" class="btn btn-primary" id="modelsubmitbtn">supprimer</button>' +
+        '                <button type="submit" class="btn btn-primary" id="modelsubmitbtn">save</button>' +
         '              </div>' +
         '            </div>' +
         '          </div>' +
         '        </div>');
     $('#modelsubmitbtn').click(function () {
+        console.log("Dddd");
         $('#modelbody').find('form').submit();
     })
 

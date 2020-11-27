@@ -185,7 +185,7 @@ function detailPartionChefService(idPation, divResulte) {
                     }
                     else {
                         $(':input[type="submit"]').prop('disabled', false);
-                        add='<form action="/ReserverRendezVous" class="form-group" method="post"> ' +
+                        add='<form action="/ReserverRendezVous" class="form-group tablewidth" method="post"> ' +
                             '<input type="hidden" name="idPatient" value="' + idPatient + '"  ><div class="row border-bottom border-top font-weight-bold divrow">' +
                             '    <div class="col-1">#</div> <div class="col-sm">Id</div>' +
                             '<div class="col-sm">Photo</div><div class="col-sm">Nom</div><div class="col-sm">Prenom </div><div class="col-sm">speiciality </div></div>'
@@ -193,7 +193,7 @@ function detailPartionChefService(idPation, divResulte) {
                         console.log(data);
                         $.each(data, function (k, v) {
                                 add= add+'<div for="'+v.id+'" class="row divrow border-bottom"><div class="col-1 my-auto">' +
-                                    '<input type="radio" name="medecin" id="'+v.id+'" value="'+v.id+'" required/>' +
+                                    '<input type="radio" name="idMedcin" id="'+v.id+'" value="'+v.id+'" required/>' +
                                     '    </div>'+
                                     '        <div class="col-sm my-auto">' +v.id+
                                     '</div>' +
@@ -211,11 +211,11 @@ function detailPartionChefService(idPation, divResulte) {
 
                             }
                         );
-                        add=add+'</div><br/>' +
+                        add=add+'</div><br/> ' +
                             '<div class="form-group row"><label for="staticEmail" class="col-sm-2 col-form-label">Date</label><div class="col"> <input type="date"  class="form-control" id="date"  name="date" required> </div>' +
                             '</div>' +
                             ' <div class="form-group row"><label for="inputPassword3" class="col-sm-2 col-form-label">Temp</label> ' +
-                            '<div class="col"><select  class="form-control" name="timp" id="time" required></select>' +
+                            '<div class="col"><select  class="form-control" name="hour" id="time" required></select>' +
                             '   <div class="form-group formstyle">' +
                             '<input class="btn btn-success float-right" type="submit" value="réserver" name="submit">' +
                             '</div>' +
@@ -238,14 +238,14 @@ function detailPartionChefService(idPation, divResulte) {
                     var minDate= year + '-' + month + '-' + day;
 
                     $('#date').attr('min', minDate);
-                    $('input[type=radio][name=medecin]').change(function() {
-                        var medcin=$('input[type=radio][name=medecin]:checked').val();
+                    $('input[type=radio][name=idMedcin]').change(function() {
+                        var medcin=$('input[type=radio][name=idMedcin]:checked').val();
                         var date=$('#date').val();
                         if ((date!='')&&(medcin!=''))
                         templibre(medcin,date)
                     });
                     $('#date').change(function() {
-                        var medcin=$('input[type=radio][name=medecin]:checked').val();
+                        var medcin=$('input[type=radio][name=idMedcin]:checked').val();
                         var date=$('#date').val();
                         console.log(medcin);
                         if (!(typeof date==="undefined")&&!(typeof medcin==="undefined"))
@@ -275,14 +275,12 @@ function detailPartionChefService(idPation, divResulte) {
                 },
                 success: function (data) {
                     if (jQuery.isEmptyObject(data)){
-                        var o = new Option("no temp libre");
-                        o.attr("disabled",true);
+                var o='<option disabled>no emp libre</option>' ;
                         $("#time").append(o);
                     }
                     else
                     $.each(data, function (k, v) {
                         var o = new Option(v);
-                        var photo='url("' + v.photo + '")';
                         $("#time").append(o);
                     })
 

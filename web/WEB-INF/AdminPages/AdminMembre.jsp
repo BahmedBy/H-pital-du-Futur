@@ -67,7 +67,8 @@
         </div>
 
 
-        <div id="rechechem" class="shadow tablewidth my-auto bg-white divcontenu">
+        <div id="rechechem" class="shadow tablewidth my-auto bg-white ">
+            <div class="row divcontenu">
             <div>
                 <p class="h4"> Recheche personne medical</p>
             </div>
@@ -99,6 +100,7 @@
 
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         <div id="resultBlock" class="shadow tablewidth my-auto bg-white divcontenu"></div>

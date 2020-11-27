@@ -40,11 +40,11 @@
                 <a href="<c:url value="/AdminMembrePage"/>" class="text-dark font-italic card-link"><span
                         class="fas fa-user-md mr-3"></span>Membres</a>
             </li>
-            <li class="nav-item list-group-item list-group-item-action">
+            <li class="active nav-item list-group-item list-group-item-action">
                 <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
-            <li class="active nav-item list-group-item list-group-item-action">
+            <li class=" nav-item list-group-item list-group-item-action">
                 <a href="<c:url value="/logout"/>" class="text-dark font-italic card-link "><span
                         class="fas fa-sign-out-alt mr-3"
                 ></span>logout</a>

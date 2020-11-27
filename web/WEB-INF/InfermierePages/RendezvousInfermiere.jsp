@@ -5,7 +5,10 @@
 
     <meta charset="utf-8">
     <link rel="shortcut icon" href="icon/Logo.png" type="image/png">
-    <script src="scripteJS/InfiermiereJs/Rendez-vousPage.js"></script>
+    <script src="scripteJS/InfiermiereJs/Rendez-vousInfermierePage.js"></script>
+    <script src="scripteJS/stomp.js"></script>
+    <script src="scripteJS/WebSocket.js"></script>
+    <script src="scripteJS/InfiermiereJs/traiterMessqgeInfermiere.js"></script>
     <title>
         Espace infirmiere
     </title>
@@ -26,7 +29,7 @@
         <div class="text-center align-items-center"><img src="${sessionScope.user.getPhoto()}" alt="..." width="150"
                                                          class="mr-3 rounded-circle img-thumbnail shadow-sm"><br/>
             <div>
-                <h4 class="text-center">Dr.${sessionScope.user.getNom()} ${sessionScope.user.getPrenom()}/h4>
+                <h4 class="text-center">Dr.${sessionScope.user.getNom()} ${sessionScope.user.getPrenom()}</h4>
             </div>
         </div>
     </div>
@@ -40,11 +43,11 @@
                         class="far fa-calendar-alt mr-3"></span>Rendez-vous</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span
+                <a href="#" class="text-dark font-italic card-link" id="sa"><span
                         class="fas fa-exclamation-triangle mr-3"></span>Signal alarme</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
-                <a href="#" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
+                <a href="<c:url value="/CompteInformation"></c:url>" class="text-dark font-italic card-link"><span class="fas fa-cog mr-3"></span>Vorte
                     compte</a>
             </li>
             <li class="nav-item list-group-item list-group-item-action">
@@ -88,13 +91,13 @@
                 <div>
                     <p class="h4" >Rendez-vous en <span id="dateRendewVous">${date}</span></p>
                 </div>
-                <div class="divcontenu container  tablewidth my-auto bg-white ">
+                <div id="redezvous" class="divcontenu container  tablewidth my-auto bg-white ">
                     <c:choose>
                     <c:when test="${rendezVous.size()==0}">
-                        <p>no Rendez vous en ${date}</p>
+                        <p class="h5 text-center">no Rendez vous en ${date}</p>
                     </c:when>
                     <c:otherwise>
-                    <div id="ListRendzVous">
+
                         <div class="row  divcontenu ">
 
                             <div class="col-3 my-auto ">
@@ -144,23 +147,23 @@
                             </div>
 
                             <div class="col  my-auto ">
-                                <p class="h5"> ${rendez.date.day}/${rendez.date.month}/${rendez.date.year}</p>
+                                <p class="h5"> ${rendez.date}</p>
                             </div>
                             <div class="col  my-auto ">
-                                <p class="h5"> ${rendez.time.hours}:${rendez.time.minutes}</p>
+                                <p class="h5"> ${rendez.time}</p>
                             </div>
                             <div class="col  my-auto ">
                                 <button class="btn"><span style="color: rgb(104, 229, 238);"><i class="fas fa-pen"></i></span>
                                 </button>
                                 /
-                                <button class="btn"><span style="color: red;"><i class="far fa-trash-alt"></i></span>
+                                <button class="btn" onclick=><span style="color: red;"><i class="far fa-trash-alt"></i></span>
                                 </button>
                             </div>
                         </div>
                         <div class="w-100 border"></div>
                         </c:forEach>
 
-                    </div>
+
                     </c:otherwise>
                     </c:choose>
                 </div>

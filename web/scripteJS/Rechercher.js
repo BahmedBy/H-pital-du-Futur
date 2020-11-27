@@ -14,10 +14,11 @@ function getPatient(divResulte,data) {
             success: function (data) {
                 $(id).empty();
 
-                if (jQuery.isEmptyObject(data)) {
+                if (jQuery.isEmptyObject(data)||(data.toString()==="")) {
                     $(id).append('<div class="divanimation"><p class="h4"> Résultat</p><div class="mainAnimation">'+
                         '<p class="h5 text-center">Aucun résultat trouvé</p>'+
                         '</div>')
+
                 }
                 else {
                     var add='<p class="h4">List chef service</p><table class="table table-hover rounded my-5 shadow-sm table-borderedless" id="table" >' +

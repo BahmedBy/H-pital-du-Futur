@@ -93,9 +93,10 @@ html {
   transform: translateX(-50%);
 }
 .imagesIndex{
-  position: relative;
+  position: relative !important;
  width: 90%;
- height: 80%;
+  height: 20rem;
+  margin-bottom: 2.5rem;
  text-align: center;
  margin-left: 1rem;
  margin-top: 2.5rem;
@@ -111,7 +112,7 @@ html {
 margin-top: 3rem;
 }
 .rowIdex{
-  position: relative;
+  position: relative !important;
   left: 50%;
   transform: translateX(-50%);
   padding: 0;
@@ -177,4 +178,10 @@ margin-top: 3rem;
     translate(-30px)
     rotate(-360deg);
   }
+}
+.Controller{
+  position: relative;
+  left: 50%;
+width: 90%;
+  transform: translateX(-50%);
 }
